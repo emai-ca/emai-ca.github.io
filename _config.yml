@@ -16,11 +16,9 @@ baseurl: ""
 markdown: kramdown
 permalink: pretty
 
-plugins:
-  - jekyll-sitemap
+# No `plugins:` entry on purpose. Adding one (e.g. jekyll-sitemap) breaks
+# `jekyll serve` locally unless that gem is installed first.
 
 exclude:
   - README.md
-  - Gemfile
-  - Gemfile.lock
   - vendor

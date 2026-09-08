@@ -44,11 +44,18 @@ This is the one setting that breaks a deploy if it is wrong. In `_config.yml`:
 ## Local preview
 
 ```sh
-bundle install     # once
-bundle exec jekyll serve --livereload
+jekyll serve --livereload
 ```
 
 Then open `http://localhost:4000`.
+
+There is deliberately **no `Gemfile`** and no `plugins:` entry in `_config.yml`.
+Jekyll hands control to Bundler whenever a Gemfile is present, so adding one
+without running `bundle install` first makes `jekyll serve` fail before it
+renders anything. Likewise, listing a plugin that isn't installed locally
+aborts the build. Add either only together with the matching
+`gem install` / `bundle install`. GitHub Pages supplies its own build
+environment and needs neither.
 
 ## Content status
 
