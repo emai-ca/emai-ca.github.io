@@ -1,0 +1,19 @@
+---
+layout: default
+title: Call
+nav: call
+---
+
+<section class="page-hero content-wide reveal"><p class="eyebrow">Call for applications / 2026</p><h1>Three funded<br><em>PhD fellowships</em><span class="accent">.</span></h1><p class="page-lede">Join a research-creation team developing embodied, small-data machine learning systems for music composition and performance.</p></section>
+
+<section class="deadline-panel content-wide"><div><span>Application deadline</span><strong>October 16, 2026</strong><small>11:59 p.m. Eastern Time</small></div><div><span>Expected start</span><strong>September 2027</strong><small>Montréal, Canada</small></div><div><span>Funding</span><strong>$33,000 CAD</strong><small>per year / three years</small></div><a class="button button-dark" href="mailto:info@emai.ca">Ask a question <span aria-hidden="true">↗</span></a></section>
+
+<section class="content-wide call-section"><div class="section-label">The three positions</div><div class="position-list">
+  <article class="position-card"><div class="position-number">01</div><div><p class="card-kicker">Concordia University / Supervisor: Gabriel Vigliensoni</p><h2>Embodied mappings for generative audio</h2><p>Curate small, context-specific datasets; train and appropriate generative audio models; and craft embodied mappings between gesture, tactile controllers, multimodal input, and latent audio spaces.</p><div class="tag-row"><span>PLASM</span><span>INDI PhD</span><span>Generative audio</span></div></div></article>
+  <article class="position-card"><div class="position-number">02</div><div><p class="card-kicker">Université de Montréal / Supervisor: Dominic Thibault</p><h2>Embedded generative audio instruments</h2><p>Develop instruments that integrate neural audio models with custom interaction strategies on resource-constrained platforms, exploring latency, computational efficiency, VAEs, sensors, and expressive control.</p><div class="tag-row"><span>Formes·ondes</span><span>PhD or DMus</span><span>Digital lutherie</span></div></div></article>
+  <article class="position-card"><div class="position-number">03</div><div><p class="card-kicker">Université de Montréal / Supervisor: Erin Gee</p><h2>Situated interfaces for AI and music</h2><p>Develop experimental interfaces and adaptive musical systems involving physiological signals, movement, materials, environments, embedded systems, performance, or distributed computational agents.</p><div class="tag-row"><span>Formes·ondes</span><span>PhD or DMus</span><span>Embodied interaction</span></div></div></article>
+</div></section>
+
+<section class="requirements-band"><div class="content-wide requirements-grid"><div><span class="section-label">Candidate profile</span><h2>Bring a developed artistic practice and a curious technical mind.</h2></div><ul><li>Composition, improvisation, and/or electronic or electroacoustic performance</li><li>Research-creation and collaborative artistic practice</li><li>Interest in digital lutherie, instrument design, and embodied interaction</li><li>Experience with generative AI for audio or symbolic music</li><li>Proficiency in several of Python, C++, Max, SuperCollider, or JavaScript</li><li>English required; French required for Positions 2 and 3</li></ul></div></section>
+
+<section class="content-wide application-section"><div class="section-label">How to apply</div><div class="application-grid"><div><h2>One PDF.<br><em>Five parts.</em></h2><p>Submit a single PDF to <a href="mailto:info@emai.ca">info@emai.ca</a> with the subject line: <strong>PhD Application – EMAI – LAST NAME First Name</strong>.</p></div><ol><li>Motivation letter / maximum 2 pages</li><li>Preliminary research proposal / maximum 2 pages</li><li>CV / maximum 4 pages</li><li>Portfolio of 3–5 works with audiovisual documentation</li><li>List of three references</li></ol></div><div class="file-note">File name: <strong>PhD_EMAI_LastName_FirstName.pdf</strong></div></section>

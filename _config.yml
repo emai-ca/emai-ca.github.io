@@ -1,0 +1,26 @@
+title: "EMAI"
+description: "Embodying AI: Music Making Beyond the Prompt — a four-year SSHRC research-creation project on musical agency and machine learning."
+lang: en
+
+# --- Hosting -----------------------------------------------------------------
+# Leave both empty for local preview, a custom domain (emai.ca), or a
+# user/org root page (username.github.io).
+#
+# If you deploy as a GITHUB PROJECT PAGE (username.github.io/REPO-NAME), you
+# MUST set baseurl to "/REPO-NAME" or every link, stylesheet, and script 404s.
+#   url:     "https://username.github.io"
+#   baseurl: "/EMAI-WEBSITE"
+url: ""
+baseurl: ""
+
+markdown: kramdown
+permalink: pretty
+
+plugins:
+  - jekyll-sitemap
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor

@@ -1,0 +1,56 @@
+.call-banner {
+  background: var(--coral);
+  padding: 1.3rem 0;
+}
+
+.call-banner-inner {
+  display: grid;
+  grid-template-columns: 1.5fr 0.7fr auto;
+  align-items: center;
+  gap: 2rem;
+}
+
+.call-banner-kicker,
+.call-banner-detail span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+}
+
+.call-banner strong {
+  display: block;
+  font-size: 1.45rem;
+  letter-spacing: -0.06em;
+}
+
+.call-banner-inner > div:first-child > span:last-child {
+  font-size: 0.85rem;
+}
+
+.call-banner-detail {
+  border-left: 1px solid rgba(23, 33, 36, 0.3);
+  padding-left: 1.5rem;
+}
+
+.call-banner .button:hover {
+  background: var(--acid);
+  border-color: var(--acid);
+}
+
+@media (max-width: 800px) {
+  .call-banner-inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.2rem;
+  }
+
+  .call-banner-detail {
+    border-left: 0;
+    padding-left: 0;
+  }
+
+  .call-banner .button {
+    grid-column: span 2;
+    justify-content: center;
+  }
+}

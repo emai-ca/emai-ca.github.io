@@ -1,0 +1,17 @@
+---
+layout: default
+title: Publications
+nav: publications
+---
+
+<section class="page-hero content-wide reveal"><p class="eyebrow">Research and methods / 04</p><h1>Ideas made<br><em>circulable</em><span class="accent">.</span></h1><p class="page-lede">Articles, conference papers, methods, and open resources surrounding embodied interaction and creative AI for music.</p></section>
+
+<section class="content-wide archive-section"><div class="archive-toolbar"><div class="section-label">Selected archive</div><div class="filter-group" role="group" aria-label="Filter publications"><button class="filter-button is-active" data-filter="all" type="button">All</button><button class="filter-button" data-filter="journal" type="button">Journals</button><button class="filter-button" data-filter="conference" type="button">Conferences</button><button class="filter-button" data-filter="method" type="button">Methods</button></div></div><div class="publication-list">
+  <article class="publication-item" data-type="journal"><span class="pub-year">2025</span><div><p class="pub-type">Journal article</p><h2>Data- and interaction-driven approaches for sustained musical practices with machine learning</h2><p>Gabriel Vigliensoni and Rebecca Fiebrink · Journal of New Music Research</p></div><a href="https://doi.org/10.1080/09298215.2024.2442361" aria-label="Read publication">↗</a></article>
+  <article class="publication-item" data-type="journal"><span class="pub-year">2022</span><div><p class="pub-type">Journal article</p><h2>R-VAE: Live latent space drum rhythm generation from minimal-size datasets</h2><p>Gabriel Vigliensoni, Louis McCallum, Esteban Maestre, and Rebecca Fiebrink · Journal of Creative Music Systems</p></div><a href="https://doi.org/10.5920/jcms.902" aria-label="Read publication">↗</a></article>
+  <article class="publication-item" data-type="conference"><span class="pub-year">2023</span><div><p class="pub-type">Conference paper</p><h2>Steering latent audio models through interactive machine learning</h2><p>Gabriel Vigliensoni and Rebecca Fiebrink · International Conference on Computational Creativity</p></div><a href="https://doi.org/10.5281/zenodo.7415792" aria-label="Read publication">↗</a></article>
+  <article class="publication-item" data-type="method"><span class="pub-year">2022</span><div><p class="pub-type">Workshop paper</p><h2>A small-data mindset for generative AI creative work</h2><p>Gabriel Vigliensoni, Phoenix Perry, and Rebecca Fiebrink · Generative AI and HCI Workshop</p></div><a href="https://doi.org/10.5281/zenodo.7086327" aria-label="Read publication">↗</a></article>
+  <article class="publication-item" data-type="conference"><span class="pub-year">2024</span><div><p class="pub-type">Workshop paper</p><h2>Explainability paths for sustained artistic practice with AI</h2><p>Austin Tecks, Thomas Peschlow, and Gabriel Vigliensoni · XAIxArts</p></div><a href="https://doi.org/10.48550/arxiv.2407.15216" aria-label="Read publication">↗</a></article>
+</div></section>
+
+<section class="open-resources"><div class="content-wide open-resource-grid"><div><span class="section-label">Beyond the paper</span><h2>Documentation is part of the work.</h2></div><p>EMAI will produce artist-readable documentation, curated datasets, trained model weights, open-source code, methodological notes, and audiovisual records of performances and workshops.</p></div></section>
