@@ -19,7 +19,7 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
 </section>
 
 <section class="content-wide split-section">
-  <div class="section-label">What we are looking for</div>
+  <div class="section-label section-label-large">What we are looking for</div>
   <div class="rich-copy">
     <p>We are seeking three doctoral researchers, each supervised by one of the project's Montréal-based investigators and pursuing scientific research and research-creation work within the EMAI project.</p>
     <p>Fellows will design and perform with embodied, small-data machine learning systems; curate datasets and train models; document how authorship unfolds across data collection, training, mapping, and performance; and present new sound and music work.</p>
@@ -37,14 +37,16 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
   <article class="position-card">
     <div class="position-number">01</div>
     <div>
-      <p class="card-kicker">Concordia University / Supervisor: Gabriel Vigliensoni</p>
-      <h2>Embodied mappings for generative audio</h2>
+      <h2>Concordia University<br>Supervisor: Gabriel Vigliensoni</h2>
       <div class="position-program">
         <span>Program</span>
         <p>PhD in the Individualized Program (INDI), Concordia University. Hosted at the Milieux Institute and PLASM.</p>
       </div>
+      <details class="position-details">
+        <summary><span class="details-closed">Read position details</span><span class="details-open">Hide position details</span></summary>
       <p>This position explores data- and interaction-driven approaches to sound- and music-making with machine learning. The fellow will curate small, context-specific datasets; train, fine-tune, and appropriate generative audio models; and use machine learning to craft embodied mappings between the human performance space (gestural and tactile controllers, movement, multimodal input) and the latent space of neural audio synthesis models, treating their parameters as expressive, performable resources for shaping musical structure in real time.</p>
       <p>The fellow will compose and premiere new works with these systems and co-author publications, open datasets, models, and artist-readable documentation.</p>
+      </details>
       <div class="tag-row"><span>PLASM</span><span>Milieux Institute</span><span>INDI PhD</span><span>Generative audio</span><span class="tag-lang">English required</span></div>
     </div>
   </article>
@@ -52,34 +54,38 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
   <article class="position-card">
     <div class="position-number">02</div>
     <div>
-      <p class="card-kicker">Université de Montréal / Supervisor: Dominic Thibault</p>
-      <h2>Embedded generative audio instruments</h2>
+      <h2>Université de Montréal<br>Supervisor: Dominic Thibault</h2>
       <div class="position-program">
         <span>Program</span>
         <p>PhD in Music or Doctorate in Music (DMus), Faculty of Music, Université de Montréal, depending on the candidate's profile — a more theoretical orientation leads to the PhD, a more practice-based orientation to the DMus. Hosted at the Laboratoire formes·ondes.</p>
       </div>
+      <details class="position-details">
+        <summary><span class="details-closed">Read position details</span><span class="details-open">Hide position details</span></summary>
       <p>This position investigates embedded generative audio systems as musical instruments, exploring how machine-learning models for sound generation can be adapted, optimized, and deployed on resource-constrained computing platforms for real-time musical interaction. At the intersection of generative audio, embedded computing, digital lutherie, and research-creation, the fellow will develop instruments integrating neural audio models and custom interaction strategies, addressing questions of computational efficiency, latency, model architecture, and expressive control.</p>
       <p>Particular attention will be given to variational autoencoders (VAEs) and related neural audio architectures, as well as to the integration of electronics, sensors, and embedded audio platforms. Through iterative instrument design, composition, and performance, the doctoral project will investigate how the constraints and affordances of embedded machine learning can become compositional and performative resources, contributing new approaches to embodied generative AI for music.</p>
-      <div class="tag-row"><span>formes·ondes</span><span>PhD or DMus</span><span>Digital lutherie</span><span>Embedded computing</span><span class="tag-lang">French required</span></div>
+      </details>
+      <div class="tag-row"><span>formes·ondes</span><span>PhD or DMus</span><span>Digital lutherie</span><span>Embedded computing</span><span class="tag-lang">English required</span><span class="tag-lang">French required</span></div>
     </div>
   </article>
 
   <article class="position-card">
     <div class="position-number">03</div>
     <div>
-      <p class="card-kicker">Université de Montréal / Supervisor: Erin Gee</p>
-      <h2>Embodied and situated interfaces for AI and music</h2>
+      <h2>Université de Montréal<br>Supervisor: Erin Gee</h2>
       <div class="position-program">
         <span>Program</span>
         <p>PhD in Music or Doctorate in Music (DMus), Faculty of Music, Université de Montréal, depending on the candidate's profile. Hosted at the Laboratoire formes·ondes.</p>
       </div>
+      <details class="position-details">
+        <summary><span class="details-closed">Read position details</span><span class="details-open">Hide position details</span></summary>
       <p>This position focuses on embodied and situated interfaces for AI and Music, exploring how bodies, environments, sensors, materials, and embedded computational systems can become active participants in musical interaction for multiple performers, agents, or devices. At the heart of this call is an invitation to consider how bodies are organized by code, musical structure, and social-environmental context.</p>
       <p>Intersecting biofeedback, digital lutherie, human–computer interaction, cybernetics, and research-creation, the fellow will develop experimental interfaces and adaptive musical systems that might involve any combination of physiological signals, movement or camera-based analysis, performance art, touch or vibration, environmental sensing, microcontrollers and embedded systems, scored music for performers and AI systems, or networks of distributed computational agents. Through active exploration of the interface, interaction, and the body, the project will investigate how interfaces actively construct relationships between bodies, data, machines, and musical behaviour.</p>
       <div class="position-note">
         <span>This position particularly welcomes</span>
         <p>Candidates interested in expanding the conceptual and aesthetic models through which embodiment, intelligence, agency, and interaction are understood — drawing on feminist and queer theory, disability studies, critical approaches to technology, non-Western epistemologies, or other cultural and philosophical traditions as resources for the design of new interfaces and computational systems. Through iterative prototyping, composition, performance, and/or installation, the doctoral project will contribute new approaches to embodied and situated AI for music.</p>
       </div>
-      <div class="tag-row"><span>formes·ondes</span><span>PhD or DMus</span><span>Biofeedback</span><span>Human–computer interaction</span><span class="tag-lang">French required</span></div>
+      </details>
+      <div class="tag-row"><span>formes·ondes</span><span>PhD or DMus</span><span>Biofeedback</span><span>Human–computer interaction</span><span class="tag-lang">English required</span><span class="tag-lang">French required</span></div>
     </div>
   </article>
 
@@ -90,22 +96,18 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
   <div class="section-label">Funding and support</div>
   <div class="support-grid">
     <div class="support-item">
-      <span>01</span>
       <h3>Fellowship</h3>
       <p>$33,000 CAD per year for three years, for each of the three positions.</p>
     </div>
     <div class="support-item">
-      <span>02</span>
-      <h3>External awards, with a floor</h3>
+      <h3>External awards</h3>
       <p>Fellows are expected to apply for external doctoral awards (e.g. FRQSC and SSHRC doctoral fellowships), with active support from the supervisory team. Funding is guaranteed at no less than $33,000 per year: an external award of higher value replaces the fellowship, and one of lower value is topped up by the project to that amount.</p>
     </div>
     <div class="support-item">
-      <span>03</span>
       <h3>Travel support</h3>
       <p>Support for conferences, concerts, and festivals through the project and its partners.</p>
     </div>
     <div class="support-item">
-      <span>04</span>
       <h3>A research community</h3>
       <p>Full integration into the project's research and dissemination activities: GAMMa workshops, live@CIRMMT concerts, festival presentations, and the AIMC 2027 conference in Montréal.</p>
     </div>
@@ -115,8 +117,7 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
 <section class="requirements-band">
   <div class="content-wide">
     <div class="profile-head">
-      <span class="section-label">Candidate profile</span>
-      <h2>Bring a developed artistic practice and a curious technical mind.</h2>
+      <h2>Candidate <em>profile</em></h2>
     </div>
     <div class="profile-grid">
       <div class="profile-col">
@@ -148,9 +149,9 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
 </section>
 
 <section class="content-wide application-section">
-  <div class="section-label">How to apply</div>
-  <div class="profile-head">
-    <h2>One PDF. Five parts, in this order.</h2>
+  <div class="application-head">
+    <h2>How to <em>apply</em></h2>
+    <p>One PDF. Five parts, in this order.</p>
   </div>
   <ol class="apply-list">
     <li>
@@ -167,7 +168,7 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
     </li>
     <li>
       <div>
-        <h3>CV</h3>
+        <h3>Curriculum vitae</h3>
         <p>Maximum 4 pages, including works, performances and installations, publications, and software or tools.</p>
       </div>
     </li>
@@ -232,38 +233,6 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
     <div>
       <p>We encourage applications from all qualified candidates, and particularly from members of groups historically underrepresented in music technology and creative AI.</p>
       <p>If you have accessibility or accommodation needs at any stage of the selection process, please let us know so we can ensure your full participation.</p>
-    </div>
-  </div>
-</section>
-
-<section class="contact-section">
-  <div class="content-wide">
-    <div class="section-label">Questions</div>
-    <div class="contact-grid">
-      <div class="contact-card">
-        <span>General</span>
-        <h3>EMAI</h3>
-        <p>Project inquiries</p>
-        <a href="mailto:info@emai.ca">info@emai.ca</a>
-      </div>
-      <div class="contact-card">
-        <span>Position 01</span>
-        <h3>Gabriel Vigliensoni</h3>
-        <p>Concordia University</p>
-        <a href="mailto:gabriel.vigliensoni@concordia.ca">gabriel.vigliensoni@concordia.ca</a>
-      </div>
-      <div class="contact-card">
-        <span>Position 02</span>
-        <h3>Dominic Thibault</h3>
-        <p>Université de Montréal</p>
-        <a href="mailto:dominic.thibault@umontreal.ca">dominic.thibault@umontreal.ca</a>
-      </div>
-      <div class="contact-card">
-        <span>Position 03</span>
-        <h3>Erin Gee</h3>
-        <p>Université de Montréal</p>
-        <a href="mailto:erin.gee@umontreal.ca">erin.gee@umontreal.ca</a>
-      </div>
     </div>
   </div>
 </section>

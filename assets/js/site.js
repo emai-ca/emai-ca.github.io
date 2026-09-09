@@ -37,3 +37,16 @@ document.querySelectorAll('.filter-group').forEach((group) => {
     });
   });
 });
+
+document.querySelectorAll('[data-topic-filter], .constellation-node').forEach((control) => {
+  control.addEventListener('click', () => {
+    const topic = control.dataset.topicFilter || control.dataset.topic;
+    const controls = document.querySelectorAll('[data-topic-filter]');
+    const publications = document.querySelectorAll('.publication-item[data-topics]');
+    controls.forEach((item) => item.classList.toggle('is-active', item.dataset.topicFilter === topic));
+    publications.forEach((item) => {
+      item.hidden = topic !== 'all' && !item.dataset.topics.split(' ').includes(topic);
+    });
+    document.querySelectorAll('.constellation-node').forEach((node) => node.classList.toggle('is-selected', node.dataset.topic === topic));
+  });
+});

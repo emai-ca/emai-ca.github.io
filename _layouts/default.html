@@ -21,24 +21,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-  <link rel="stylesheet" href="{{ '/assets/css/overrides.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/overrides.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
 <body data-page="{{ page.nav | default: 'home' }}">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <header class="site-header">
-    <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="EMAI home">
+    <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="EMAI — Embodying AI: Music Making Beyond the Prompt home">
       <span class="wordmark-mark" aria-hidden="true">◎</span>
       <span>EMAI<span class="wordmark-dot">.</span></span>
+      <span class="wordmark-title">EMBODYING AI: MUSIC MAKING BEYOND THE PROMPT</span>
     </a>
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
-      <a href="{{ '/about/' | relative_url }}" data-nav="about">About</a>
-      <a href="{{ '/call/' | relative_url }}" data-nav="call">PhD Call</a>
+      <a href="{{ '/' | relative_url }}" data-nav="home">About</a>
+      <a href="{{ '/call/' | relative_url }}" data-nav="call">Call</a>
       <a href="{{ '/people/' | relative_url }}" data-nav="people">People</a>
+      <a href="{{ '/works/' | relative_url }}" data-nav="works">Creative Works</a>
       <a href="{{ '/publications/' | relative_url }}" data-nav="publications">Publications</a>
-      <a href="{{ '/works/' | relative_url }}" data-nav="works">Works</a>
+      <a href="{{ '/contact/' | relative_url }}" data-nav="contact">Contact</a>
     </nav>
-    <div class="header-code">MTL / 2026—27</div>
   </header>
 
   <main id="main-content">{{ content }}</main>
