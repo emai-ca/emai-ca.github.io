@@ -1,10 +1,10 @@
 ---
 layout: default
-title: People
+title: Team
 nav: people
 ---
 
-<section class="page-hero content-wide reveal"><p class="eyebrow"><span class="live-dot"></span> EMAI / People and Places</p><h1>Bodies<br><em>in the loop</em><span class="accent">.</span></h1><p class="page-lede">EMAI connects researchers, labs, and artists across Montréal and beyond.</p></section>
+<section class="page-hero content-wide reveal"><p class="eyebrow"><span class="live-dot"></span> EMAI / Team and Places</p><h1>Bodies<br><em>in the loop</em><span class="accent">.</span></h1><p class="page-lede">EMAI connects researchers, labs, and artists across Montréal and beyond.</p></section>
 
 <section class="content-wide people-section"><div class="people-grid">
   <article class="person-card person-card-accent"><h2><a class="person-link" href="https://vigliensoni.com/categories/featured/" target="_blank" rel="noopener noreferrer">Gabriel<br>Vigliensoni</a></h2><p>Concordia University</p><ul class="person-focus"><li>Creative machine learning</li><li>Embodied musical interaction</li><li>Context-specific datasets</li></ul></article>

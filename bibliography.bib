@@ -5,10 +5,10 @@ sitemap: false
 ---
 {%- comment -%}
 Generated from _data/publications.yml at build time, so this file and the
-literature page can never disagree — they are the same data.
+publications page can never disagree — they are the same data.
 {%- endcomment -%}
 % EMAI — Embodying AI: Music Making Beyond the Prompt
-% Literature informing the project. {{ site.data.publications | size }} entries.
+% Publications informing the project. {{ site.data.publications | size }} entries.
 % Generated {{ site.time | date: "%Y-%m-%d" }} from {{ site.url }}{{ site.baseurl }}/publications/
 {% assign pubs = site.data.publications | sort: "year" | reverse -%}
 {%- for p in pubs -%}

@@ -1333,9 +1333,8 @@ body[data-page="home"] .atlas-node[aria-expanded="true"] { background: var(--aci
 }
 body[data-page="home"] .hero-actions {
   justify-content: flex-end;
-  margin-top: 0;
+  margin-top: 1rem;
   padding-right: 12rem;
-  transform: translateY(-1rem);
 }
 
 /* Literature explorer: compact map and useful reading preview. */
@@ -1681,7 +1680,6 @@ body[data-page="works"] .work-tags li {
   font-family: var(--mono);
   font-size: 0.58rem;
   letter-spacing: 0.04em;
-  text-transform: lowercase;
 }
 
 @media (max-width: 1180px) { body[data-page="works"] .works-grid { column-count: 3; } }
@@ -1799,3 +1797,53 @@ body[data-page="publications"] .toolbar-actions {
   gap: 0.6rem;
   flex-shrink: 0;
 }
+
+/* Institutional signatures below the project statistics. */
+.institution-band { background: var(--paper); padding: 2rem 0; border-bottom: 1px solid var(--line); color-scheme: light; }
+.institution-grid { width: min(1800px, 94vw); display: grid; grid-template-columns: minmax(0, 4.5fr) minmax(0, 2.9fr) minmax(0, 4.6fr) minmax(0, 7.9fr) minmax(0, 16.5fr); align-items: center; justify-items: center; gap: clamp(1rem, 2vw, 2rem); }
+.institution-logo { display: block; width: 100%; height: auto; object-fit: contain; object-position: center; mix-blend-mode: multiply; }
+.institution-logo:nth-child(3) { position: relative; top: 3px; }
+.institution-cirmmt { position: relative; top: 6px; }
+.institution-sshrc { position: relative; top: 3px; }
+/* Optical centering compensates for unequal white margins in the supplied signature. */
+@media (min-width: 1001px) {
+  /* Offset the first four marks by the funding image's built-in right margin. */
+  .institution-logo:nth-child(-n+4) { transform: translateX(clamp(12px, 1.5vw, 27px)); }
+  .institution-sshrc { transform: translateY(5%); }
+}
+@media (max-width: 1000px) {
+  .institution-grid { width: 92vw; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
+  .institution-logo { max-width: 260px; }
+  .institution-cirmmt { max-width: 340px; }
+  .institution-sshrc { grid-column: span 2; max-width: 620px; justify-self: center; transform: none; }
+}
+@media (max-width: 700px) {
+  .institution-band { padding: 2.5rem 0; }
+  .institution-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+}
+@media (max-width: 440px) {
+  .institution-grid { grid-template-columns: 1fr; }
+  .institution-udem { max-width: 200px; }
+  .institution-sshrc { grid-column: auto; max-width: 100%; }
+}
+
+/* Keep the copyright centered between the two footer signatures. */
+.site-footer { background: #fff; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; }
+.footer-copyright { text-align: center; }
+.site-footer > div:last-child { text-align: right; }
+@media (max-width: 1000px) {
+  .site-footer { display: flex; flex-direction: column; align-items: center; text-align: center; gap: .5rem; }
+  .site-footer > div:last-child { text-align: center; }
+  .site-footer > div + div { margin-top: 0; }
+}
+
+/* Emphasize the EMAI name without enlarging the accompanying project title. */
+.wordmark > span:nth-child(2) { font-size: 2.5rem; line-height: 1; }
+
+/* Align the homepage hero with the shared content and application panel edges. */
+body[data-page="home"] .hero {
+  width: min(1180px, 88vw);
+  margin-inline: auto;
+  padding-inline: 0;
+}
+body[data-page="home"] .hero > * { min-width: 0; }

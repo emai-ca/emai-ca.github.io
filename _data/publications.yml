@@ -59,70 +59,98 @@
   container: 'Proceedings of DIS ’26: 4202–4219'
   key: abuzuraiq2026there
   note: Honourable Mention
-- title: Data- and Interaction-Driven Approaches for Sustained Musical Practices with
-    Machine Learning
+- year: 2026
+  type: conference
+  label: Conference paper
+  title: 'WÆnderer: Projecting and Navigating User-Defined Audio Corpora in Pre-Trained
+    Audio Models'
   authors:
-  - Gabriel Vigliensoni
-  - Rebecca Fiebrink
-  year: 2025
-  type: journal
-  label: Journal article
-  venue: 'Journal of New Music Research 53 (1–2): 19–32'
-  url: https://doi.org/10.1080/09298215.2024.2442361
+  - Dominic Thibault
+  - David Piazza
+  venue: Proceedings of the 7th Conference on AI Music Creativity (AIMC 2026), Staatliches
+    Institut für Musikforschung, Berlin, 16–18 September
+  url: https://doi.org/10.5281/zenodo.22275277
   topics:
   - small-data
   - embodiment
   - authorship
-  container: Journal of New Music Research
-  volume: '53'
-  number: 1–2
-  pages: 19–32
-  key: vigliensoni2025data
-- title: 'XAIxArts Manifesto: Explainable AI for the Arts'
+  - literacy
+  container: Proceedings of the 7th Conference on AI Music Creativity (AIMC 2026),
+    Staatliches Institut für Musikforschung, Berlin, 16–18 September
+  key: thibault2026waenderer
+- year: 2025
+  type: conference
+  label: Conference paper
+  title: 'Navigating Abstract Timbre Spaces: Instrumental Affordances of Concatenative
+    Synthesis in Mosaïque'
   authors:
-  - Nick Bryan-Kinns
-  - Shuoyang Zheng
-  - Francisco Castro
-  - Makayla Lewis
-  - Jia-Rey Chang
-  - Gabriel Vigliensoni
-  - Terence Broad
-  - Michael Clemens
-  - Elizabeth Wilson
+  - Dominic Thibault
+  - David Piazza
+  - Mimi Allard
+  - Mathieu Arseneault
+  - Gaël Moriceau
+  venue: Proceedings of the 6th Conference on AI Music Creativity (AIMC 2025), Vrije
+    Universiteit Brussel
+  url: https://aimusiccreativity.org/2025/proceedings
+  topics:
+  - embodiment
+  - literacy
+  container: Proceedings of the 6th Conference on AI Music Creativity (AIMC 2025),
+    Vrije Universiteit Brussel
+  key: thibault2025navigating
+- title: 'Explainability-in-Action: Enabling Expressive Manipulation and Tacit Understanding
+    by Bending Diffusion Models in ComfyUI'
+  authors:
+  - Ahmed M. Abuzuraiq
+  - Philippe Pasquier
+  year: 2025
+  type: workshop
+  label: Workshop paper
+  venue: XAIxArts 2025
+  url: https://arxiv.org/abs/2508.07183
+  topics:
+  - literacy
+  - embodiment
+  container: XAIxArts 2025
+  key: abuzuraiq2025explainabilityinaction
+- title: 'AI-Assisted Sound Design with Audio Metaphor (AuMe): An Evaluation with
+    Novice Sound Designers'
+  authors:
+  - Liu
+  - Lee
+  - Thorogood
+  - Anderson
+  - Pasquier
   year: 2025
   type: conference
   label: Conference paper
-  venue: Extended Abstracts of the CHI Conference on Human Factors in Computing Systems
-    (CHI EA ’25), Article 650
-  url: https://doi.org/10.1145/3706599.3716227
+  venue: AIMC 2025
+  url: https://zenodo.org/records/16946064
   topics:
   - literacy
-  container: Extended Abstracts of the CHI Conference on Human Factors in Computing
-    Systems (CHI EA ’25), Article 650
-  key: bryankinns2025xaixarts
-- title: Leveraging Small Datasets for Ethical and Responsible AI Music Making
+  container: AIMC 2025
+  key: liu2025aiassisted
+- title: 'MIDI-GPT: A Controllable Generative Model for Computer-Assisted Multitrack
+    Music Composition'
   authors:
-  - Nick Bryan-Kinns
-  - Anna Wszeborowska
-  - Olga Sutskova
-  - Elizabeth Wilson
-  - Phoenix Perry
-  - Rebecca Fiebrink
-  - Gabriel Vigliensoni
-  - Rikard Lindell
-  - Andrei Coronel
-  - Nuno N. Correia
+  - Philippe Pasquier
+  - Jeff Ens
+  - Nathan Fradet
+  - Paul Triana
+  - Davide Rizzotti
+  - Jean-Baptiste Rolland
+  - Maryam Safi
   year: 2025
   type: conference
   label: Conference paper
-  venue: Proceedings of the 20th International Audio Mostly Conference (AM.ICAD ’25)
-  url: https://doi.org/10.1145/3771594.3771601
+  venue: 'Proceedings of the AAAI Conference on Artificial Intelligence 39: 1474–1482'
+  url: https://arxiv.org/abs/2501.17011
   topics:
-  - small-data
+  - authorship
   - literacy
-  container: Proceedings of the 20th International Audio Mostly Conference (AM.ICAD
-    ’25)
-  key: bryankinns2025leveraging
+  container: Proceedings of the AAAI Conference on Artificial Intelligence 39
+  pages: 1474–1482
+  key: pasquier2025midigpt
 - title: Explainable AI for the Arts 3 (XAIxArts3)
   authors:
   - Corey Ford
@@ -148,59 +176,70 @@
   container: Proceedings of the 2025 Conference on Creativity and Cognition (C&C ’25),
     13–19
   key: ford2025explainable
-- title: 'MIDI-GPT: A Controllable Generative Model for Computer-Assisted Multitrack
-    Music Composition'
+- title: Leveraging Small Datasets for Ethical and Responsible AI Music Making
   authors:
-  - Philippe Pasquier
-  - Jeff Ens
-  - Nathan Fradet
-  - Paul Triana
-  - Davide Rizzotti
-  - Jean-Baptiste Rolland
-  - Maryam Safi
+  - Nick Bryan-Kinns
+  - Anna Wszeborowska
+  - Olga Sutskova
+  - Elizabeth Wilson
+  - Phoenix Perry
+  - Rebecca Fiebrink
+  - Gabriel Vigliensoni
+  - Rikard Lindell
+  - Andrei Coronel
+  - Nuno N. Correia
   year: 2025
   type: conference
   label: Conference paper
-  venue: 'Proceedings of the AAAI Conference on Artificial Intelligence 39: 1474–1482'
-  url: https://arxiv.org/abs/2501.17011
+  venue: Proceedings of the 20th International Audio Mostly Conference (AM.ICAD ’25)
+  url: https://doi.org/10.1145/3771594.3771601
   topics:
-  - authorship
+  - small-data
   - literacy
-  container: Proceedings of the AAAI Conference on Artificial Intelligence 39
-  pages: 1474–1482
-  key: pasquier2025midigpt
-- title: 'AI-Assisted Sound Design with Audio Metaphor (AuMe): An Evaluation with
-    Novice Sound Designers'
+  container: Proceedings of the 20th International Audio Mostly Conference (AM.ICAD
+    ’25)
+  key: bryankinns2025leveraging
+- title: 'XAIxArts Manifesto: Explainable AI for the Arts'
   authors:
-  - Liu
-  - Lee
-  - Thorogood
-  - Anderson
-  - Pasquier
+  - Nick Bryan-Kinns
+  - Shuoyang Zheng
+  - Francisco Castro
+  - Makayla Lewis
+  - Jia-Rey Chang
+  - Gabriel Vigliensoni
+  - Terence Broad
+  - Michael Clemens
+  - Elizabeth Wilson
   year: 2025
   type: conference
   label: Conference paper
-  venue: AIMC 2025
-  url: https://zenodo.org/records/16946064
+  venue: Extended Abstracts of the CHI Conference on Human Factors in Computing Systems
+    (CHI EA ’25), Article 650
+  url: https://doi.org/10.1145/3706599.3716227
   topics:
   - literacy
-  container: AIMC 2025
-  key: liu2025aiassisted
-- title: 'Explainability-in-Action: Enabling Expressive Manipulation and Tacit Understanding
-    by Bending Diffusion Models in ComfyUI'
+  container: Extended Abstracts of the CHI Conference on Human Factors in Computing
+    Systems (CHI EA ’25), Article 650
+  key: bryankinns2025xaixarts
+- title: Data- and Interaction-Driven Approaches for Sustained Musical Practices with
+    Machine Learning
   authors:
-  - Ahmed M. Abuzuraiq
-  - Philippe Pasquier
+  - Gabriel Vigliensoni
+  - Rebecca Fiebrink
   year: 2025
-  type: workshop
-  label: Workshop paper
-  venue: XAIxArts 2025
-  url: https://arxiv.org/abs/2508.07183
+  type: journal
+  label: Journal article
+  venue: 'Journal of New Music Research 53 (1–2): 19–32'
+  url: https://doi.org/10.1080/09298215.2024.2442361
   topics:
-  - literacy
+  - small-data
   - embodiment
-  container: XAIxArts 2025
-  key: abuzuraiq2025explainabilityinaction
+  - authorship
+  container: Journal of New Music Research
+  volume: '53'
+  number: 1–2
+  pages: 19–32
+  key: vigliensoni2025data
 - title: Explainability Paths for Sustained Artistic Practice with AI
   authors:
   - Austin Tecks
@@ -248,35 +287,33 @@
   - literacy
   container: Workshop on Generative AI and HCI, CHI ’24
   key: abuzuraiq2024seizing
-- title: Steering Latent Audio Models through Interactive Machine Learning
+- year: 2024
+  type: conference
+  label: Conference paper
+  title: Mosaïque — Concatenative Synthesis Instrument for the Practicing Musicians
   authors:
-  - Gabriel Vigliensoni
-  - Rebecca Fiebrink
+  - Dominic Thibault
+  venue: Proceedings of the 5th AI Music Creativity Conference (AIMC 2024), Oxford
+  url: https://aimc2024.pubpub.org/proceedings
+  topics:
+  - embodiment
+  - literacy
+  container: Proceedings of the 5th AI Music Creativity Conference (AIMC 2024), Oxford
+  key: thibault2024mosaique
+- title: Searching for Human Bias Against AI-Composed Music
+  authors:
+  - Zlatov
+  - Jeff Ens
+  - Philippe Pasquier
   year: 2023
   type: conference
   label: Conference paper
-  venue: Proceedings of the 14th International Conference on Computational Creativity
-    (ICCC ’23), 19–23
-  url: https://doi.org/10.5281/zenodo.8087978
+  venue: EvoMusArt 2023
+  url: https://doi.org/10.1007/978-3-031-29956-8_20
   topics:
-  - embodiment
   - authorship
-  container: Proceedings of the 14th International Conference on Computational Creativity
-    (ICCC ’23), 19–23
-  key: vigliensoni2023steering
-- title: The BioSynth — An Affective Biofeedback Device Grounded in Feminist Thought
-  authors:
-  - Erin Gee
-  year: 2023
-  type: conference
-  label: Conference paper
-  venue: New Interfaces for Musical Expression (NIME 2023), Mexico City, Mexico
-  url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=eoAH79gAAAAJ&citation_for_view=eoAH79gAAAAJ:2osOgNQ5qMEC
-  topics:
-  - embodiment
-  - authorship
-  container: New Interfaces for Musical Expression (NIME 2023), Mexico City, Mexico
-  key: gee2023the
+  container: EvoMusArt 2023
+  key: zlatov2023searching
 - title: 'eTu{d,b}e: Case Studies in Playing with Musical Agents'
   authors:
   - Tommy Davis
@@ -295,20 +332,35 @@
   container: NIME 2023, Mexico City
   pages: 268–276
   key: davis2023etudbe
-- title: Searching for Human Bias Against AI-Composed Music
+- title: The BioSynth — An Affective Biofeedback Device Grounded in Feminist Thought
   authors:
-  - Zlatov
-  - Jeff Ens
-  - Philippe Pasquier
+  - Erin Gee
   year: 2023
   type: conference
   label: Conference paper
-  venue: EvoMusArt 2023
-  url: https://doi.org/10.1007/978-3-031-29956-8_20
+  venue: New Interfaces for Musical Expression (NIME 2023), Mexico City, Mexico
+  url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=eoAH79gAAAAJ&citation_for_view=eoAH79gAAAAJ:2osOgNQ5qMEC
   topics:
+  - embodiment
   - authorship
-  container: EvoMusArt 2023
-  key: zlatov2023searching
+  container: New Interfaces for Musical Expression (NIME 2023), Mexico City, Mexico
+  key: gee2023the
+- title: Steering Latent Audio Models through Interactive Machine Learning
+  authors:
+  - Gabriel Vigliensoni
+  - Rebecca Fiebrink
+  year: 2023
+  type: conference
+  label: Conference paper
+  venue: Proceedings of the 14th International Conference on Computational Creativity
+    (ICCC ’23), 19–23
+  url: https://doi.org/10.5281/zenodo.8087978
+  topics:
+  - embodiment
+  - authorship
+  container: Proceedings of the 14th International Conference on Computational Creativity
+    (ICCC ’23), 19–23
+  key: vigliensoni2023steering
 - title: A Small-Data Mindset for Generative AI Creative Work
   authors:
   - Gabriel Vigliensoni
@@ -342,6 +394,21 @@
   volume: '1'
   number: '1'
   key: vigliensoni2022rvae
+- year: 2022
+  type: conference
+  label: Conference paper
+  title: Automatic Transcription of ‘Gambang’ Balinese Gamelan
+  authors:
+  - Sarah Lecompte-Bergeron
+  - Dominic Thibault
+  - I Putu Arya Deva Suryanegara
+  venue: Proceedings of AIMC 2022
+  url: https://2022.aimusiccreativity.org/
+  topics:
+  - small-data
+  - literacy
+  container: Proceedings of AIMC 2022
+  key: lecomptebergeron2022automatic
 - title: 'Spire Muse: A Virtual Musical Partner for Creative Brainstorming'
   authors:
   - Notto J. W. Thelle

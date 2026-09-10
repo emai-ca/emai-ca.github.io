@@ -35,17 +35,28 @@
     <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
       <a href="{{ '/' | relative_url }}" data-nav="home">About</a>
       <a href="{{ '/call/' | relative_url }}" data-nav="call">Call</a>
-      <a href="{{ '/people/' | relative_url }}" data-nav="people">People</a>
+      <a href="{{ '/people/' | relative_url }}" data-nav="people">Team</a>
       <a href="{{ '/works/' | relative_url }}" data-nav="works">Creative Works</a>
-      <a href="{{ '/publications/' | relative_url }}" data-nav="publications">Literature</a>
+      <a href="{{ '/publications/' | relative_url }}" data-nav="publications">Publications</a>
       <a href="{{ '/contact/' | relative_url }}" data-nav="contact">Contact</a>
     </nav>
   </header>
 
   <main id="main-content">{{ content }}</main>
 
+  <section class="institution-band" aria-label="Participating institutions and research support">
+    <div class="content-wide institution-grid">
+      <img class="institution-logo" src="{{ '/assets/img/institutions/concordia.svg' | relative_url }}" alt="Concordia University" loading="lazy">
+      <img class="institution-logo institution-udem" src="{{ '/assets/img/institutions/Universität_Montreal_Logo.svg' | relative_url }}" alt="Université de Montréal" loading="lazy">
+      <img class="institution-logo" src="{{ '/assets/img/institutions/SFU_horizontal_logo_rgb.png' | relative_url }}" alt="Simon Fraser University" loading="lazy">
+      <img class="institution-logo institution-cirmmt" src="{{ '/assets/img/institutions/CIRMMT_logo-text_EN.svg' | relative_url }}" alt="CIRMMT — Centre for Interdisciplinary Research in Music Media and Technology" loading="lazy">
+      <img class="institution-logo institution-sshrc" src="{{ '/assets/img/institutions/sshrc-fip-full-color-eng.png' | relative_url }}" alt="Social Sciences and Humanities Research Council of Canada" loading="lazy">
+    </div>
+  </section>
+
   <footer class="site-footer">
     <div><span class="footer-signal"></span> Embodying AI: Music Making Beyond the Prompt</div>
+    <div class="footer-copyright">© 2026 EMAI. All rights reserved.</div>
     <div>Concordia University · Université de Montréal · Simon Fraser University</div>
   </footer>
   <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>

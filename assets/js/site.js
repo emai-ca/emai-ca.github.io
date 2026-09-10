@@ -14,7 +14,7 @@ document.querySelectorAll('[data-nav]').forEach((link) => {
 });
 
 const atlasDefinitions = {
-  all: ['EMAI Atlas', 'Explore the literature (in)forming EMAI.'],
+  all: ['EMAI Atlas', 'Explore the publications (in)forming EMAI.'],
   'small-data': ['Small data', 'Training AI with curated, context-specific datasets.'],
   literacy: ['Literacy', 'Developing the knowledge to critically understand, build, and creatively use AI.'],
   embodiment: ['Embodiment', 'Using bodily action and gesture to interact and perform with AI beyond text-based prompting.'],
@@ -99,7 +99,7 @@ if (archive) {
     const list = document.querySelector('#constellation-reading-list');
     if (!list) return;
     const definition = atlasDefinitions[selectedTopic];
-    document.querySelector('#constellation-heading').textContent = selectedTopic === 'all' ? 'Explore the literature' : definition[0];
+    document.querySelector('#constellation-heading').textContent = selectedTopic === 'all' ? 'Explore the publications' : definition[0];
     document.querySelector('#constellation-description').textContent = selectedTopic === 'all'
       ? 'Select a theme to discover related publications.' : definition[1];
     document.querySelector('#constellation-count').textContent = `${visible.length} matching publications · Showing ${Math.min(3, visible.length)}`;
@@ -133,14 +133,63 @@ if (archive) {
 document.querySelectorAll('.work-video').forEach((box) => {
   const play = box.querySelector('.work-play');
   if (!play) return;
+
+  // Keep the poster so the card can go back to it when the video ends,
+  // rather than leaving the player sitting on its end screen.
+  const poster = [...box.children];
+  let frame = null;
+
+  // Vimeo drops subscriptions sent before it is ready, so this gets called
+  // on load, again when the player announces itself, and on a short retry.
+  const subscribe = () => {
+    const win = frame && frame.contentWindow;
+    if (!win) return;
+    if (box.dataset.vimeo) {
+      // 'finish' is the legacy event name, 'ended' the current one.
+      ['ended', 'finish'].forEach((value) =>
+        win.postMessage(JSON.stringify({ method: 'addEventListener', value }), '*'));
+    } else {
+      win.postMessage(JSON.stringify({ event: 'listening' }), '*');
+    }
+  };
+
+  const restore = () => {
+    if (!frame) return;
+    frame = null;
+    box.replaceChildren(...poster);
+  };
+
   play.addEventListener('click', () => {
-    const id = box.dataset.video;
-    const frame = document.createElement('iframe');
-    frame.src = `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;
+    const yt = box.dataset.video;
+    const vim = box.dataset.vimeo;
+    frame = document.createElement('iframe');
+    frame.src = vim
+      ? `https://player.vimeo.com/video/${vim}?autoplay=1&dnt=1${box.dataset.vimeoH ? '&h=' + box.dataset.vimeoH : ''}`
+      : `https://www.youtube-nocookie.com/embed/${yt}?autoplay=1&rel=0&enablejsapi=1&origin=${encodeURIComponent(location.origin)}`;
     frame.title = play.getAttribute('aria-label') || 'Video';
     frame.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; picture-in-picture';
     frame.allowFullscreen = true;
     box.replaceChildren(frame);
+
+    // Both players report state over postMessage, so neither SDK is needed.
+    frame.addEventListener('load', subscribe);
+    [200, 600, 1500].forEach((ms) => setTimeout(subscribe, ms));
+  });
+
+  window.addEventListener('message', (event) => {
+    if (!frame || !event.source || event.source !== frame.contentWindow) return;
+    if (!/^https:\/\/(player\.vimeo\.com|www\.youtube(-nocookie)?\.com)$/.test(event.origin)) return;
+    let data = event.data;
+    if (typeof data === 'string') {
+      try { data = JSON.parse(data); } catch { return; }
+    }
+    if (data.event === 'ready') { subscribe(); return; }
+    // Vimeo: {event:'ended'|'finish'} — YouTube: {info:{playerState:0}}
+    const ended = data.event === 'ended'
+      || data.event === 'finish'
+      || (data.info && data.info.playerState === 0)
+      || data.playerState === 0;
+    if (ended) restore();
   });
 });
 

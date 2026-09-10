@@ -11,7 +11,7 @@ Five content pages plus a home page:
 | Home | `index.md` | `/` |
 | About | `about.md` | `/about/` |
 | Call | `call.md` | `/call/` |
-| People | `people.md` | `/people/` |
+| Team | `people.md` | `/people/` |
 | Publications | `publications.md` | `/publications/` |
 | Works | `works.md` | `/works/` |
 
@@ -63,7 +63,7 @@ The About and Call pages are drawn directly from the official Call for
 Applications and should be accurate.
 
 **Verify before publishing:** the entries on Publications and Works, and the
-research-focus lines on People, were assembled from public sources rather than
+research-focus lines on Team, were assembled from public sources rather than
 supplied by the team. Check every title, author list, DOI, year, and outbound
 link with the investigators before this goes live.
 

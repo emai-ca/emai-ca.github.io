@@ -8,7 +8,7 @@ nav: publications
 
 <section class="content-wide constellation-section" id="constellation">
   <div class="archive-toolbar"><div><div class="section-label">Research constellation</div><p class="constellation-intro">Explore how EMAI's investigations travel across methods, people, and publications.</p></div><div class="toolbar-actions"><a class="button button-dark" href="{{ '/emai-literature.bib' | relative_url }}" download>Download .bib <span aria-hidden="true">↓</span></a></div></div>
-  <div class="constellation" role="group" aria-label="Interactive map of EMAI research themes and literature">
+  <div class="constellation" role="group" aria-label="Interactive map of EMAI research themes and publications">
     <div class="constellation-map">
     <p class="constellation-filter-label">Filter the constellation</p>
     <div class="constellation-stage">
@@ -30,7 +30,7 @@ nav: publications
     </div>
     </div>
     <div class="constellation-results">
-      <h2 id="constellation-heading">Explore the literature</h2>
+      <h2 id="constellation-heading">Explore the publications</h2>
       <p id="constellation-description">Select a theme to discover related publications.</p>
       <p id="constellation-count" role="status"></p>
       <ul id="constellation-reading-list"></ul>

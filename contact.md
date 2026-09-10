@@ -15,25 +15,21 @@ description: "Contact EMAI — general project inquiries and the supervisors for
   <div class="content-wide">
     <div class="contact-grid">
       <div class="contact-card">
-        <span>General</span>
         <h3>EMAI</h3>
         <p>Project inquiries</p>
         <a href="mailto:info@emai.ca">info@emai.ca</a>
       </div>
       <div class="contact-card">
-        <span>Position 01</span>
         <h3>Gabriel Vigliensoni</h3>
         <p>Concordia University</p>
         <a href="mailto:gabriel.vigliensoni@concordia.ca">gabriel.vigliensoni@concordia.ca</a>
       </div>
       <div class="contact-card">
-        <span>Position 02</span>
         <h3>Dominic Thibault</h3>
         <p>Université de Montréal</p>
         <a href="mailto:dominic.thibault@umontreal.ca">dominic.thibault@umontreal.ca</a>
       </div>
       <div class="contact-card">
-        <span>Position 03</span>
         <h3>Erin Gee</h3>
         <p>Université de Montréal</p>
         <a href="mailto:erin.gee@umontreal.ca">erin.gee@umontreal.ca</a>
