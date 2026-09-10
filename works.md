@@ -23,6 +23,6 @@ nav: works
 <section class="content-wide works-outro">
   <div class="session-grid">
     <div class="session-accent"><span class="session-year">Ongoing</span><h2>The archive will grow</h2><p>New works, prototypes, performances, and documentation will be added as EMAI’s researchers and doctoral fellows develop them.</p></div>
-    <div><span class="session-year">2026—27</span><h2>Where the work appears</h2><p>GAMMa workshops, live@CIRMMT concerts, festival presentations, and the AIMC 2027 conference in Montréal.</p></div>
+    <div><span class="session-year">Related</span><h2>The research behind it</h2><p>Papers, articles and workshops informing this work are gathered on the <a href="/publications/">literature</a> page.</p></div>
   </div>
 </section>
