@@ -20,4 +20,9 @@ nav: works
   <article class="work-card" data-type="embodied"><div class="work-visual visual-affect ratio-square"><div class="pulse-ring"></div><div class="pulse-core"></div></div><div class="work-meta"><h2><a href="#">Work title eleven</a></h2><p class="work-venue">Venue · year</p><ul class="work-tags"><li>performance</li></ul></div></article>
 </div></section>
 
-<section class="works-note"><div class="content-wide"><span class="section-label section-label-large">The archive will grow</span><p>New works, prototypes, performances, and documentation will be added as EMAI’s researchers and doctoral fellows develop them.</p></div></section>
+<section class="content-wide works-outro">
+  <div class="session-grid">
+    <div class="session-accent"><span class="session-year">Ongoing</span><h2>The archive will grow</h2><p>New works, prototypes, performances, and documentation will be added as EMAI’s researchers and doctoral fellows develop them.</p></div>
+    <div><span class="session-year">2026—27</span><h2>Where the work appears</h2><p>GAMMa workshops, live@CIRMMT concerts, festival presentations, and the AIMC 2027 conference in Montréal.</p></div>
+  </div>
+</section>

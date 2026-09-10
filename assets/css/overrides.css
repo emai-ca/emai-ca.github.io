@@ -1408,7 +1408,8 @@ body[data-page="people"] .page-lede {
 }
 
 /* GAMMa card in coral, against the pale grey of the AIMC card beside it. */
-body[data-page="people"] .session-accent {
+body[data-page="people"] .session-accent,
+body[data-page="works"] .session-accent {
   background: var(--coral);
 }
 
@@ -1417,11 +1418,14 @@ body[data-page="people"] .session-accent {
    roughly 1.5:1 contrast, and on the coral GAMMa card it reads washed out.
    Both cards are light, so their text should be ink. */
 body[data-page="people"] .session-grid > div,
-body[data-page="people"] .session-grid p {
+body[data-page="people"] .session-grid p,
+body[data-page="works"] .session-grid > div,
+body[data-page="works"] .session-grid p {
   color: var(--ink);
 }
 
-body[data-page="people"] .session-grid .session-year {
+body[data-page="people"] .session-grid .session-year,
+body[data-page="works"] .session-grid .session-year {
   color: var(--ink);
   opacity: 0.7;
 }
@@ -1730,3 +1734,5 @@ body[data-page="works"] .archive-toolbar {
 body[data-page="works"] .works-note {
   background: var(--coral);
 }
+
+body[data-page="works"] .works-outro { padding-bottom: var(--section-space); }
