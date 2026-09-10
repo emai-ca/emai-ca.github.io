@@ -1736,3 +1736,36 @@ body[data-page="works"] .works-note {
 }
 
 body[data-page="works"] .works-outro { padding-bottom: var(--section-space); }
+
+/* Second outro box links through to the literature page. The arrow sits
+   bottom-right and stretches over the card, so the whole box is the hit
+   area — same approach as the route cards and the literature entries. */
+body[data-page="works"] .session-link {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+body[data-page="works"] .session-arrow {
+  align-self: flex-end;
+  margin-top: auto;
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: transform 160ms ease, color 160ms ease;
+}
+
+body[data-page="works"] .session-arrow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+body[data-page="works"] .session-link:hover .session-arrow {
+  color: var(--coral);
+  transform: translate(2px, -2px);
+}
+
+body[data-page="works"] .session-link:focus-within {
+  outline: 2px solid var(--coral);
+  outline-offset: -2px;
+}
