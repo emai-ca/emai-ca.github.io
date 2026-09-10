@@ -7,7 +7,7 @@ nav: publications
 <section class="page-hero content-wide reveal"><p class="eyebrow"><span class="live-dot"></span> EMAI / Research and Publications</p><h1>The research<br><em>behind the project</em><span class="accent">.</span></h1><p class="page-lede">Articles, papers, workshops surrounding embodied interaction and creative AI for music.</p></section>
 
 <section class="content-wide constellation-section" id="constellation">
-  <div class="archive-toolbar"><div><div class="section-label">Research constellation</div><p class="constellation-intro">Explore how EMAI's investigations travel across methods, people, and publications.</p></div><div class="toolbar-actions"><a class="button button-outline" href="#archive">Open archive <span aria-hidden="true">↓</span></a><a class="button button-dark" href="{{ '/emai-literature.bib' | relative_url }}" download>Download .bib <span aria-hidden="true">↓</span></a></div></div>
+  <div class="archive-toolbar"><div><div class="section-label">Research constellation</div><p class="constellation-intro">Explore how EMAI's investigations travel across methods, people, and publications.</p></div><div class="toolbar-actions"><a class="button button-dark" href="{{ '/emai-literature.bib' | relative_url }}" download>Download .bib <span aria-hidden="true">↓</span></a></div></div>
   <div class="constellation" role="group" aria-label="Interactive map of EMAI research themes and literature">
     <div class="constellation-map">
     <p class="constellation-filter-label">Filter the constellation</p>
