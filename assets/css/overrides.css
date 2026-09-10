@@ -1100,6 +1100,7 @@ body[data-page="works"] .works-section > .archive-toolbar {
   background: var(--acid);
   padding: 1.25rem 1.5rem;
   gap: 1.5rem;
+  align-items: center;
 }
 
 body[data-page="publications"] .constellation-section .section-label,
