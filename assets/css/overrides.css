@@ -662,6 +662,7 @@ body[data-page="call"] .page-hero h1 {
   margin-bottom: 1.5rem;
 }
 body[data-page="call"] .page-lede { font-size: 1.15rem; margin-bottom: 0; }
+body[data-page="contact"] .page-lede { font-size: 1.15rem; }
 body[data-page="call"] .deadline-panel { padding: 1.5rem; margin-bottom: 0; }
 body[data-page="call"] .deadline-panel strong { font-size: 1.5rem; margin: 0.4rem 0; }
 body[data-page="call"] .split-section { padding: var(--call-section-space) 0; gap: 2rem; }
@@ -687,7 +688,8 @@ body[data-page="call"] .timeline-item { padding: 1.25rem 0; gap: 1rem; }
 body[data-page="call"] .timeline-item h3 { font-size: 1.25rem; }
 body[data-page="call"] .edi-band { padding: 2.5rem 0; }
 body[data-page="call"] .edi-grid { gap: 2rem; }
-body[data-page="call"] .edi-grid h2 { font-size: 2.5rem; }
+body[data-page="call"] .edi-grid h2,
+body[data-page="contact"] .edi-grid h2 { font-size: 2.5rem; }
 body[data-page="call"] .edi-grid p { font-size: 1rem; }
 body[data-page="call"] .contact-section { padding: 2.5rem 0; }
 body[data-page="call"] .contact-card { min-height: 0; padding: 1.25rem; }
@@ -836,7 +838,28 @@ body[data-page="home"] .route-card p {
    far from the names). On its own page that reads as dead space — put it on
    the shared spacing unit and let the cards size to their content. */
 body[data-page="contact"] .contact-section {
-  padding: var(--section-space) 0;
+  padding: 0;
+  background: none;
+}
+
+body[data-page="contact"] .contact-section > .content-wide {
+  position: relative;
+  background: var(--ink);
+  border: 1px solid var(--line);
+  padding: 1rem 0;
+}
+
+body[data-page="contact"] .page-hero { border-bottom: 0; }
+
+body[data-page="contact"] .contact-section > .content-wide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid var(--line);
+  pointer-events: none;
+  animation: rise 0.8s ease both;
 }
 
 body[data-page="contact"] .contact-card {
@@ -850,6 +873,18 @@ body[data-page="contact"] .contact-card h3 {
 
 body[data-page="contact"] .contact-card a {
   padding-top: 0.9rem;
+  font-size: 1rem;
+  color: var(--acid);
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+body[data-page="contact"] .contact-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+@media (max-width: 800px) {
+  body[data-page="contact"] .contact-grid { grid-template-columns: 1fr; }
 }
 
 /* Contact page. With the "Applying" label gone, the split-section would
@@ -886,3 +921,777 @@ body[data-page="home"] .home-intro .intro-grid h2,
 body[data-page="home"] .about-foot h2 {
   font-size: clamp(2.1rem, 4.1vw, 4.1rem);
 }
+
+/* Literature entries: make the whole row open the DOI, not just the small
+   arrow. The <a> already exists on entries that have a link, so stretching
+   it with a pseudo-element keeps the markup and the semantics intact — and
+   entries without a DOI stay correctly unclickable. */
+.publication-item { position: relative; }
+
+.publication-item > a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.publication-item:has(> a) {
+  transition: background 160ms ease;
+}
+
+.publication-item:has(> a):hover {
+  background: rgba(23, 33, 36, 0.04);
+}
+
+.publication-item:has(> a):hover h2 {
+  color: var(--coral);
+}
+
+.publication-item > a {
+  display: inline-block;
+  transition: transform 160ms ease, color 160ms ease;
+}
+
+.publication-item:has(> a):hover > a {
+  color: var(--coral);
+  transform: translate(2px, -2px);
+}
+
+/* Keyboard users get the same affordance as the mouse */
+.publication-item:focus-within {
+  outline: 2px solid var(--coral);
+  outline-offset: 4px;
+}
+
+/* ============================================================
+   Constellation, rebuilt on real geometry
+   The previous version positioned everything by percentage inside a
+   very wide box, so nothing could line up: `inset: 12% 22%` plus
+   border-radius drew flattened ovals rather than circles, and the
+   "lines" were fixed-length rotated bars that overshot every node and
+   were clipped at the edges. Now a square stage holds an SVG with a
+   0–100 viewBox, so the rings are true circles, the spokes stop where
+   the nodes begin, and the nodes sit exactly on the r=34 ring.
+   ============================================================ */
+
+.constellation::before,
+.constellation::after { content: none; }
+
+.constellation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  min-height: 0;
+  padding: clamp(1.75rem, 4vw, 3.25rem) 1rem;
+  overflow: hidden;
+}
+
+.constellation-stage {
+  position: relative;
+  width: min(560px, 92%);
+  aspect-ratio: 1 / 1;
+}
+
+.constellation-orbits {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.constellation-orbits circle { fill: none; }
+
+.constellation-orbits .orbit-ring,
+.constellation-orbits line {
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+}
+
+.orbit-ring-outer { stroke: rgba(244, 242, 236, 0.10); }
+.orbit-ring-main  { stroke: rgba(244, 242, 236, 0.20); }
+.orbit-ring-inner { stroke: rgba(244, 242, 236, 0.26); stroke-dasharray: 2 3; }
+.orbit-spokes line { stroke: rgba(244, 242, 236, 0.30); }
+
+/* Nodes sit on the ring. Positioning uses translate(-50%,-50%), so the
+   hover/selected scale has to carry that translate or the node jumps. */
+.constellation-stage .constellation-node {
+  left: auto;
+  right: auto;
+  top: auto;
+  bottom: auto;
+  width: 21%;
+  height: 21%;
+  padding: 0.35rem;
+  font-size: clamp(0.5rem, 1.55vw, 0.62rem);
+  line-height: 1.25;
+  transform: translate(-50%, -50%);
+}
+
+.constellation-stage .node-root {
+  left: 50%;
+  top: 50%;
+  width: 25%;
+  height: 25%;
+}
+
+.constellation-stage .topic-body   { left: 26%; top: 26%; }
+.constellation-stage .topic-data   { left: 74%; top: 26%; }
+.constellation-stage .topic-agency { left: 26%; top: 74%; }
+.constellation-stage .topic-method { left: 74%; top: 74%; }
+
+.constellation-stage .constellation-node:hover,
+.constellation-stage .constellation-node:focus-visible,
+.constellation-stage .constellation-node.is-selected {
+  transform: translate(-50%, -50%) scale(1.09);
+}
+
+.constellation-stage .node-root strong { display: block; }
+.constellation-stage .node-root small { display: block; margin-top: 0.15rem; }
+
+.constellation-legend {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem 2rem;
+  margin: 0;
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--acid);
+}
+
+@media (max-width: 800px) {
+  .constellation-stage { width: 100%; }
+  .constellation-stage .constellation-node { width: 25%; height: 25%; }
+  .constellation-stage .node-root { width: 28%; height: 28%; }
+  .constellation-legend { gap: 0.5rem 1.2rem; }
+}
+
+/* Publications hero matched to the home hero: the headline was running at
+   clamp(4rem, 8vw, 8rem) against home's clamp(3.5rem, 7vw, 7.2rem), and the
+   lede at 1.3rem against home's 1.15rem. */
+body[data-page="publications"] .page-hero h1 {
+  font-size: clamp(3.5rem, 7vw, 7.2rem);
+}
+
+body[data-page="publications"] .page-lede {
+  font-size: 1.15rem;
+}
+
+/* Publications page spacing, brought onto the shared unit like the home and
+   call pages. The base rules here were 12vh/10vh on the hero, 5vh/8vh on the
+   constellation and 10–12vh below the archive, which stacked into large empty
+   bands between every section. */
+body[data-page="publications"] .page-hero {
+  padding: var(--section-space) 0 2rem;
+}
+
+body[data-page="publications"] .constellation-section {
+  padding: 0 0 var(--section-space);
+}
+
+body[data-page="publications"] .constellation-section > .archive-toolbar {
+  background: var(--acid);
+  padding: 1.25rem 1.5rem;
+  gap: 1.5rem;
+}
+
+body[data-page="publications"] .constellation-section .section-label {
+  font-family: var(--sans);
+  font-size: 1.45rem;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  text-transform: none;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+body[data-page="publications"] .constellation-intro {
+  margin: 0;
+  max-width: 600px;
+}
+
+body[data-page="publications"] .archive-section {
+  padding-bottom: var(--section-space);
+}
+
+body[data-page="publications"] .open-resources {
+  padding: var(--section-space) 0;
+}
+
+/* The coral banner ran full-bleed edge to edge, while the call page's yellow
+   deadline panel is a contained block — it carries `content-wide`, so it stops
+   at min(1180px, 88vw). Move the coral background off the full-width section
+   and onto the inner element, which already has content-wide. */
+body[data-page="home"] .call-banner {
+  background: none;
+  width: min(1180px, 88vw);
+  margin-inline: auto;
+  position: relative;
+  border-top: 0;
+  padding: 0;
+}
+
+body[data-page="home"] .call-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  border-top: 1px solid var(--line);
+  animation: rise 0.8s ease both;
+  pointer-events: none;
+}
+
+body[data-page="home"] .call-banner-inner {
+  background: var(--acid);
+  padding: 1.5rem;
+  margin-block: 0 var(--section-space);
+}
+
+/* Pull the rule and the coral block up: the gap above them is the hero's
+   bottom padding, so trim that rather than adding a negative margin. */
+body[data-page="home"] .hero {
+  padding-bottom: calc(var(--section-space) * 0.6);
+}
+
+/* Contain the investigators panel within the shared content margins. */
+body[data-page="home"] .leadership-band {
+  background: none;
+  padding: 0;
+}
+
+body[data-page="home"] .leadership-band > .content-wide {
+  background: var(--coral);
+  padding: clamp(1.5rem, 3vw, 3rem);
+}
+
+/* Two open rows with shared column alignment and fine horizontal rules. */
+body[data-page="home"] .home-intro,
+body[data-page="home"] .split-section.about-foot {
+  border-top: 1px solid var(--line);
+  padding-block: calc(var(--section-space) * 1.5);
+}
+
+body[data-page="home"] .home-intro .intro-grid,
+body[data-page="home"] .split-section.about-foot {
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.6fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: start;
+}
+
+body[data-page="home"] .home-intro h2,
+body[data-page="home"] .home-intro p,
+body[data-page="home"] .about-foot p {
+  margin-bottom: 0;
+}
+
+body[data-page="home"] .split-section.about-foot {
+  border-bottom: 1px solid var(--line);
+  margin-bottom: var(--section-space);
+}
+
+@media (max-width: 800px) {
+  body[data-page="home"] .home-intro .intro-grid,
+  body[data-page="home"] .split-section.about-foot {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+/* Compact circular atlas with evenly spaced themes. */
+body[data-page="home"] .atlas-orbit {
+  width: min(390px, 100%);
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1;
+  margin: 0 auto;
+  background: #e8ece5;
+  border: 1px solid rgba(23, 33, 36, 0.08);
+}
+
+.atlas-rings {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: rgba(23, 33, 36, 0.18);
+}
+
+.atlas-rings circle,
+.atlas-rings path { stroke-width: 1; vector-effect: non-scaling-stroke; }
+.atlas-rings .atlas-inner-ring { stroke-dasharray: 2 4; opacity: 0.6; }
+.atlas-rings path { opacity: 0.6; }
+
+body[data-page="home"] .atlas-node {
+  width: 24%;
+  height: 24%;
+  right: auto;
+  bottom: auto;
+  padding: 0.2rem;
+  font-size: clamp(0.5rem, 1.5vw, 0.62rem);
+  transform: translate(-50%, -50%);
+  border-color: rgba(23, 33, 36, 0.55);
+  transition: transform 180ms ease, background 180ms ease;
+}
+
+body[data-page="home"] .node-center {
+  left: 50%;
+  top: 50%;
+  width: 29%;
+  height: 29%;
+  font-size: 1rem;
+}
+
+body[data-page="home"] .node-center small {
+  font-size: 0.85rem;
+}
+
+body[data-page="home"] .node-one { left: 26%; top: 26%; }
+body[data-page="home"] .node-two { left: 74%; top: 26%; }
+body[data-page="home"] .node-three { left: 26%; top: 74%; }
+body[data-page="home"] .node-four { left: 74%; top: 74%; }
+
+body[data-page="home"] .atlas-node:hover,
+body[data-page="home"] .atlas-node:focus-visible {
+  transform: translate(-50%, -50%) scale(1.05);
+}
+
+body[data-page="home"] .atlas-node:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+  body[data-page="home"] .atlas-orbit { margin-top: 2rem; }
+}
+
+.atlas-area { min-width: 0; }
+.atlas-definition {
+  position: fixed;
+  z-index: 20;
+  width: min(310px, calc(100vw - 32px));
+  padding: 1.35rem;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  box-shadow: 0 8px 24px rgba(23, 33, 36, 0.12);
+}
+.atlas-definition[hidden] { display: none; }
+.atlas-definition h2 {
+  margin: 0 2rem 0.75rem 0;
+  padding-left: 0.65rem;
+  border-left: 3px solid var(--coral);
+  font-size: 1.3rem;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
+}
+.atlas-definition p { margin: 0; font-size: 1rem; line-height: 1.5; }
+.atlas-literature-link {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+.atlas-literature-link[hidden] { display: none; }
+.atlas-literature-link:hover { color: var(--coral); }
+body[data-page="home"] .node-center[aria-expanded="true"] { background: var(--ink); }
+.atlas-definition-close {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.atlas-definition:focus-visible,
+.atlas-definition-close:focus-visible { outline: 2px solid var(--coral); outline-offset: 3px; }
+body[data-page="home"] .atlas-node[aria-expanded="true"] { background: var(--acid); }
+@media (max-width: 800px) {
+  .atlas-definition {
+    position: static;
+    width: min(390px, 100%);
+    margin: 1rem auto 0;
+    padding-right: 3.25rem;
+  }
+  .atlas-definition-close { position: static; float: right; margin: -1rem -3rem 0 0; }
+}
+body[data-page="home"] .hero-actions {
+  justify-content: flex-end;
+  margin-top: 0;
+  padding-right: 12rem;
+  transform: translateY(-1rem);
+}
+
+/* Literature explorer: compact map and useful reading preview. */
+body[data-page="publications"] .constellation {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.9fr) minmax(0, 1.1fr);
+  gap: 2rem;
+  align-items: center;
+  padding: 1.75rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  overflow: visible;
+  color: var(--ink);
+}
+body[data-page="publications"] .constellation-stage {
+  width: min(360px, 100%);
+  justify-self: center;
+}
+body[data-page="publications"] .orbit-ring-main,
+body[data-page="publications"] .orbit-spokes line { stroke: rgba(23, 33, 36, 0.22); }
+body[data-page="publications"] .orbit-ring-inner { stroke: rgba(23, 33, 36, 0.12); }
+body[data-page="publications"] .constellation-node {
+  background: var(--paper);
+  color: var(--ink);
+  border-color: rgba(23, 33, 36, 0.55);
+  width: 26%;
+  height: 26%;
+  font-size: 0.6rem;
+}
+body[data-page="publications"] .constellation-node.node-root { width: 28%; height: 28%; }
+body[data-page="publications"] .constellation-node:hover,
+body[data-page="publications"] .constellation-node.is-selected {
+  background: var(--coral);
+  border-color: var(--coral);
+}
+body[data-page="publications"] .constellation-node:focus-visible {
+  outline: 2px solid var(--ink);
+  outline-offset: 4px;
+}
+.constellation-results { border-left: 1px solid var(--line); padding-left: 2rem; }
+.constellation-results h2 { font-size: 1.75rem; letter-spacing: -0.05em; line-height: 1.1; margin: 0 0 0.75rem; }
+.constellation-results > p { font-size: 0.95rem; margin: 0 0 1rem; }
+#constellation-count { font-family: var(--mono); font-size: 0.65rem; color: #526164; }
+#constellation-reading-list { list-style: none; padding: 0; margin: 0 0 1.5rem; }
+#constellation-reading-list li { display: grid; grid-template-columns: 3rem 1fr; gap: 0.75rem; padding: 0.7rem 0; border-top: 1px solid var(--line); }
+#constellation-reading-list li > span:first-child { font-family: var(--mono); font-size: 0.7rem; }
+#constellation-reading-list a { font-size: 0.95rem; line-height: 1.35; }
+#constellation-reading-list a:hover { text-decoration: underline; text-underline-offset: 0.2em; }
+@media (max-width: 800px) {
+  body[data-page="publications"] .constellation { grid-template-columns: 1fr; padding: 1.25rem; gap: 1.25rem; }
+  .constellation-results { border-left: 0; border-top: 1px solid var(--line); padding: 1.25rem 0 0; }
+  body[data-page="publications"] .constellation-node { font-size: 0.53rem; }
+}
+.constellation-map { min-width: 0; position: relative; }
+.constellation-map .constellation-stage { margin-inline: auto; }
+.constellation-filter-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #526164;
+}
+
+/* People hero matched to the call hero. The headline already resolved to the
+   same clamp(4rem, 8vw, 8rem); what differed was the lede (1.3rem vs 1.15rem)
+   and the gap under the headline (the base 2rem vs the call's 1.5rem). */
+body[data-page="people"] .page-hero h1 {
+  font-size: var(--display-1);
+  margin-bottom: 1.5rem;
+}
+
+body[data-page="people"] .page-lede {
+  font-size: 1.15rem;
+}
+
+/* GAMMa card in coral, against the pale grey of the AIMC card beside it. */
+body[data-page="people"] .session-accent {
+  background: var(--coral);
+}
+
+/* Those paragraphs are #b8c2bd — a pale grey written for the dark labs band,
+   which the session cards also inherit. On the pale grey AIMC card that is
+   roughly 1.5:1 contrast, and on the coral GAMMa card it reads washed out.
+   Both cards are light, so their text should be ink. */
+body[data-page="people"] .session-grid > div,
+body[data-page="people"] .session-grid p {
+  color: var(--ink);
+}
+
+body[data-page="people"] .session-grid .session-year {
+  color: var(--ink);
+  opacity: 0.7;
+}
+
+/* People page still used the base 12vh/10vh hero padding, so the cards sat a
+   long way below the lede. Same treatment as the call, contact and
+   publications heroes. */
+body[data-page="people"] .page-hero {
+  padding: var(--section-space) 0 2rem;
+}
+
+body[data-page="people"] .people-section {
+  padding-bottom: var(--section-space);
+}
+
+/* Person focus lines as a list rather than a run-on string of separators.
+   A rule between items instead of a bullet, matching the position cards and
+   timeline elsewhere on the site. */
+.person-card .person-focus {
+  list-style: none;
+  margin: auto 0 0;
+  padding: 0;
+}
+
+.person-card .person-focus li {
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--line);
+  font-size: 0.8rem;
+  line-height: 1.3;
+  color: #526164;
+}
+
+.person-card-accent .person-focus li { color: #3f4d50; }
+
+/* Website link on each person card, sitting between the institution and the
+   tag list. align-self keeps the underline to the text rather than spanning
+   the whole card. */
+.person-link {
+  align-self: flex-start;
+  margin-top: 0.9rem;
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid currentColor;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.person-link:hover,
+.person-link:focus-visible { color: var(--coral); }
+
+/* The website link is no longer shown as its own line. The person's name is
+   the link, and it stretches over the whole card so clicking anywhere on the
+   card opens their site. */
+.person-card { position: relative; }
+
+.person-card .person-link {
+  align-self: auto;
+  margin: 0;
+  padding: 0;
+  border-bottom: 0;
+  font: inherit;
+  letter-spacing: inherit;
+  text-transform: none;
+  color: inherit;
+}
+
+.person-card .person-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.person-card:has(.person-link) { transition: background 160ms ease; }
+.person-card:hover .person-link { color: var(--coral); }
+.person-card:focus-within { outline: 2px solid var(--coral); outline-offset: -2px; }
+
+/* Close some of the gap between the institution and the tag list. The list is
+   pinned to the bottom of the card (margin-top: auto), so the gap is the
+   card's leftover height — trim the floor rather than unpinning the list. */
+.person-card { min-height: 358px; }
+
+/* Lab cards: with the 01/02 numbers gone, the h2's 3.5rem top margin left a
+   band of dead space above every name, and the 230px floor stretched the
+   cards well past their content. Size to content and top-align instead. */
+body[data-page="people"] .lab-list > div {
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1.5rem;
+}
+
+body[data-page="people"] .lab-list h2 {
+  margin: 0;
+  font-size: 1.55rem;
+  line-height: 1.05;
+}
+
+body[data-page="people"] .lab-list p {
+  margin: 0;
+  line-height: 1.45;
+}
+
+/* Lab cards clickable through to each lab, same stretched-link approach as
+   the person cards. The name carries the link; the card is the hit area. */
+body[data-page="people"] .lab-list > div { position: relative; }
+
+body[data-page="people"] .lab-link { color: inherit; }
+
+body[data-page="people"] .lab-link::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+body[data-page="people"] .lab-list > div:hover .lab-link { color: var(--acid); }
+body[data-page="people"] .lab-list > div:focus-within { outline: 2px solid var(--acid); outline-offset: -2px; }
+
+/* Creative Works hero matched to the call hero, same as People. The headline
+   already resolved to clamp(4rem, 8vw, 8rem); the lede was 1.3rem against the
+   call's 1.15rem, and the gap under the headline 2rem against 1.5rem. */
+body[data-page="works"] .page-hero h1 {
+  font-size: var(--display-1);
+  margin-bottom: 1.5rem;
+}
+
+body[data-page="works"] .page-lede {
+  font-size: 1.15rem;
+}
+
+/* Video documentation on a work card: thumbnail plus a play button, swapped
+   for the real player on click. */
+.work-video { position: relative; overflow: hidden; background: var(--ink); }
+
+.work-video img,
+.work-video iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  object-fit: cover;
+}
+
+.work-play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-content: center;
+  width: 72px;
+  height: 72px;
+  padding: 0 0 0 4px;
+  border: 1px solid var(--paper);
+  border-radius: 50%;
+  background: rgba(23, 33, 36, 0.55);
+  color: var(--paper);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: background 160ms ease, transform 160ms ease;
+}
+
+.work-play:hover,
+.work-play:focus-visible {
+  background: var(--coral);
+  color: var(--ink);
+  transform: translate(-50%, -50%) scale(1.08);
+}
+
+/* ============================================================
+   Creative Works: masonry card grid
+   CSS columns rather than grid — cards keep their natural height
+   (driven by each image), which is what gives the staggered look.
+   ============================================================ */
+body[data-page="works"] .works-grid {
+  display: block;
+  column-count: 4;
+  column-gap: 1rem;
+}
+
+body[data-page="works"] .work-card,
+body[data-page="works"] .work-card-large {
+  display: block;
+  break-inside: avoid;
+  width: 100%;
+  margin: 0 0 1rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+}
+
+/* let the image set the card height; video keeps 16:9 for its facade */
+/* No single aspect-ratio here — a uniform one makes every card the same
+   height and they line up in rows. Each card picks a shape instead. */
+/* .work-card:not(.work-card-large) .work-visual in style.css is 0,3,0 and was
+   beating this, pinning the box to 300px tall — aspect-ratio then derived the
+   WIDTH from that height, which is why the video showed as a narrow sliver. */
+body[data-page="works"] .work-card .work-visual { height: auto; }
+body[data-page="works"] .ratio-wide      { aspect-ratio: 16 / 9; }
+body[data-page="works"] .ratio-landscape { aspect-ratio: 4 / 3; }
+body[data-page="works"] .ratio-square    { aspect-ratio: 1 / 1; }
+body[data-page="works"] .ratio-portrait  { aspect-ratio: 4 / 5; }
+body[data-page="works"] .ratio-tall      { aspect-ratio: 3 / 4; }
+body[data-page="works"] .ratio-xtall     { aspect-ratio: 9 / 16; }
+
+body[data-page="works"] .work-meta { padding: 1.1rem 1.2rem 1.3rem; }
+
+body[data-page="works"] .work-meta h2 {
+  margin: 0 0 0.55rem;
+  font-size: 1.05rem;
+  line-height: 1.25;
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+}
+
+body[data-page="works"] .work-meta h2 a { color: inherit; }
+body[data-page="works"] .work-card:hover h2 a { color: var(--coral); }
+
+body[data-page="works"] .work-venue {
+  margin: 0 0 0.9rem;
+  max-width: none;
+  color: #7a8689;
+  font-size: 0.9rem;
+  line-height: 1.35;
+}
+
+body[data-page="works"] .work-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body[data-page="works"] .work-tags li {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--coral);
+  color: var(--coral);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+
+@media (max-width: 1180px) { body[data-page="works"] .works-grid { column-count: 3; } }
+@media (max-width: 820px)  { body[data-page="works"] .works-grid { column-count: 2; } }
+@media (max-width: 560px)  { body[data-page="works"] .works-grid { column-count: 1; } }
+
+/* Show the whole video frame centred in the card rather than cropping it to
+   fill. YouTube thumbnails are not always a clean 16:9, so `cover` was
+   trimming the edges. */
+/* YouTube always renders a 16:9 thumbnail, padding portrait videos with black
+   bars. `contain` therefore showed the bars. Cropping to the card's own shape
+   discards them, so give a portrait video a portrait card. */
+body[data-page="works"] .work-video img {
+  object-fit: cover;
+  background: var(--ink);
+}
+
+body[data-page="works"] .work-video iframe {
+  object-fit: contain;
+  background: var(--ink);
+}
+
+body[data-page="works"] .works-grid.works-grid-stable {
+  display: grid;
+  grid-template-columns: repeat(var(--works-columns), minmax(0, 1fr));
+  align-items: start;
+  gap: 1rem;
+}
+.works-column { min-width: 0; }

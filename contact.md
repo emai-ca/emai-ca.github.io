@@ -6,6 +6,7 @@ description: "Contact EMAI — general project inquiries and the supervisors for
 ---
 
 <section class="page-hero content-wide reveal">
+  <p class="eyebrow"><span class="live-dot"></span> EMAI / Contact</p>
   <h1>Get in<br><em>touch</em><span class="accent">.</span></h1>
   <p class="page-lede">Questions about the doctoral positions may be addressed to the EMAI project email or directly to the corresponding supervisor.</p>
 </section>
@@ -44,7 +45,7 @@ description: "Contact EMAI — general project inquiries and the supervisors for
 <section class="content-wide split-section applying-section">
   <div class="rich-copy">
     <p>Applications are not sent to individual supervisors. Submit your complete application as a single PDF to <a class="text-link" href="mailto:info@emai.ca?subject=PhD%20Application%20%E2%80%93%20EMAI%20%E2%80%93%20LAST%20NAME%20First%20Name">info@emai.ca</a>, following the requirements set out in the call.</p>
-    <a class="button button-outline" href="{{ '/call/' | relative_url }}">Read the call <span aria-hidden="true">↗</span></a>
+    <a class="button button-dark" href="{{ '/call/' | relative_url }}">Read the call <span aria-hidden="true">↗</span></a>
   </div>
 </section>
 

@@ -37,7 +37,7 @@
       <a href="{{ '/call/' | relative_url }}" data-nav="call">Call</a>
       <a href="{{ '/people/' | relative_url }}" data-nav="people">People</a>
       <a href="{{ '/works/' | relative_url }}" data-nav="works">Creative Works</a>
-      <a href="{{ '/publications/' | relative_url }}" data-nav="publications">Publications</a>
+      <a href="{{ '/publications/' | relative_url }}" data-nav="publications">Literature</a>
       <a href="{{ '/contact/' | relative_url }}" data-nav="contact">Contact</a>
     </nav>
   </header>
@@ -48,6 +48,6 @@
     <div><span class="footer-signal"></span> Embodying AI: Music Making Beyond the Prompt</div>
     <div>Concordia University · Université de Montréal · Simon Fraser University</div>
   </footer>
-  <script src="{{ '/assets/js/site.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/site.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 </body>
 </html>

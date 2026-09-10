@@ -14,15 +14,25 @@ description: "A research-creation project investigating agency, embodiment, and 
       <a class="button button-dark" href="{{ '/call/' | relative_url }}">See the call <span aria-hidden="true">↗</span></a>
     </div>
   </div>
-  <div class="atlas-orbit reveal" aria-label="EMAI literature atlas" role="group">
-    <div class="orbit-grid"></div>
-    <div class="orbit-line orbit-line-a"></div>
-    <div class="orbit-line orbit-line-b"></div>
-    <button class="atlas-node node-center" data-theme="all" type="button"><span>EMAI</span><small>literature atlas</small></button>
+  <div class="atlas-area">
+  <div class="atlas-orbit reveal" aria-label="EMAI ATLAS" role="group">
+    <svg class="atlas-rings" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+      <circle cx="50" cy="50" r="34" />
+      <circle class="atlas-inner-ring" cx="50" cy="50" r="21" />
+      <path d="M26 26L74 74M74 26L26 74" />
+    </svg>
+    <button class="atlas-node node-center" data-theme="all" type="button"><span>EMAI</span><small>ATLAS</small></button>
     <button class="atlas-node node-one" data-theme="embodiment" type="button">embodiment</button>
     <button class="atlas-node node-two" data-theme="small-data" type="button">small data</button>
     <button class="atlas-node node-three" data-theme="authorship" type="button">authorship</button>
     <button class="atlas-node node-four" data-theme="literacy" type="button">literacy</button>
+  </div>
+  <aside class="atlas-definition" id="atlas-definition" aria-labelledby="atlas-definition-title" tabindex="-1" hidden>
+    <button class="atlas-definition-close" type="button" aria-label="Close definition">×</button>
+    <h2 id="atlas-definition-title"></h2>
+    <p id="atlas-definition-text"></p>
+    <a class="atlas-literature-link" href="{{ '/publications/' | relative_url }}#constellation" hidden>Go to the literature constellation <span aria-hidden="true">↗</span></a>
+  </aside>
   </div>
 </section>
 
@@ -43,12 +53,27 @@ description: "A research-creation project investigating agency, embodiment, and 
   </div>
 </section>
 
+<section class="content-wide split-section about-foot">
+  <h2>A shared<br><em>project</em><span class="accent">.</span></h2>
+  <div class="rich-copy">
+    <p>Doctoral researchers will join a team working across the Potential Lab for Art, Sound, and Music (PLASM) at Concordia, the Laboratoire formes·ondes (LFO) at UdeM, and the Metacreation Lab at SFU, with CIRMMT—Canada's largest interdisciplinary music research centre—serving as the project's shared research hub.</p>
+  </div>
+</section>
+
 <section class="question-band leadership-band">
   <div class="content-wide split-section">
-  <h2>Head investigators</h2>
+  <h2>Head<br>investigators</h2>
   <div class="rich-copy">
     <p>EMAI is led by Gabriel Vigliensoni (Concordia University), with co-investigators Dominic Thibault and Erin Gee (Université de Montréal), and Philippe Pasquier (Simon Fraser University). The project aims to bring its creative work to international experimental music and digital arts communities. The team is also preparing to host the AI and Music Creativity (AIMC) conference in Montréal in 2027.</p>
   </div>
+  </div>
+</section>
+
+<section class="home-route content-wide">
+  <div class="route-grid">
+    <a class="route-card" href="{{ '/people/' | relative_url }}"><h3>People</h3><p>The investigators and communities behind EMAI.</p><span class="route-arrow">↗</span></a>
+    <a class="route-card route-card-accent" href="{{ '/works/' | relative_url }}"><h3>Creative Works</h3><p>Performances, installations, and releases.</p><span class="route-arrow">↗</span></a>
+    <a class="route-card" href="{{ '/publications/' | relative_url }}"><h3>Literature</h3><p>Research and publications (in)forming EMAI.</p><span class="route-arrow">↗</span></a>
   </div>
 </section>
 
@@ -58,20 +83,5 @@ description: "A research-creation project investigating agency, embodiment, and 
     <div><strong>$33k</strong><span>CAD per year<br>for three years</span></div>
     <div><strong>2027</strong><span>expected project<br>start, September</span></div>
     <div><strong>MTL</strong><span>shared research hub<br>across PLASM, LFO, CIRMMT and Metacreation Lab</span></div>
-  </div>
-</section>
-
-<section class="content-wide split-section about-foot">
-  <h2>A shared<br><em>project</em><span class="accent">.</span></h2>
-  <div class="rich-copy">
-    <p>Doctoral researchers will join a team working across the Potential Lab for Art, Sound, and Music (PLASM) at Concordia, the Laboratoire formes·ondes (LFO) at UdeM, and the Metacreation Lab at SFU, with CIRMMT—Canada's largest interdisciplinary music research centre—serving as the project's shared research hub.</p>
-  </div>
-</section>
-
-<section class="home-route content-wide">
-  <div class="route-grid">
-    <a class="route-card" href="{{ '/people/' | relative_url }}"><h3>People</h3><p>The investigators and communities behind EMAI.</p><span class="route-arrow">↗</span></a>
-    <a class="route-card route-card-accent" href="{{ '/works/' | relative_url }}"><h3>Creative Works</h3><p>Performances, installations, and releases.</p><span class="route-arrow">↗</span></a>
-    <a class="route-card" href="{{ '/publications/' | relative_url }}"><h3>Publications</h3><p>Research literature and open resources informing EMAI.</p><span class="route-arrow">↗</span></a>
   </div>
 </section>
