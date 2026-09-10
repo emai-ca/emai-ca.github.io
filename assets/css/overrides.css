@@ -79,9 +79,13 @@
   padding-left: 1.5rem;
 }
 
+/* "See positions" hovers coral like "See the call" in the hero. The banner is
+   itself coral, so the ink border stays to keep the button visible against it
+   rather than letting it disappear into the background. */
 .call-banner .button:hover {
-  background: var(--acid);
-  border-color: var(--acid);
+  background: var(--coral);
+  border-color: var(--ink);
+  color: var(--ink);
 }
 
 @media (max-width: 800px) {
