@@ -1783,3 +1783,10 @@ body[data-page="publications"] .session-link:focus-within {
   outline: 2px solid var(--coral);
   outline-offset: -2px;
 }
+
+/* "All works" matched to the size of "Open archive" on the literature page —
+   it is a .filter-button rather than a .button, so it ran smaller. */
+body[data-page="works"] .works-section .filter-button {
+  padding: 0.85rem 1rem;
+  font-size: 0.7rem;
+}
