@@ -1631,7 +1631,7 @@ body[data-page="works"] .ratio-xtall     { aspect-ratio: 9 / 16; }
 body[data-page="works"] .work-meta { padding: 1.1rem 1.2rem 1.3rem; }
 
 body[data-page="works"] .work-meta h2 {
-  margin: 0 0 0.55rem;
+  margin: 0 0 0.3rem;
   font-size: 1.05rem;
   line-height: 1.25;
   letter-spacing: 0.005em;
@@ -1642,7 +1642,7 @@ body[data-page="works"] .work-meta h2 a { color: inherit; }
 body[data-page="works"] .work-card:hover h2 a { color: var(--coral); }
 
 body[data-page="works"] .work-venue {
-  margin: 0 0 0.9rem;
+  margin: 0 0 0.6rem;
   max-width: none;
   color: #7a8689;
   font-size: 0.9rem;
@@ -1695,3 +1695,29 @@ body[data-page="works"] .works-grid.works-grid-stable {
   gap: 1rem;
 }
 .works-column { min-width: 0; }
+
+/* Creative Works was the last page left on the base 12vh/10vh hero and 12vh
+   section padding, which put a large empty band between the title and the
+   toolbar. Same shared unit as every other page. */
+body[data-page="works"] .page-hero {
+  padding: var(--section-space) 0 2rem;
+}
+
+body[data-page="works"] .works-section {
+  padding-bottom: var(--section-space);
+}
+
+/* tighten the toolbar row itself */
+body[data-page="works"] .archive-toolbar {
+  padding-bottom: 0.6rem;
+  margin-bottom: 1.2rem;
+}
+
+/* "All works" button in acid rather than ink. Scoped to this page so the
+   literature filters are untouched. */
+body[data-page="works"] .filter-button.is-active,
+body[data-page="works"] .filter-button.is-active:hover {
+  background: var(--acid);
+  border-color: var(--acid);
+  color: var(--ink);
+}
