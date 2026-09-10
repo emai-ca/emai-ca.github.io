@@ -1783,3 +1783,11 @@ body[data-page="publications"] .session-link:focus-within {
   outline: 2px solid var(--coral);
   outline-offset: -2px;
 }
+
+/* Intro text inside the acid toolbar box: ink rather than the grey used on
+   pale backgrounds, and no negative offset now that it follows a large label. */
+body[data-page="works"] .archive-toolbar .constellation-intro {
+  margin: 0.5rem 0 0;
+  color: var(--ink);
+  max-width: 34rem;
+}
