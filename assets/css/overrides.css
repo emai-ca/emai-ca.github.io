@@ -1095,13 +1095,15 @@ body[data-page="publications"] .constellation-section {
   padding: 0 0 var(--section-space);
 }
 
-body[data-page="publications"] .constellation-section > .archive-toolbar {
+body[data-page="publications"] .constellation-section > .archive-toolbar,
+body[data-page="works"] .works-section > .archive-toolbar {
   background: var(--acid);
   padding: 1.25rem 1.5rem;
   gap: 1.5rem;
 }
 
-body[data-page="publications"] .constellation-section .section-label {
+body[data-page="publications"] .constellation-section .section-label,
+body[data-page="works"] .works-section .section-label {
   font-family: var(--sans);
   font-size: 1.45rem;
   font-weight: 700;
@@ -1111,7 +1113,8 @@ body[data-page="publications"] .constellation-section .section-label {
   margin-bottom: 0.5rem;
 }
 
-body[data-page="publications"] .constellation-intro {
+body[data-page="publications"] .constellation-intro,
+body[data-page="works"] .constellation-intro {
   margin: 0;
   max-width: 600px;
 }
@@ -1729,12 +1732,9 @@ body[data-page="works"] .archive-toolbar {
    panel: yellow ground, dark button sitting inside it, no rules top or
    bottom since the fill does that job now. */
 body[data-page="works"] .archive-toolbar {
-  background: var(--acid);
-  padding: 1.5rem;
   border-bottom: 0;
   margin-bottom: var(--section-space);
   align-items: center;
-  min-height: 7.2rem;
 }
 
 /* "The archive will grow" band in coral rather than acid — the acid is now
