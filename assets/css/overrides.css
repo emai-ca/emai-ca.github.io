@@ -1724,3 +1724,9 @@ body[data-page="works"] .archive-toolbar {
   align-items: center;
   min-height: 7.2rem;
 }
+
+/* "The archive will grow" band in coral rather than acid — the acid is now
+   spent on the toolbar box at the top of this page. */
+body[data-page="works"] .works-note {
+  background: var(--coral);
+}
