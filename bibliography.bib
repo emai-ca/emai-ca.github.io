@@ -1,0 +1,43 @@
+---
+layout: null
+permalink: /emai-literature.bib
+sitemap: false
+---
+{%- comment -%}
+Generated from _data/publications.yml at build time, so this file and the
+literature page can never disagree — they are the same data.
+{%- endcomment -%}
+% EMAI — Embodying AI: Music Making Beyond the Prompt
+% Literature informing the project. {{ site.data.publications | size }} entries.
+% Generated {{ site.time | date: "%Y-%m-%d" }} from {{ site.url }}{{ site.baseurl }}/publications/
+{% assign pubs = site.data.publications | sort: "year" | reverse -%}
+{%- for p in pubs -%}
+{%- if p.type == "journal" -%}{%- assign kind = "article" -%}{%- else -%}{%- assign kind = "inproceedings" -%}{%- endif %}
+@{{ kind }}{{ "{" }}{{ p.key }},
+  title     = { {{- p.title -}} },
+  author    = { {{- p.authors | join: " and " -}} },
+  year      = { {{- p.year -}} },
+{%- if p.type == "journal" %}
+  journal   = { {{- p.container -}} },
+{%- else %}
+  booktitle = { {{- p.container -}} },
+{%- endif %}
+{%- if p.volume %}
+  volume    = { {{- p.volume -}} },
+{%- endif %}
+{%- if p.number %}
+  number    = { {{- p.number -}} },
+{%- endif %}
+{%- if p.pages %}
+  pages     = { {{- p.pages | replace: "–", "--" -}} },
+{%- endif %}
+{%- if p.url contains "doi.org/" %}
+  doi       = { {{- p.url | remove: "https://doi.org/" -}} },
+{%- endif %}
+  url       = { {{- p.url -}} },
+{%- if p.note %}
+  note      = { {{- p.note -}} },
+{%- endif %}
+  keywords  = { {{- p.topics | join: ", " -}} }
+}
+{% endfor -%}

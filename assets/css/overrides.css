@@ -1791,3 +1791,11 @@ body[data-page="works"] .works-section .filter-button {
   padding: 0.85rem 1rem;
   font-size: 0.7rem;
 }
+
+/* Two actions in the literature toolbar */
+body[data-page="publications"] .toolbar-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}

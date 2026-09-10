@@ -1,0 +1,479 @@
+---
+- title: Explainable AI for the Arts 4 (XAIxArts4)
+  authors:
+  - Shuoyang Zheng
+  - Terence Broad
+  - Elizabeth Wilson
+  - Alexander Cole
+  - Ziyu Xu
+  - Jia-Rey Chang
+  - Gabriel Vigliensoni
+  - Jeba Rezwana
+  - Lanxi Xiao
+  - Michael Clemens
+  - Makayla Lewis
+  - Alan Chamberlain
+  - Helen Kennedy
+  - Corey Ford
+  - Nick Bryan-Kinns
+  year: 2026
+  type: workshop
+  label: Workshop paper
+  venue: Proceedings of the 2026 Conference on Creativity and Cognition (C&C ’26),
+    1–9
+  url: https://doi.org/10.1145/3803784.3804466
+  topics:
+  - literacy
+  container: Proceedings of the 2026 Conference on Creativity and Cognition (C&C ’26),
+    1–9
+  key: zheng2026explainable
+- title: Survey and Typology of Computer-Assisted Composition Systems
+  authors:
+  - Renaud Bougueng Tchemeube
+  - Philippe Pasquier
+  year: 2026
+  type: journal
+  label: Journal article
+  venue: 'ACM Computing Surveys 58 (13), Article 330: 1–41'
+  url: https://doi.org/10.1145/3812539
+  topics:
+  - literacy
+  container: ACM Computing Surveys 58 (13), Article 330
+  pages: 1–41
+  key: tchemeube2026survey
+- title: "“There is Beauty in the Small”: A Study of Visual Artists’ Impressions of
+    Small Data and Model Crafting Approaches to Creative AI Work"
+  authors:
+  - Ahmed M. Abuzuraiq
+  - Arshia Sobhan
+  - Alexandra Kitson
+  - Philippe Pasquier
+  year: 2026
+  type: conference
+  label: Conference paper
+  venue: 'Proceedings of DIS ’26: 4202–4219 — Honourable Mention'
+  url: https://doi.org/10.1145/3800645.3812958
+  topics:
+  - small-data
+  - authorship
+  container: 'Proceedings of DIS ’26: 4202–4219'
+  key: abuzuraiq2026there
+  note: Honourable Mention
+- title: Data- and Interaction-Driven Approaches for Sustained Musical Practices with
+    Machine Learning
+  authors:
+  - Gabriel Vigliensoni
+  - Rebecca Fiebrink
+  year: 2025
+  type: journal
+  label: Journal article
+  venue: 'Journal of New Music Research 53 (1–2): 19–32'
+  url: https://doi.org/10.1080/09298215.2024.2442361
+  topics:
+  - small-data
+  - embodiment
+  - authorship
+  container: Journal of New Music Research
+  volume: '53'
+  number: 1–2
+  pages: 19–32
+  key: vigliensoni2025data
+- title: 'XAIxArts Manifesto: Explainable AI for the Arts'
+  authors:
+  - Nick Bryan-Kinns
+  - Shuoyang Zheng
+  - Francisco Castro
+  - Makayla Lewis
+  - Jia-Rey Chang
+  - Gabriel Vigliensoni
+  - Terence Broad
+  - Michael Clemens
+  - Elizabeth Wilson
+  year: 2025
+  type: conference
+  label: Conference paper
+  venue: Extended Abstracts of the CHI Conference on Human Factors in Computing Systems
+    (CHI EA ’25), Article 650
+  url: https://doi.org/10.1145/3706599.3716227
+  topics:
+  - literacy
+  container: Extended Abstracts of the CHI Conference on Human Factors in Computing
+    Systems (CHI EA ’25), Article 650
+  key: bryankinns2025xaixarts
+- title: Leveraging Small Datasets for Ethical and Responsible AI Music Making
+  authors:
+  - Nick Bryan-Kinns
+  - Anna Wszeborowska
+  - Olga Sutskova
+  - Elizabeth Wilson
+  - Phoenix Perry
+  - Rebecca Fiebrink
+  - Gabriel Vigliensoni
+  - Rikard Lindell
+  - Andrei Coronel
+  - Nuno N. Correia
+  year: 2025
+  type: conference
+  label: Conference paper
+  venue: Proceedings of the 20th International Audio Mostly Conference (AM.ICAD ’25)
+  url: https://doi.org/10.1145/3771594.3771601
+  topics:
+  - small-data
+  - literacy
+  container: Proceedings of the 20th International Audio Mostly Conference (AM.ICAD
+    ’25)
+  key: bryankinns2025leveraging
+- title: Explainable AI for the Arts 3 (XAIxArts3)
+  authors:
+  - Corey Ford
+  - Elizabeth Wilson
+  - Shuoyang Zheng
+  - Gabriel Vigliensoni
+  - Jeba Rezwana
+  - Lanxi Xiao
+  - Michael Clemens
+  - Makayla Lewis
+  - Drew Hemment
+  - Alan Chamberlain
+  - Helen Kennedy
+  - Nick Bryan-Kinns
+  year: 2025
+  type: workshop
+  label: Workshop paper
+  venue: Proceedings of the 2025 Conference on Creativity and Cognition (C&C ’25),
+    13–19
+  url: https://doi.org/10.1145/3698061.3728392
+  topics:
+  - literacy
+  container: Proceedings of the 2025 Conference on Creativity and Cognition (C&C ’25),
+    13–19
+  key: ford2025explainable
+- title: 'MIDI-GPT: A Controllable Generative Model for Computer-Assisted Multitrack
+    Music Composition'
+  authors:
+  - Philippe Pasquier
+  - Jeff Ens
+  - Nathan Fradet
+  - Paul Triana
+  - Davide Rizzotti
+  - Jean-Baptiste Rolland
+  - Maryam Safi
+  year: 2025
+  type: conference
+  label: Conference paper
+  venue: 'Proceedings of the AAAI Conference on Artificial Intelligence 39: 1474–1482'
+  url: https://arxiv.org/abs/2501.17011
+  topics:
+  - authorship
+  - literacy
+  container: Proceedings of the AAAI Conference on Artificial Intelligence 39
+  pages: 1474–1482
+  key: pasquier2025midigpt
+- title: 'AI-Assisted Sound Design with Audio Metaphor (AuMe): An Evaluation with
+    Novice Sound Designers'
+  authors:
+  - Liu
+  - Lee
+  - Thorogood
+  - Anderson
+  - Pasquier
+  year: 2025
+  type: conference
+  label: Conference paper
+  venue: AIMC 2025
+  url: https://zenodo.org/records/16946064
+  topics:
+  - literacy
+  container: AIMC 2025
+  key: liu2025aiassisted
+- title: 'Explainability-in-Action: Enabling Expressive Manipulation and Tacit Understanding
+    by Bending Diffusion Models in ComfyUI'
+  authors:
+  - Ahmed M. Abuzuraiq
+  - Philippe Pasquier
+  year: 2025
+  type: workshop
+  label: Workshop paper
+  venue: XAIxArts 2025
+  url: https://arxiv.org/abs/2508.07183
+  topics:
+  - literacy
+  - embodiment
+  container: XAIxArts 2025
+  key: abuzuraiq2025explainabilityinaction
+- title: Explainability Paths for Sustained Artistic Practice with AI
+  authors:
+  - Austin Tecks
+  - Thomas Peschlow
+  - Gabriel Vigliensoni
+  year: 2024
+  type: workshop
+  label: Workshop paper
+  venue: Second International Workshop on eXplainable AI for the Arts (XAIxArts 2024)
+  url: https://doi.org/10.48550/arXiv.2407.15216
+  topics:
+  - authorship
+  - literacy
+  container: Second International Workshop on eXplainable AI for the Arts (XAIxArts
+    2024)
+  key: tecks2024explainability
+- title: Towards Personalizing Generative AI with Small Data for Co-Creation in the
+    Visual Arts
+  authors:
+  - Ahmed M. Abuzuraiq
+  - Philippe Pasquier
+  year: 2024
+  type: workshop
+  label: Workshop paper
+  venue: 'Joint Proceedings of the ACM IUI Workshops 2024, Vol. 3660: 1–14'
+  url: https://ceur-ws.org/Vol-3660/paper11.pdf
+  topics:
+  - small-data
+  - authorship
+  container: Joint Proceedings of the ACM IUI Workshops 2024, Vol. 3660
+  pages: 1–14
+  key: abuzuraiq2024towards
+- title: 'Seizing the Means of Production: Exploring the Landscape of Crafting, Adapting
+    and Navigating Generative AI Models in the Visual Arts'
+  authors:
+  - Ahmed M. Abuzuraiq
+  - Philippe Pasquier
+  year: 2024
+  type: workshop
+  label: Workshop paper
+  venue: Workshop on Generative AI and HCI, CHI ’24
+  url: https://arxiv.org/abs/2404.17688
+  topics:
+  - authorship
+  - literacy
+  container: Workshop on Generative AI and HCI, CHI ’24
+  key: abuzuraiq2024seizing
+- title: Steering Latent Audio Models through Interactive Machine Learning
+  authors:
+  - Gabriel Vigliensoni
+  - Rebecca Fiebrink
+  year: 2023
+  type: conference
+  label: Conference paper
+  venue: Proceedings of the 14th International Conference on Computational Creativity
+    (ICCC ’23), 19–23
+  url: https://doi.org/10.5281/zenodo.8087978
+  topics:
+  - embodiment
+  - authorship
+  container: Proceedings of the 14th International Conference on Computational Creativity
+    (ICCC ’23), 19–23
+  key: vigliensoni2023steering
+- title: The BioSynth — An Affective Biofeedback Device Grounded in Feminist Thought
+  authors:
+  - Erin Gee
+  year: 2023
+  type: conference
+  label: Conference paper
+  venue: New Interfaces for Musical Expression (NIME 2023), Mexico City, Mexico
+  url: https://scholar.google.com/citations?view_op=view_citation&hl=en&user=eoAH79gAAAAJ&citation_for_view=eoAH79gAAAAJ:2osOgNQ5qMEC
+  topics:
+  - embodiment
+  - authorship
+  container: New Interfaces for Musical Expression (NIME 2023), Mexico City, Mexico
+  key: gee2023the
+- title: 'eTu{d,b}e: Case Studies in Playing with Musical Agents'
+  authors:
+  - Tommy Davis
+  - Kasey LV Pocius
+  - Vincent Cusson
+  - Marcelo Wanderley
+  - Philippe Pasquier
+  year: 2023
+  type: conference
+  label: Conference paper
+  venue: 'NIME 2023, Mexico City: 268–276'
+  url: https://doi.org/10.5281/zenodo.11189180
+  topics:
+  - embodiment
+  - authorship
+  container: NIME 2023, Mexico City
+  pages: 268–276
+  key: davis2023etudbe
+- title: Searching for Human Bias Against AI-Composed Music
+  authors:
+  - Zlatov
+  - Jeff Ens
+  - Philippe Pasquier
+  year: 2023
+  type: conference
+  label: Conference paper
+  venue: EvoMusArt 2023
+  url: https://doi.org/10.1007/978-3-031-29956-8_20
+  topics:
+  - authorship
+  container: EvoMusArt 2023
+  key: zlatov2023searching
+- title: A Small-Data Mindset for Generative AI Creative Work
+  authors:
+  - Gabriel Vigliensoni
+  - Phoenix Perry
+  - Rebecca Fiebrink
+  year: 2022
+  type: workshop
+  label: Workshop paper
+  venue: 'Generative AI and HCI: CHI 2022 Workshop'
+  url: https://doi.org/10.5281/zenodo.7086327
+  topics:
+  - small-data
+  - literacy
+  container: 'Generative AI and HCI: CHI 2022 Workshop'
+  key: vigliensoni2022a
+- title: 'R-VAE: Live Latent Space Drum Rhythm Generation from Minimal-Size Datasets'
+  authors:
+  - Gabriel Vigliensoni
+  - Louis McCallum
+  - Esteban Maestre
+  - Rebecca Fiebrink
+  year: 2022
+  type: journal
+  label: Journal article
+  venue: Journal of Creative Music Systems 1 (1)
+  url: https://doi.org/10.5920/jcms.902
+  topics:
+  - small-data
+  - embodiment
+  container: Journal of Creative Music Systems
+  volume: '1'
+  number: '1'
+  key: vigliensoni2022rvae
+- title: 'Spire Muse: A Virtual Musical Partner for Creative Brainstorming'
+  authors:
+  - Notto J. W. Thelle
+  - Philippe Pasquier
+  year: 2021
+  type: conference
+  label: Conference paper
+  venue: NIME 2021, Shanghai — Best Paper Award
+  url: https://doi.org/10.21428/92fbeb44.84c0b364
+  topics:
+  - embodiment
+  - authorship
+  container: NIME 2021, Shanghai
+  key: thelle2021spire
+  note: Best Paper Award
+- title: Generation and Visualization of Rhythmic Latent Spaces
+  authors:
+  - Gabriel Vigliensoni
+  - Louis McCallum
+  - Esteban Maestre
+  - Rebecca Fiebrink
+  year: 2020
+  type: conference
+  label: Conference paper
+  venue: Proceedings of the 2020 Joint Conference on AI Music Creativity
+  url: https://doi.org/10.5281/zenodo.4285422
+  topics:
+  - small-data
+  - embodiment
+  container: Proceedings of the 2020 Joint Conference on AI Music Creativity
+  key: vigliensoni2020generation
+- title: Creating Latent Spaces for Modern Music Genre Rhythms Using Minimal Training
+    Data
+  authors:
+  - Gabriel Vigliensoni
+  - Louis McCallum
+  - Rebecca Fiebrink
+  year: 2020
+  type: conference
+  label: Conference paper
+  venue: Proceedings of the Eleventh International Conference on Computational Creativity
+    (ICCC ’20), 259–262
+  url: https://doi.org/10.5281/zenodo.7415792
+  topics:
+  - small-data
+  container: Proceedings of the Eleventh International Conference on Computational
+    Creativity (ICCC ’20), 259–262
+  key: vigliensoni2020creating
+- title: Web-Based Dynamic Visualization of Rhythmic Latent Spaces
+  authors:
+  - Gabriel Vigliensoni
+  - Esteban Maestre
+  - Rebecca Fiebrink
+  year: 2020
+  type: conference
+  label: Conference paper
+  venue: Sound, Image and Interaction Design Symposium (SIIDS 2020)
+  url: https://doi.org/10.5281/zenodo.7438305
+  topics:
+  - embodiment
+  - literacy
+  container: Sound, Image and Interaction Design Symposium (SIIDS 2020)
+  key: vigliensoni2020webbased
+- title: 'Larynx Series, Voice of Echo, and Formants: Three Sound-Based Performance
+    Works'
+  authors:
+  - Erin Gee
+  year: 2020
+  type: journal
+  label: Journal article
+  venue: 'Canadian Theatre Review 184: 67–73'
+  url: https://doi.org/10.3138/ctr.184.013
+  topics:
+  - embodiment
+  - authorship
+  container: Canadian Theatre Review 184
+  pages: 67–73
+  key: gee2020larynx
+- title: Approaches to Biometrics in Experimental Sound Art
+  authors:
+  - Erin Gee
+  - Francisco Garcia
+  year: 2020
+  type: journal
+  label: Journal article
+  venue: 'PUBLIC Journal 60 (Biometrics: Mediating Bodies): 14–17'
+  url: https://doi.org/10.1386/public_00002_1
+  topics:
+  - embodiment
+  - literacy
+  container: 'PUBLIC Journal 60 (Biometrics: Mediating Bodies)'
+  pages: 14–17
+  key: gee2020approaches
+- title: 'Musical Agents: A Typology and State of the Art towards Musical Metacreation'
+  authors:
+  - Kıvanç Tatar
+  - Philippe Pasquier
+  year: 2019
+  type: journal
+  label: Journal article
+  venue: 'Journal of New Music Research 48 (1): 56–105'
+  url: https://doi.org/10.1080/09298215.2018.1511736
+  topics:
+  - authorship
+  - literacy
+  container: Journal of New Music Research
+  volume: '48'
+  number: '1'
+  pages: 56–105
+  key: tatar2019musical
+- title: 'Repetition as Radical Referral: Echo and Narcissus in the Digital Index'
+  authors:
+  - Erin Gee
+  year: 2013
+  type: journal
+  label: Journal article
+  venue: 'Sound Art Theories 2011, 23: 88–89'
+  url: https://doi.org/10.1162/LMJ_a_00165
+  topics:
+  - authorship
+  container: Sound Art Theories 2011, 23
+  pages: 88–89
+  key: gee2013repetition
+- title: Other Bodies, Other Voices
+  authors:
+  - Erin Gee
+  year: 2010
+  type: journal
+  label: Journal article
+  venue: eContact! Journal of the Canadian Electroacoustic Community 12.3
+  url: https://econtact.ca/12_3/gee_voices.html
+  topics:
+  - embodiment
+  container: eContact! Journal of the Canadian Electroacoustic Community 12.3
+  key: gee2010other
