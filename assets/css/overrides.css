@@ -1713,11 +1713,14 @@ body[data-page="works"] .archive-toolbar {
   margin-bottom: 1.2rem;
 }
 
-/* "All works" button in acid rather than ink. Scoped to this page so the
-   literature filters are untouched. */
-body[data-page="works"] .filter-button.is-active,
-body[data-page="works"] .filter-button.is-active:hover {
+/* Works toolbar as a filled acid box, matching the call page's deadline
+   panel: yellow ground, dark button sitting inside it, no rules top or
+   bottom since the fill does that job now. */
+body[data-page="works"] .archive-toolbar {
   background: var(--acid);
-  border-color: var(--acid);
-  color: var(--ink);
+  padding: 1.5rem;
+  border-bottom: 0;
+  margin-bottom: var(--section-space);
+  align-items: center;
+  min-height: 7.2rem;
 }
