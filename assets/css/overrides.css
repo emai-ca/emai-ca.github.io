@@ -1409,7 +1409,8 @@ body[data-page="people"] .page-lede {
 
 /* GAMMa card in coral, against the pale grey of the AIMC card beside it. */
 body[data-page="people"] .session-accent,
-body[data-page="works"] .session-accent {
+body[data-page="works"] .session-accent,
+body[data-page="publications"] .session-accent {
   background: var(--coral);
 }
 
@@ -1420,12 +1421,15 @@ body[data-page="works"] .session-accent {
 body[data-page="people"] .session-grid > div,
 body[data-page="people"] .session-grid p,
 body[data-page="works"] .session-grid > div,
-body[data-page="works"] .session-grid p {
+body[data-page="works"] .session-grid p,
+body[data-page="publications"] .session-grid > div,
+body[data-page="publications"] .session-grid p {
   color: var(--ink);
 }
 
 body[data-page="people"] .session-grid .session-year,
-body[data-page="works"] .session-grid .session-year {
+body[data-page="works"] .session-grid .session-year,
+body[data-page="publications"] .session-grid .session-year {
   color: var(--ink);
   opacity: 0.7;
 }
@@ -1735,18 +1739,21 @@ body[data-page="works"] .works-note {
   background: var(--coral);
 }
 
-body[data-page="works"] .works-outro { padding-bottom: var(--section-space); }
+body[data-page="works"] .works-outro,
+body[data-page="publications"] .works-outro { padding-bottom: var(--section-space); }
 
 /* Second outro box links through to the literature page. The arrow sits
    bottom-right and stretches over the card, so the whole box is the hit
    area — same approach as the route cards and the literature entries. */
-body[data-page="works"] .session-link {
+body[data-page="works"] .session-link,
+body[data-page="publications"] .session-link {
   position: relative;
   display: flex;
   flex-direction: column;
 }
 
-body[data-page="works"] .session-arrow {
+body[data-page="works"] .session-arrow,
+body[data-page="publications"] .session-arrow {
   align-self: flex-end;
   margin-top: auto;
   font-size: 1.5rem;
@@ -1754,18 +1761,21 @@ body[data-page="works"] .session-arrow {
   transition: transform 160ms ease, color 160ms ease;
 }
 
-body[data-page="works"] .session-arrow::after {
+body[data-page="works"] .session-arrow::after,
+body[data-page="publications"] .session-arrow::after {
   content: '';
   position: absolute;
   inset: 0;
 }
 
-body[data-page="works"] .session-link:hover .session-arrow {
+body[data-page="works"] .session-link:hover .session-arrow,
+body[data-page="publications"] .session-link:hover .session-arrow {
   color: var(--coral);
   transform: translate(2px, -2px);
 }
 
-body[data-page="works"] .session-link:focus-within {
+body[data-page="works"] .session-link:focus-within,
+body[data-page="publications"] .session-link:focus-within {
   outline: 2px solid var(--coral);
   outline-offset: -2px;
 }

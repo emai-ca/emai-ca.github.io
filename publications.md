@@ -70,4 +70,9 @@ nav: publications
   <article class="publication-item" data-type="journal" data-topics="embodiment"><span class="pub-year">2010</span><div><p class="pub-type">Journal article</p><h2>Other Bodies, Other Voices</h2><p>Erin Gee · eContact! Journal of the Canadian Electroacoustic Community 12.3</p></div><a href="https://econtact.ca/12_3/gee_voices.html" aria-label="Read publication">↗</a></article>
 </div></section>
 
-<section class="open-resources"><div class="content-wide open-resource-grid"><div><span class="section-label">Beyond the paper</span><h2>Documentation is part of the work.</h2></div><p>EMAI will produce documentation, curated datasets, research-creation outputs, and audiovisual records of performances and workshops.</p></div></section>
+<section class="content-wide works-outro">
+  <div class="session-grid">
+    <div class="session-accent"><span class="session-year">Ongoing</span><h2>Documentation is part of the work</h2><p>EMAI will produce documentation, curated datasets, research-creation outputs, and audiovisual records of performances and workshops.</p></div>
+    <div class="session-link"><span class="session-year">Related</span><h2>The work itself</h2><p>Performances, instruments and releases made within the project.</p><a class="session-arrow" href="{{ '/works/' | relative_url }}" aria-label="Go to the creative works page"><span aria-hidden="true">↗</span></a></div>
+  </div>
+</section>
