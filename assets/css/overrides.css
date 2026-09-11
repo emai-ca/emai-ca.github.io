@@ -2129,8 +2129,8 @@ body[data-page="contact"] .page-hero h1 {
   }
 }
 
-/* Balance footer signatures in both tablet orientations. */
-@media (min-width: 601px) and (max-width: 1400px) and (any-pointer: coarse) {
+/* Keep footer signatures compact on portrait tablets. */
+@media (min-width: 601px) and (max-width: 1400px) and (any-pointer: coarse) and (orientation: portrait) {
   .institution-grid {
     width: 92vw;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -2156,5 +2156,32 @@ body[data-page="contact"] .page-hero h1 {
     width: 100%;
     max-width: 620px;
     max-height: 64px;
+  }
+}
+
+/* Landscape tablets use the desktop logo row and its optical alignment. */
+@media (min-width: 601px) and (max-width: 1400px) and (any-pointer: coarse) and (orientation: landscape) {
+  .institution-band { padding: 2rem 0; }
+
+  .institution-grid {
+    width: min(1800px, 94vw);
+    grid-template-columns: minmax(0, 4.5fr) minmax(0, 2.9fr) minmax(0, 4.6fr) minmax(0, 7.9fr) minmax(0, 16.5fr);
+    gap: clamp(1rem, 2vw, 2rem);
+  }
+
+  .institution-grid .institution-logo {
+    grid-column: auto;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    max-height: none;
+  }
+
+  .institution-grid .institution-logo:nth-child(-n+4) {
+    transform: translateX(clamp(12px, 1.5vw, 27px));
+  }
+
+  .institution-grid .institution-sshrc {
+    transform: translateY(5%);
   }
 }
