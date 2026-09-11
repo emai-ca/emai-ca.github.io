@@ -1853,14 +1853,16 @@ body[data-page="publications"] .toolbar-actions {
 
   .institution-cirmmt {
     grid-column: 1 / -1;
-    max-width: 100%;
-    max-height: 36px;
+    max-width: 78%;
+    max-height: 30px;
   }
 
+  /* SSHRC is a thin strip of small text next to CIRMMT's full-height block
+     letters, so it needs more height to read at the same scale. */
   .institution-sshrc {
     grid-column: 1 / -1;
     max-width: 100%;
-    max-height: 28px;
+    max-height: 38px;
   }
 }
 
