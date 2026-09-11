@@ -42,13 +42,13 @@ nav: publications
 <section id="archive" class="content-wide archive-section"><div class="archive-toolbar"><div class="filter-group" role="group" aria-label="Filter publications"><button class="filter-button is-active" data-filter="all" type="button">All</button><button class="filter-button" data-filter="journal" type="button">Journals</button><button class="filter-button" data-filter="conference" type="button">Conferences</button><button class="filter-button" data-filter="workshop" type="button">Workshops</button></div></div><div class="publication-list">
   {%- assign pubs = site.data.publications | sort: "year" | reverse -%}
   {%- for p in pubs %}
-  <article class="publication-item" data-type="{{ p.type }}" data-topics="{{ p.topics | join: ' ' }}"><span class="pub-year">{{ p.year }}</span><div><p class="pub-type">{{ p.label }}</p><h2>{{ p.title }}</h2><p>{% for a in p.authors %}{{ a }}{% unless forloop.last %}{% if forloop.rindex == 2 %} and {% else %}, {% endif %}{% endunless %}{% endfor %} · {{ p.venue }}</p></div>{% if p.url %}<a href="{{ p.url }}" aria-label="Read publication">↗</a>{% endif %}</article>
+  <article class="publication-item" data-type="{{ p.type }}" data-topics="{{ p.topics | join: ' ' }}"><span class="pub-year">{{ p.year }}</span><div><p class="pub-type">{{ p.label }}</p><h2>{{ p.title }}</h2><p>{% for a in p.authors %}{{ a }}{% unless forloop.last %}{% if forloop.rindex == 2 %} and {% else %}, {% endif %}{% endunless %}{% endfor %} · {{ p.venue }}</p></div>{% if p.url %}<a href="{{ p.url }}" aria-label="Read publication"><span class="mobile-arrow" aria-hidden="true">↗</span></a>{% endif %}</article>
   {%- endfor %}
 </div></section>
 
 <section class="content-wide works-outro">
   <div class="session-grid">
     <div class="session-accent"><span class="session-year">Ongoing</span><h2>The archive will grow</h2><p>EMAI will produce documentation, curated datasets, research-creation outputs, and audiovisual records of performances and workshops.</p></div>
-    <div class="session-link"><span class="session-year">Related</span><h2>Creative Works</h2><p>Previous performances and releases of the team.</p><a class="session-arrow" href="{{ '/works/' | relative_url }}" aria-label="Go to the creative works page"><span aria-hidden="true">↗</span></a></div>
+    <div class="session-link"><span class="session-year">Related</span><h2>Creative Works</h2><p>Previous performances and releases of the team.</p><a class="session-arrow" href="{{ '/works/' | relative_url }}" aria-label="Go to the creative works page"><span class="mobile-arrow" aria-hidden="true">↗</span></a></div>
   </div>
 </section>

@@ -15,7 +15,7 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
   <div><span>Application deadline</span><strong>October 16, 2026</strong><small>11:59 p.m. Eastern Time</small></div>
   <div><span>Expected start</span><strong>September 2027</strong><small>Montréal, Canada</small></div>
   <div><span>Funding</span><strong>$33,000 CAD</strong><small>per year / three years</small></div>
-  <a class="button button-dark" href="mailto:info@emai.ca?subject=Question%20—%20EMAI%20PhD%20fellowships">Ask a question <span aria-hidden="true">↗</span></a>
+  <a class="button button-dark" href="mailto:info@emai.ca?subject=Question%20—%20EMAI%20PhD%20fellowships">Ask a question <span class="mobile-arrow" aria-hidden="true">↗</span></a>
 </section>
 
 <section class="content-wide split-section">

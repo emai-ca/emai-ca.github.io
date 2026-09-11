@@ -23,6 +23,6 @@ nav: works
 <section class="content-wide works-outro">
   <div class="session-grid">
     <div class="session-accent"><span class="session-year">Ongoing</span><h2>The archive will grow</h2><p>New works, prototypes, performances, and documentation will be added as EMAI’s investigators develop them.</p></div>
-    <div class="session-link"><span class="session-year">Related</span><h2>Publications</h2><p>Papers, articles and workshops (in)forming this work.</p><a class="session-arrow" href="{{ '/publications/' | relative_url }}" aria-label="Go to the publications page"><span aria-hidden="true">↗</span></a></div>
+    <div class="session-link"><span class="session-year">Related</span><h2>Publications</h2><p>Papers, articles and workshops (in)forming this work.</p><a class="session-arrow" href="{{ '/publications/' | relative_url }}" aria-label="Go to the publications page"><span class="mobile-arrow" aria-hidden="true">↗</span></a></div>
   </div>
 </section>

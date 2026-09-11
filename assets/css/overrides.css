@@ -2033,3 +2033,48 @@ body[data-page="contact"] .page-hero h1 {
     width: 100%;
   }
 }
+
+/* Phone typography and arrows: keep the title together and avoid iOS emoji. */
+@media (max-width: 600px) {
+  body[data-page="home"] .hero h1 {
+    font-size: clamp(2rem, 12vw, 4.5rem);
+  }
+
+  body[data-page="home"] .hero-title-opening {
+    white-space: nowrap;
+  }
+
+  .mobile-arrow {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+    text-indent: -9999px;
+    vertical-align: -0.1em;
+    background-color: currentColor;
+    -webkit-mask: url('../img/arrow-up-right.svg') center / contain no-repeat;
+    mask: url('../img/arrow-up-right.svg') center / contain no-repeat;
+  }
+}
+
+/* Keep phone video controls crisp instead of using the iOS play emoji. */
+@media (max-width: 600px) {
+  .work-play {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 56px;
+    height: 56px;
+    padding: 0;
+  }
+
+  .work-play > span {
+    display: block;
+    width: 17px;
+    height: 20px;
+    margin-left: 4px;
+    overflow: hidden;
+    text-indent: -9999px;
+    background: currentColor;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+  }
+}

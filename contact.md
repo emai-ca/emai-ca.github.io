@@ -41,7 +41,7 @@ description: "Contact EMAI — general project inquiries and the supervisors for
 <section class="content-wide split-section applying-section">
   <div class="rich-copy">
     <p>Applications are not sent to individual supervisors. Submit your complete application as a single PDF to <a class="text-link" href="mailto:info@emai.ca?subject=PhD%20Application%20%E2%80%93%20EMAI%20%E2%80%93%20LAST%20NAME%20First%20Name">info@emai.ca</a>, following the requirements set out in the call.</p>
-    <a class="button button-dark" href="{{ '/call/' | relative_url }}">Read the call <span aria-hidden="true">↗</span></a>
+    <a class="button button-dark" href="{{ '/call/' | relative_url }}">Read the call <span class="mobile-arrow" aria-hidden="true">↗</span></a>
   </div>
 </section>
 
