@@ -745,6 +745,7 @@ body[data-page="home"] {
 body[data-page="home"] .home-intro,
 body[data-page="home"] .home-route {
   padding: var(--home-section-space) 0;
+  padding-top: calc(var(--section-space) * 1.7);
 }
 
 /* padding-bottom 0 so this section and .home-route below it
@@ -1177,11 +1178,20 @@ body[data-page="home"] .leadership-band > .content-wide {
   padding: clamp(1.5rem, 3vw, 3rem);
 }
 
-/* Two open rows with shared column alignment and fine horizontal rules. */
+/* Two open rows with shared column alignment. The rule above "About the
+   project" is gone; "A shared project" keeps its own. */
 body[data-page="home"] .home-intro,
 body[data-page="home"] .split-section.about-foot {
-  border-top: 1px solid var(--line);
   padding-block: calc(var(--section-space) * 1.5);
+}
+
+body[data-page="home"] .split-section.about-foot {
+  border-top: 1px solid var(--line);
+}
+
+/* With no rule above it, that top padding was just empty space. */
+body[data-page="home"] .home-intro {
+  padding-top: calc(var(--section-space) * 0.9);
 }
 
 body[data-page="home"] .home-intro .intro-grid,
@@ -1198,8 +1208,8 @@ body[data-page="home"] .about-foot p {
 }
 
 body[data-page="home"] .split-section.about-foot {
-  border-bottom: 1px solid var(--line);
   margin-bottom: var(--section-space);
+  padding-bottom: calc(var(--section-space) * 0.9);
 }
 
 @media (max-width: 800px) {
@@ -1839,7 +1849,7 @@ body[data-page="publications"] .toolbar-actions {
 }
 
 /* Emphasize the EMAI name without enlarging the accompanying project title. */
-.wordmark > span:nth-child(2) { font-size: 2.65rem; line-height: 1; }
+.wordmark > span:nth-child(2) { font-size: 3rem; line-height: 1; }
 
 /* Align the homepage hero with the shared content and application panel edges. */
 body[data-page="home"] .hero {
