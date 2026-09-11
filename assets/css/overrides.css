@@ -1834,17 +1834,34 @@ body[data-page="publications"] .toolbar-actions {
   .institution-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
 }
 @media (max-width: 440px) {
-  .institution-grid { grid-template-columns: 1fr; gap: 1.75rem; }
-  /* Cap by height, not width. Capping width makes an 8:1 logo render at half
-     the height of a 4:1 one, which is what made these look uneven. */
+  /* Phone: the three universities share one row, then CIRMMT, then SSHRC.
+     Capped by height so logos of different proportions read at one scale. */
+  .institution-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem 0.75rem;
+    align-items: center;
+  }
+
   .institution-logo {
     width: auto;
     max-width: 100%;
-    max-height: 44px;
+    max-height: 30px;
+    transform: none;
   }
-  .institution-udem { max-width: 100%; max-height: 49px; }
-  .institution-cirmmt { max-width: 100%; max-height: 38px; }
-  .institution-sshrc { grid-column: auto; max-width: 100%; max-height: 31px; }
+
+  .institution-udem { max-width: 100%; max-height: 30px; }
+
+  .institution-cirmmt {
+    grid-column: 1 / -1;
+    max-width: 100%;
+    max-height: 36px;
+  }
+
+  .institution-sshrc {
+    grid-column: 1 / -1;
+    max-width: 100%;
+    max-height: 28px;
+  }
 }
 
 /* Keep the copyright centered between the two footer signatures. */
