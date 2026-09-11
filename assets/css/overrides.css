@@ -1978,3 +1978,14 @@ body[data-page="contact"] .page-hero h1 {
   font-size: var(--display-1);
   margin-bottom: 1.5rem;
 }
+
+/* On phones the position headings must be allowed to wrap. nowrap plus the
+   flat 1.5rem size needs ~350px for "Supervisor: Gabriel Vigliensoni" in a
+   ~285px column, and the overflow makes the browser zoom the whole page out —
+   which is why the call page rendered smaller than the others on mobile. */
+@media (max-width: 700px) {
+  .position-card h2 {
+    white-space: normal;
+    font-size: 1.25rem;
+  }
+}
