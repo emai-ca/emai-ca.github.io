@@ -502,6 +502,23 @@
   container: 'PUBLIC Journal 60 (Biometrics: Mediating Bodies)'
   pages: 14–17
   key: gee2020approaches
+- title: Automation as Echo
+  authors:
+  - Erin Gee
+  - S. Audry
+  year: 2019
+  type: journal
+  label: Journal article
+  venue: 'ASAP/Journal 4 (2): 307–312'
+  url: https://doi.org/10.1353/asa.2019.0025
+  topics:
+  - authorship
+  - embodiment
+  container: ASAP/Journal
+  volume: '4'
+  number: '2'
+  pages: 307–312
+  key: gee2019automation
 - title: 'Musical Agents: A Typology and State of the Art towards Musical Metacreation'
   authors:
   - Kıvanç Tatar
