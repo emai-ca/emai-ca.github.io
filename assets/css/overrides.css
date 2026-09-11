@@ -652,7 +652,7 @@ body[data-page="call"] .section-label,
 
   /* Hero heading scale, matching the size the other page heroes
      already use, so no page's headline reads as odd next to the rest. */
-  --display-1: clamp(4rem, 8vw, 8rem);
+  --display-1: clamp(3.5rem, 7vw, 7.2rem);
 }
 
 /* Keep the call compact without shrinking the application text. */
@@ -913,7 +913,7 @@ body[data-page="contact"] .page-hero {
    (16vw) still governs phones. */
 @media (min-width: 801px) {
   body[data-page="home"] .hero h1 {
-    font-size: clamp(3.5rem, 7vw, 7.2rem);
+    font-size: var(--display-1);
   }
 }
 
@@ -1076,7 +1076,8 @@ body[data-page="home"] .about-foot h2 {
    clamp(4rem, 8vw, 8rem) against home's clamp(3.5rem, 7vw, 7.2rem), and the
    lede at 1.3rem against home's 1.15rem. */
 body[data-page="publications"] .page-hero h1 {
-  font-size: clamp(3.5rem, 7vw, 7.2rem);
+  font-size: var(--display-1);
+  margin-bottom: 1.5rem;
 }
 
 body[data-page="publications"] .page-lede {
@@ -1951,4 +1952,10 @@ body[data-page="publications"] .works-outro .session-link { padding-bottom: 4rem
 .route-card:focus-visible .route-arrow {
   color: var(--coral);
   transform: translate(2px, -2px);
+}
+
+/* Contact was the last hero still on the base rule. */
+body[data-page="contact"] .page-hero h1 {
+  font-size: var(--display-1);
+  margin-bottom: 1.5rem;
 }
