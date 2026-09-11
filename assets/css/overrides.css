@@ -2034,16 +2034,33 @@ body[data-page="contact"] .page-hero h1 {
   }
 }
 
-/* Phone typography and arrows: keep the title together and avoid iOS emoji. */
+/* Keep the project label and opening title line together on phones. */
 @media (max-width: 600px) {
+  body[data-page="home"] .hero .eyebrow {
+    font-size: min(2.25vw, 0.65rem);
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  body[data-page="home"] .hero .eyebrow .live-dot {
+    width: 0.7em;
+    height: 0.7em;
+    margin-right: 0.4em;
+    box-shadow: 0 0 0 0.3em rgba(255, 117, 95, 0.16);
+  }
+
   body[data-page="home"] .hero h1 {
-    font-size: clamp(2rem, 12vw, 4.5rem);
+    font-size: clamp(2rem, 13vw, 4.875rem);
   }
 
   body[data-page="home"] .hero-title-opening {
     white-space: nowrap;
   }
 
+}
+
+/* Touch devices need drawn icons at every width, including landscape tablets. */
+@media (max-width: 600px), (any-pointer: coarse) {
   .mobile-arrow {
     display: inline-block;
     width: 1em;
@@ -2057,13 +2074,11 @@ body[data-page="contact"] .page-hero h1 {
   }
 }
 
-/* Keep phone video controls crisp instead of using the iOS play emoji. */
-@media (max-width: 600px) {
+/* Preserve the larger tablet control while avoiding the iOS play emoji. */
+@media (max-width: 600px), (any-pointer: coarse) {
   .work-play {
     -webkit-appearance: none;
     appearance: none;
-    width: 56px;
-    height: 56px;
     padding: 0;
   }
 
@@ -2076,5 +2091,12 @@ body[data-page="contact"] .page-hero h1 {
     text-indent: -9999px;
     background: currentColor;
     clip-path: polygon(0 0, 100% 50%, 0 100%);
+  }
+}
+
+@media (max-width: 600px) {
+  .work-play {
+    width: 56px;
+    height: 56px;
   }
 }
