@@ -9,30 +9,10 @@ description: "A research-creation project investigating agency, embodiment, and 
   <div class="hero-copy reveal">
     <p class="eyebrow"><span class="live-dot"></span> EMAI / Four-year research-creation project / Montréal</p>
     <h1>Embodying AI:<br>Music Making<br><em>Beyond the Prompt</em><span class="accent">.</span></h1>
-    <p class="hero-intro">EMAI brings researchers and musicians together to investigate new ways of approaching music composition and performance beyond text prompts.</p>
+    <p class="hero-intro">EMAI brings researchers and musicians together to investigate the exercise of agency in music composition and performance with machine learning systems.</p>
     <div class="hero-actions">
       <a class="button button-dark" href="{{ '/call/' | relative_url }}">See the call <span aria-hidden="true">↗</span></a>
     </div>
-  </div>
-  <div class="atlas-area">
-  <div class="atlas-orbit reveal" aria-label="EMAI ATLAS" role="group">
-    <svg class="atlas-rings" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
-      <circle cx="50" cy="50" r="34" />
-      <circle class="atlas-inner-ring" cx="50" cy="50" r="21" />
-      <path d="M26 26L74 74M74 26L26 74" />
-    </svg>
-    <button class="atlas-node node-center" data-theme="all" type="button"><span>EMAI</span><small>ATLAS</small></button>
-    <button class="atlas-node node-one" data-theme="embodiment" type="button">embodiment</button>
-    <button class="atlas-node node-two" data-theme="small-data" type="button">small data</button>
-    <button class="atlas-node node-three" data-theme="authorship" type="button">authorship</button>
-    <button class="atlas-node node-four" data-theme="literacy" type="button">literacy</button>
-  </div>
-  <aside class="atlas-definition" id="atlas-definition" aria-labelledby="atlas-definition-title" tabindex="-1" hidden>
-    <button class="atlas-definition-close" type="button" aria-label="Close definition">×</button>
-    <h2 id="atlas-definition-title"></h2>
-    <p id="atlas-definition-text"></p>
-    <a class="atlas-literature-link" href="{{ '/publications/' | relative_url }}#constellation" hidden>Go to the publications constellation <span aria-hidden="true">↗</span></a>
-  </aside>
   </div>
 </section>
 
@@ -46,7 +26,7 @@ description: "A research-creation project investigating agency, embodiment, and 
 
 <section class="home-intro content-wide" id="project">
   <div class="intro-grid">
-    <h2>The<br><em>premise</em><span class="accent">.</span></h2>
+    <h2>About<br><em>the project</em><span class="accent">.</span></h2>
     <div>
       <p>Large AI models trained on massive datasets can convincingly imitate familiar musical styles, but interaction through text prompts offers limited control for sustained creative practice and live performance. These models also struggle to support culturally diverse repertoires. EMAI aims to address these limitations by developing and sharing approaches centred on <strong>embodiment</strong>, <strong>small data</strong>, <strong>authorship</strong>, and <strong>literacy</strong>.</p>
     </div>
@@ -54,7 +34,7 @@ description: "A research-creation project investigating agency, embodiment, and 
 </section>
 
 <section class="content-wide split-section about-foot">
-  <h2>A shared<br><em>project</em><span class="accent">.</span></h2>
+  <h2>Host<br><em>labs</em><span class="accent">.</span></h2>
   <div class="rich-copy">
     <p>Doctoral researchers will join a team working across the Potential Lab for Art, Sound, and Music (PLASM) at Concordia, the Laboratoire formes·ondes (LFO) at UdeM, and the Metacreation Lab at SFU, with CIRMMT—Canada's largest interdisciplinary music research centre—serving as the project's shared research hub.</p>
   </div>

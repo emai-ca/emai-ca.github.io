@@ -4,13 +4,13 @@ title: Publications
 nav: publications
 ---
 
-<section class="page-hero content-wide reveal"><p class="eyebrow"><span class="live-dot"></span> EMAI / Research and Publications</p><h1>The research<br><em>behind the project</em><span class="accent">.</span></h1><p class="page-lede">Articles, papers, workshops surrounding embodied interaction and creative AI for music.</p></section>
+<section class="page-hero content-wide reveal"><p class="eyebrow"><span class="live-dot"></span> EMAI / Research and Publications</p><h1>The Team<br><em>in words</em><span class="accent">.</span></h1><p class="page-lede">Articles, papers, and workshops across EMAI’s research areas.</p></section>
 
 <section class="content-wide constellation-section" id="constellation">
-  <div class="archive-toolbar"><div><div class="section-label">Research constellation</div><p class="constellation-intro">Explore how EMAI's investigations travel across methods, people, and publications.</p></div><div class="toolbar-actions"><a class="button button-dark" href="{{ '/emai-literature.bib' | relative_url }}" download>Download .bib <span aria-hidden="true">↓</span></a></div></div>
+  <div class="archive-toolbar"><div><div class="section-label">Publications</div><p class="constellation-intro">Research by the team and their research groups. EMAI’s own publications are still to come.</p></div><div class="toolbar-actions"><a class="button button-dark" href="{{ '/emai-literature.bib' | relative_url }}" download>Download .bib <span aria-hidden="true">↓</span></a></div></div>
   <div class="constellation" role="group" aria-label="Interactive map of EMAI research themes and publications">
     <div class="constellation-map">
-    <p class="constellation-filter-label">Filter the constellation</p>
+    
     <div class="constellation-stage">
       <svg class="constellation-orbits" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
         <circle class="orbit-ring orbit-ring-main" cx="50" cy="50" r="34"/>
@@ -25,13 +25,13 @@ nav: publications
       <button class="constellation-node node-root" data-topic="all" type="button">All</button>
       <button class="constellation-node node-topic topic-body" data-topic="embodiment" type="button">embodiment</button>
       <button class="constellation-node node-topic topic-data" data-topic="small-data" type="button">small data</button>
-      <button class="constellation-node node-topic topic-agency" data-topic="authorship" type="button">agency / authorship</button>
+      <button class="constellation-node node-topic topic-agency" data-topic="authorship" type="button">authorship</button>
       <button class="constellation-node node-topic topic-method" data-topic="literacy" type="button">artist literacy</button>
     </div>
     </div>
     <div class="constellation-results">
-      <h2 id="constellation-heading">Explore the publications</h2>
-      <p id="constellation-description">Select a theme to discover related publications.</p>
+      
+      <p id="constellation-description">Filter by theme to related publications.</p>
       <p id="constellation-count" role="status"></p>
       <ul id="constellation-reading-list"></ul>
       <a class="text-link" href="#archive">Browse the archive <span aria-hidden="true">↓</span></a>
@@ -48,7 +48,7 @@ nav: publications
 
 <section class="content-wide works-outro">
   <div class="session-grid">
-    <div class="session-accent"><span class="session-year">Ongoing</span><h2>Documentation is part of the work</h2><p>EMAI will produce documentation, curated datasets, research-creation outputs, and audiovisual records of performances and workshops.</p></div>
-    <div class="session-link"><span class="session-year">Related</span><h2>The work itself</h2><p>Performances, instruments and releases made within the project.</p><a class="session-arrow" href="{{ '/works/' | relative_url }}" aria-label="Go to the creative works page"><span aria-hidden="true">↗</span></a></div>
+    <div class="session-accent"><span class="session-year">Ongoing</span><h2>The archive will grow</h2><p>EMAI will produce documentation, curated datasets, research-creation outputs, and audiovisual records of performances and workshops.</p></div>
+    <div class="session-link"><span class="session-year">Related</span><h2>Creative Works</h2><p>Previous performances and releases of the team.</p><a class="session-arrow" href="{{ '/works/' | relative_url }}" aria-label="Go to the creative works page"><span aria-hidden="true">↗</span></a></div>
   </div>
 </section>

@@ -8,7 +8,7 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
 <section class="page-hero content-wide reveal">
   <p class="eyebrow"><span class="live-dot"></span> EMAI / Call for Applications 2026</p>
   <h1>Three funded<br><em>PhD fellowships</em><span class="accent">.</span></h1>
-  <p class="page-lede">Join a research-creation team developing embodied, small-data machine learning systems for music composition and performance, at Concordia University and Université de Montréal in Montréal, Canada.</p>
+  <p class="page-lede">A research-creation team developing embodied, small-data machine learning systems for music composition and performance, in Montréal, Canada.</p>
 </section>
 
 <section class="deadline-panel content-wide">
@@ -47,7 +47,7 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
       <p>This position explores data- and interaction-driven approaches to sound- and music-making with machine learning. The fellow will curate small, context-specific datasets; train, fine-tune, and appropriate generative audio models; and use machine learning to craft embodied mappings between the human performance space (gestural and tactile controllers, movement, multimodal input) and the latent space of neural audio synthesis models, treating their parameters as expressive, performable resources for shaping musical structure in real time.</p>
       <p>The fellow will compose and premiere new works with these systems and co-author publications, open datasets, models, and artist-readable documentation.</p>
       </details>
-      <div class="tag-row"><span>PLASM</span><span>Milieux Institute</span><span>INDI PhD</span><span>Generative audio</span><span class="tag-lang">English required</span></div>
+      <div class="tag-row"><span>PLASM</span><span>Milieux Institute</span><span>INDI PhD</span><span>Generative audio</span><span>Small data</span><span class="tag-lang">English required</span></div>
     </div>
   </article>
 
@@ -85,7 +85,7 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
         <p>Candidates interested in expanding the conceptual and aesthetic models through which embodiment, intelligence, agency, and interaction are understood — drawing on feminist and queer theory, disability studies, critical approaches to technology, non-Western epistemologies, or other cultural and philosophical traditions as resources for the design of new interfaces and computational systems. Through iterative prototyping, composition, performance, and/or installation, the doctoral project will contribute new approaches to embodied and situated AI for music.</p>
       </div>
       </details>
-      <div class="tag-row"><span>formes·ondes</span><span>PhD or DMus</span><span>Biofeedback</span><span>Human–computer interaction</span><span class="tag-lang">English required</span><span class="tag-lang">French required</span></div>
+      <div class="tag-row"><span>formes·ondes</span><span>PhD or DMus</span><span>Biofeedback</span><span>Sensors and materials</span><span class="tag-lang">English required</span><span class="tag-lang">French required</span></div>
     </div>
   </article>
 
@@ -97,7 +97,7 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
   <div class="support-grid">
     <div class="support-item">
       <h3>Fellowship</h3>
-      <p>$33,000 CAD per year for three years, for each of the three positions.</p>
+      <p>$33,000 CAD per year for three years, for each of the three positions, funded by the Social Sciences and Humanities Research Council (SSHRC).</p>
     </div>
     <div class="support-item">
       <h3>External awards</h3>

@@ -84,7 +84,13 @@ if (archive) {
   const updateLiterature = () => {
     const related = publications.filter((item) => selectedTopic === 'all' || item.dataset.topics.split(' ').includes(selectedTopic));
     const visible = related;
-    publications.forEach((item) => { item.hidden = selectedType !== 'all' && item.dataset.type !== selectedType; });
+    // The archive honours both filters: the theme picked on the constellation
+    // and the type picked in the archive toolbar.
+    publications.forEach((item) => {
+      const topicOk = selectedTopic === 'all' || item.dataset.topics.split(' ').includes(selectedTopic);
+      const typeOk = selectedType === 'all' || item.dataset.type === selectedType;
+      item.hidden = !(topicOk && typeOk);
+    });
     topicControls.forEach((button) => {
       const selected = (button.dataset.topicFilter || button.dataset.topic) === selectedTopic;
       button.classList.toggle('is-active', selected);
@@ -99,10 +105,15 @@ if (archive) {
     const list = document.querySelector('#constellation-reading-list');
     if (!list) return;
     const definition = atlasDefinitions[selectedTopic];
-    document.querySelector('#constellation-heading').textContent = selectedTopic === 'all' ? 'Explore the publications' : definition[0];
-    document.querySelector('#constellation-description').textContent = selectedTopic === 'all'
-      ? 'Select a theme to discover related publications.' : definition[1];
-    document.querySelector('#constellation-count').textContent = `${visible.length} matching publications · Showing ${Math.min(3, visible.length)}`;
+    // These are optional — the panel can be trimmed without breaking the list.
+    const setText = (sel, text) => {
+      const el = document.querySelector(sel);
+      if (el) el.textContent = text;
+    };
+    setText('#constellation-heading', selectedTopic === 'all' ? 'Read the publications' : definition[0]);
+    setText('#constellation-description', selectedTopic === 'all'
+      ? 'Filter by theme to related publications.' : definition[1]);
+    setText('#constellation-count', `${visible.length} matching publications · Showing ${Math.min(3, visible.length)}`);
     list.replaceChildren();
     visible.slice(0, 3).forEach((item) => {
       const row = document.createElement('li');
