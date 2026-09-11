@@ -1,13 +1,10 @@
 <?xml version="1.0"?>
-<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="390" height="53" style="enable-background:new">
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="390" height="53" viewBox="0 0 390 53" style="enable-background:new">
 
 
 <g class="logo-title">
   <style type="text/css">
     g.logo-title { fill: black; }
-    @media only screen and (prefers-color-scheme: dark) {
-        g.logo-title { fill: white; }
-    }
   </style>
 
   <g class="logo-title-en"
