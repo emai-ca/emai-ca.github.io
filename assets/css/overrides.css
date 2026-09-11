@@ -1840,11 +1840,11 @@ body[data-page="publications"] .toolbar-actions {
   .institution-logo {
     width: auto;
     max-width: 100%;
-    max-height: 52px;
+    max-height: 44px;
   }
-  .institution-udem { max-width: 100%; max-height: 58px; }
-  .institution-cirmmt { max-width: 100%; max-height: 44px; }
-  .institution-sshrc { grid-column: auto; max-width: 100%; max-height: 36px; }
+  .institution-udem { max-width: 100%; max-height: 49px; }
+  .institution-cirmmt { max-width: 100%; max-height: 38px; }
+  .institution-sshrc { grid-column: auto; max-width: 100%; max-height: 31px; }
 }
 
 /* Keep the copyright centered between the two footer signatures. */
@@ -1987,5 +1987,30 @@ body[data-page="contact"] .page-hero h1 {
   .position-card h2 {
     white-space: normal;
     font-size: 1.25rem;
+  }
+}
+
+/* The call banner runs two columns down to 800px, which on a phone squeezes
+   the deadline in beside a tall stack of text. Below 600px give each part its
+   own row and quiet the funder line so it stops competing with the heading. */
+@media (max-width: 600px) {
+  .call-banner-inner {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .call-banner-inner > div:first-child > span:last-child {
+    font-size: 0.75rem;
+    line-height: 1.45;
+  }
+
+  .call-banner-detail {
+    padding-top: 1rem;
+    border-top: 1px solid rgba(23, 33, 36, 0.25);
+  }
+
+  .call-banner .button {
+    grid-column: auto;
+    width: 100%;
   }
 }
