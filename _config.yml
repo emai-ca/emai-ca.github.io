@@ -10,7 +10,7 @@ lang: en
 # MUST set baseurl to "/REPO-NAME" or every link, stylesheet, and script 404s.
 #   url:     "https://username.github.io"
 #   baseurl: "/EMAI-WEBSITE"
-url: ""
+url: "https://emai.ca"
 baseurl: ""
 
 markdown: kramdown
