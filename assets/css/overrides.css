@@ -2680,3 +2680,30 @@ body[data-page="home"] .hero-intro {
     max-width: 460px;
   }
 }
+
+/* Phones. Until now no surface existed below 701px at all, so there were no
+   rules here — without them a phone would inherit the desktop placement
+   (116% of the hero height), which is far too big for the screen. */
+@media (max-width: 700px) {
+  /* The phone hero is tight — headline, lede and button fill it — so a hand
+     placed on the right always landed on the grey lede, and anchoring it
+     below the hero only worked where the hero happened to be tall. Each hero
+     gets a band at its foot instead, and the hand lives there: no shared
+     space with the text on any page, whatever its height. */
+  /* Specific enough to beat the per-page padding rules further up — the call
+     page sets its own, and a plain .page-hero selector lost to it. */
+  body[data-page] main > section.hero,
+  body[data-page] main > section.page-hero {
+    padding-bottom: 170px;
+  }
+
+  .hand-surface {
+    right: -4%;
+    bottom: 10px;
+    width: 38vw;
+    height: auto;
+    max-height: none;
+  }
+
+  .hand-surface.is-live { opacity: 0.85; }
+}

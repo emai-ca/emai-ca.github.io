@@ -281,7 +281,7 @@ if (splash) {
     const main = document.getElementById('main-content');
     const behind = [document.querySelector('.site-header'), main,
       document.querySelector('.institution-band'), document.querySelector('.site-footer')].filter(Boolean);
-    const motionOk = !window.matchMedia('(prefers-reduced-motion: reduce), (max-width: 700px)').matches;
+    const motionOk = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     let hydra = null;
     let frameId = null;
@@ -415,15 +415,21 @@ if (splash) {
 // (this is texture, not detail), and only while actually on screen.
 const surfaceHost = document.querySelector('.page-hero, .signal-band, .labs-section, .requirements-band, .edi-band');
 if (surfaceHost) {
-  const still = window.matchMedia('(prefers-reduced-motion: reduce), (max-width: 700px)');
+  // Phones run this too. Only a stated preference for less motion turns it
+  // off now — the width cut-off that used to be here meant phones got none of
+  // the hand or the pattern, which is where most people open a shared link.
+  const still = window.matchMedia('(prefers-reduced-motion: reduce)');
   const hydraSrc = document.body;
 
   if (!still.matches && hydraSrc.dataset.hydra) {
     const targets = [];
     // The hand: her silhouette, on every page hero and in the home hero's own
     // slot, so About carries the same treatment as the rest.
+    // Half the resolution on phones: it is texture, and a phone GPU should
+    // not be pushing more pixels than it has to.
+    const small = window.matchMedia('(max-width: 700px)').matches;
     document.querySelectorAll('main > section.page-hero, main > section.home-hero')
-      .forEach((el) => targets.push([el, 'hand-surface', 520]));
+      .forEach((el) => targets.push([el, 'hand-surface', small ? 300 : 520]));
     // Full-width bands, the head-investigators panel, and the coral cards
     // (GAMMa workshop, and both "The archive will grow").
     document.querySelectorAll([
@@ -476,7 +482,7 @@ if (surfaceHost) {
 
       const hydra = new Hydra({ canvas, detectAudio: false, makeGlobal: false, autoLoop: false });
       const h = hydra.synth;
-      h.fps = 16;
+      h.fps = small ? 10 : 16;
       // Your sketch says speed = 0.0222. Measured, that renders 10/255 of
       // change per 1.5s on its own — and these surfaces sit at 0.3 opacity, so
       // roughly 3/255 actually reaches the eye: static, the same trap the hero
