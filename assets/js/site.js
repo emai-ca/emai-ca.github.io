@@ -269,7 +269,13 @@ if (splash) {
   // shows when the site is opened, stays away however much you navigate, and
   // comes back the next time the site is opened. A spell in localStorage made
   // it show once and never again on that browser, which was not the intent.
-  // Private browsing throws on access rather than returning null.
+  // Storage can be unavailable in restricted browser contexts.
+  // Internal navigation is also evidence of an ongoing visit, even if the
+  // browser could not save the flag on the previous page.
+  const arrivedFromSite = (() => {
+    try { return new URL(document.referrer).origin === window.location.origin; }
+    catch (e) { return false; }
+  })();
   const readSeen = () => {
     try { return sessionStorage.getItem('emai-splash') === 'seen'; } catch (e) { return false; }
   };
@@ -282,7 +288,9 @@ if (splash) {
     } catch (e) { /* nothing to do */ }
   };
 
-  if (!readSeen()) {
+  if (arrivedFromSite) markSeen();
+
+  if (!arrivedFromSite && !readSeen()) {
     const canvas = splash.querySelector('.statement-splash-canvas');
     const closer = splash.querySelector('[data-splash-dismiss]');
     const panel = splash.querySelector('.statement-splash-window');
