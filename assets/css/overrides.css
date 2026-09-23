@@ -2591,14 +2591,26 @@ body.splash-open { overflow: hidden; }
 
 .hand-surface.is-live { opacity: 0.92; }
 
-@media (max-width: 900px) {
+/* Tablets. Surfaces never exist below 701px, so this band is the only place
+   these values apply. At 72% of a tall hero the hand filled most of a 768px
+   screen, ran underneath the headline, and was clipped at the right edge —
+   it sits in the corner now, and the home copy holds clear of it the same way
+   it does on desktop. */
+@media (min-width: 701px) and (max-width: 900px) {
+  /* Sized against the viewport, not the hero. As a percentage of the hero
+     the hand came out large on Home's tall hero and tiny on the call page's
+     short one; this keeps it the same on every page, with max-height so a
+     short hero still contains it. */
   .hand-surface {
-    right: -14%;
-    bottom: -4%;
-    height: 72%;
+    right: 1%;
+    bottom: -2%;
+    width: 26vw;
+    height: auto;
+    max-height: 84%;
   }
 
-  .hand-surface.is-live { opacity: 0.5; }
+  .hand-surface.is-live { opacity: 0.85; }
+
 }
 
 /* --- More surfaces, and the hand on About -------------------------------- */
@@ -2654,5 +2666,17 @@ body[data-page="home"] .hero-intro {
   body[data-page="home"] .hero h1,
   body[data-page="home"] .hero-intro {
     max-width: 60%;
+  }
+}
+
+/* The lede has to clear the hand on tablets: grey text over the pattern reads
+   badly, while the solid black headline above it is fine. This sits at the end
+   of the file on purpose — the 670px rule further up has the same specificity
+   and was winning. The headline keeps its full width; constraining that broke
+   "Embodying AI:" onto two lines. */
+@media (min-width: 701px) and (max-width: 900px) {
+  body[data-page="home"] .hero-intro,
+  .page-hero .page-lede {
+    max-width: 460px;
   }
 }

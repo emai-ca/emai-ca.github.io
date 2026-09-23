@@ -2,7 +2,7 @@
 layout: default
 title: Call
 nav: call
-description: "Three funded PhD fellowships in embodied, small-data machine learning for music. Concordia University and Université de Montréal. Deadline October 16, 2026."
+description: "Three funded PhD fellowships in embodied, small-data machine learning for music. Concordia University and Université de Montréal. Deadline October 23, 2026."
 ---
 
 <section class="page-hero content-wide reveal">
@@ -12,7 +12,7 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
 </section>
 
 <section class="deadline-panel content-wide">
-  <div><span>Application deadline</span><strong>October 16, 2026</strong><small>11:59 p.m. Eastern Time</small></div>
+  <div><span>Application deadline</span><strong>October 23, 2026</strong><small>11:59 p.m. Eastern Time</small></div>
   <div><span>Expected start</span><strong>September 2027</strong><small>Montréal, Canada</small></div>
   <div><span>Funding</span><strong>$33,000 CAD</strong><small>per year / three years</small></div>
   <a class="button button-dark" href="mailto:info@emai.ca?subject=Question%20—%20EMAI%20PhD%20fellowships">Ask a question <span class="mobile-arrow" aria-hidden="true">↗</span></a>
@@ -200,7 +200,7 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
       <div class="timeline-step">Step 01</div>
       <div>
         <h3>Application deadline</h3>
-        <p>October 16, 2026, 11:59 p.m. Eastern Time.</p>
+        <p>October 23, 2026, 11:59 p.m. Eastern Time.</p>
       </div>
     </div>
     <div class="timeline-item">
@@ -220,10 +220,14 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
     <div class="timeline-item">
       <div class="timeline-step">Step 04</div>
       <div>
-        <h3>Admission and start</h3>
-        <p>Selected candidates will be supported through formal admission to the corresponding doctoral program — Concordia INDI, or UdeM PhD in Music or DMus — for a September 2027 start. The fellowship is conditional on admission.</p>
+        <h3>Interviews, early December 2026</h3>
+        <p>Shortlisted candidates will be invited to discuss their work and their involvement in the EMAI project in 30-minute to one-hour interviews with our team. Remote participation is possible.</p>
       </div>
     </div>
+  </div>
+  <div class="notice">
+    <span aria-hidden="true">↳</span>
+    <p>Selected candidates will be supported through formal admission to the corresponding doctoral program — Concordia INDI, or UdeM PhD in Music or DMus — for a September 2027 start. The fellowship is conditional on admission.</p>
   </div>
 </section>
 

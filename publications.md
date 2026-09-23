@@ -4,7 +4,7 @@ title: Publications
 nav: publications
 ---
 
-<section class="page-hero content-wide reveal"><p class="eyebrow"><span class="live-dot"></span> Research and Publications</p><h1>The Team<br><em>in words</em></h1><p class="page-lede">Articles, papers, and workshops across EMAI’s research areas.</p></section>
+<section class="page-hero content-wide reveal"><p class="eyebrow"><span class="live-dot"></span> Publications</p><h1>The Team<br><em>Publications and Research</em></h1><p class="page-lede">Articles, papers, and workshops across EMAI’s research areas.</p></section>
 
 <section class="content-wide constellation-section" id="constellation">
   <div class="archive-toolbar"><div><div class="section-label">Publications</div><p class="constellation-intro">Research by the team and their research groups. EMAI’s own publications are still to come.</p></div><div class="toolbar-actions"><a class="button button-dark" href="{{ '/emai-literature.bib' | relative_url }}" download>Download .bib <span aria-hidden="true">↓</span></a></div></div>

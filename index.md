@@ -19,7 +19,7 @@ description: "A research-creation project investigating agency, embodiment, and 
 <section class="call-banner">
   <div class="content-wide call-banner-inner">
     <div><span class="call-banner-kicker">Call for applications / 2026</span><strong>Three PhD Positions</strong><span>funded by the Social Sciences and Humanities Research Council (SSHRC)</span></div>
-    <div class="call-banner-detail"><span>Deadline</span><strong>October 16, 2026</strong></div>
+    <div class="call-banner-detail"><span>Deadline</span><strong>October 23, 2026</strong></div>
     <a class="button button-dark" href="{{ '/call/' | relative_url }}">See positions <span class="mobile-arrow" aria-hidden="true">↗</span></a>
   </div>
 </section>
