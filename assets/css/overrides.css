@@ -2774,12 +2774,21 @@ body[data-page="home"] .hero-intro {
    italic and the lede have no contrast headroom over the pattern, so both are
    darkened. */
 @media (min-width: 701px) and (max-width: 1100px) and (orientation: portrait) {
+  /* These heroes are short — 277 to 446px — so a hand sized off the viewport
+     was being cut in half by the hero's own clip: 148px lost on Home, 355px on
+     Team. Give the hero a little more room and then size the hand off the hero
+     rather than the viewport, so it is always whole. */
+  body[data-page] main > section.hero,
+  body[data-page] main > section.page-hero {
+    padding-bottom: 130px;
+  }
+
   .hand-surface {
-    top: 60px;
+    top: 40px;
     bottom: auto;
-    right: -10%;
-    width: 58vw;
-    height: auto;
+    right: -8%;
+    height: calc(100% - 52px);
+    width: auto;
     max-height: none;
   }
 
