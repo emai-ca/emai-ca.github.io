@@ -2755,3 +2755,41 @@ body[data-page="home"] .hero-intro {
     height: 40vh;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Tablet portrait.
+   --------------------------------------------------------------------------- */
+
+/* Between 801 and 1023 the hamburger is gone but the full nav is showing, and
+   there is no room left for the project title beside it: measured at 810, 820
+   and 834 — all iPad portrait widths — it collapsed to a 69px column, wrapped
+   to six lines and spilled out of the 78px header. The wordmark still names
+   the site, and the full title is in the page title and the H1. */
+@media (min-width: 801px) and (max-width: 1023px) {
+  .wordmark-title { display: none; }
+}
+
+/* The hand gets the phone treatment here: large, behind the heading, rather
+   than tucked small into the corner. Same consequence as on phones — the grey
+   italic and the lede have no contrast headroom over the pattern, so both are
+   darkened. */
+@media (min-width: 701px) and (max-width: 1100px) and (orientation: portrait) {
+  .hand-surface {
+    top: 60px;
+    bottom: auto;
+    right: -10%;
+    width: 58vw;
+    height: auto;
+    max-height: none;
+  }
+
+  .hand-surface.is-live { opacity: 0.5; }
+
+  main h1 em { color: #38474a; }
+
+  body[data-page="home"] .hero-intro,
+  .page-hero .page-lede {
+    color: #2b3639;
+    max-width: none;
+  }
+}
