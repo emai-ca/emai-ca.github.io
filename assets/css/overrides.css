@@ -2802,3 +2802,12 @@ body[data-page="home"] .hero-intro {
     max-width: none;
   }
 }
+
+/* Closing the statement window moves focus into <main> so a screen reader
+   carries on from the right place. The browser then draws its focus ring
+   around the whole element — the blue line across the page under the header.
+   The focus stays, the ring goes; real interactive elements keep theirs. */
+#main-content:focus,
+#main-content:focus-visible {
+  outline: none;
+}

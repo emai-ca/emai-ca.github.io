@@ -265,12 +265,15 @@ const loadHydra = (src) => {
 // leaves at the first sign of intent — click, scroll, Esc, or the close box.
 const splash = document.getElementById('statement-splash');
 if (splash) {
-  // Private browsing throws on sessionStorage rather than returning null.
+  // localStorage, not sessionStorage: sessionStorage is per-tab, so opening the
+  // site in a new tab counted as a new visit and the window came back. Once
+  // someone has seen it, they should not see it again on this browser.
+  // Private browsing throws on access rather than returning null.
   const readSeen = () => {
-    try { return sessionStorage.getItem('emai-splash') === 'seen'; } catch (e) { return false; }
+    try { return localStorage.getItem('emai-splash') === 'seen'; } catch (e) { return false; }
   };
   const markSeen = () => {
-    try { sessionStorage.setItem('emai-splash', 'seen'); } catch (e) { /* nothing to do */ }
+    try { localStorage.setItem('emai-splash', 'seen'); } catch (e) { /* nothing to do */ }
   };
 
   if (!readSeen()) {
