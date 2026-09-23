@@ -265,15 +265,21 @@ const loadHydra = (src) => {
 // leaves at the first sign of intent — click, scroll, Esc, or the close box.
 const splash = document.getElementById('statement-splash');
 if (splash) {
-  // localStorage, not sessionStorage: sessionStorage is per-tab, so opening the
-  // site in a new tab counted as a new visit and the window came back. Once
-  // someone has seen it, they should not see it again on this browser.
+  // sessionStorage, deliberately: it lasts as long as the tab, so the window
+  // shows when the site is opened, stays away however much you navigate, and
+  // comes back the next time the site is opened. A spell in localStorage made
+  // it show once and never again on that browser, which was not the intent.
   // Private browsing throws on access rather than returning null.
   const readSeen = () => {
-    try { return localStorage.getItem('emai-splash') === 'seen'; } catch (e) { return false; }
+    try { return sessionStorage.getItem('emai-splash') === 'seen'; } catch (e) { return false; }
   };
   const markSeen = () => {
-    try { localStorage.setItem('emai-splash', 'seen'); } catch (e) { /* nothing to do */ }
+    try {
+      sessionStorage.setItem('emai-splash', 'seen');
+      // Clear the permanent flag that version left behind, or anyone who
+      // loaded the site during it would never see the window again.
+      localStorage.removeItem('emai-splash');
+    } catch (e) { /* nothing to do */ }
   };
 
   if (!readSeen()) {
