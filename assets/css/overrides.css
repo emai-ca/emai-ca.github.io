@@ -2685,25 +2685,44 @@ body[data-page="home"] .hero-intro {
    rules here — without them a phone would inherit the desktop placement
    (116% of the hero height), which is far too big for the screen. */
 @media (max-width: 700px) {
-  /* The phone hero is tight — headline, lede and button fill it — so a hand
-     placed on the right always landed on the grey lede, and anchoring it
-     below the hero only worked where the hero happened to be tall. Each hero
-     gets a band at its foot instead, and the hand lives there: no shared
-     space with the text on any page, whatever its height. */
-  /* Specific enough to beat the per-page padding rules further up — the call
-     page sets its own, and a plain .page-hero selector lost to it. */
-  body[data-page] main > section.hero,
-  body[data-page] main > section.page-hero {
-    padding-bottom: 170px;
-  }
-
+  /* The hand sits large behind the heading rather than tucked into a band at
+     the foot of the hero. The band is gone with it — it existed only to keep
+     the hand away from the text, which is no longer the goal. */
   .hand-surface {
-    right: -4%;
-    bottom: 10px;
-    width: 38vw;
+    top: 55px;
+    bottom: auto;
+    right: -12%;
+    width: 62vw;
     height: auto;
     max-height: none;
   }
 
-  .hand-surface.is-live { opacity: 0.85; }
+  .hand-surface.is-live { opacity: 0.8; }
+
+  /* Leave room around the panel so the sketch behind it is actually visible —
+     at 94vw it was a sliver at the edges of the screen. */
+  .statement-splash-window {
+    width: 86vw;
+    max-height: 82vh;
+  }
+}
+
+/* With the hand behind the heading, the italic line has to carry more weight.
+   At its usual #687b80 it measures only 3.97:1 even on plain paper, so any
+   texture behind it drops below 3 — at 0.18 opacity it was still 2.79, and by
+   then the hand is invisible anyway. Darker on phones only; the two tones are
+   still distinct, just closer. */
+@media (max-width: 700px) {
+  main h1 em { color: #38474a; }
+
+  /* The lede gets the same treatment, and for the same reason. At its usual
+     #526164 it measured 2.5:1 with the hand behind it — and at 18px it needs
+     4.5:1, not the 3:1 a huge headline can lean on. Darkening it is what lets
+     the hand be large enough to sit behind the heading at all. */
+  .page-hero .page-lede,
+  body[data-page="home"] .hero-intro {
+    color: #2b3639;
+  }
+
+  .hand-surface.is-live { opacity: 0.5; }
 }

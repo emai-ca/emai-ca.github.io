@@ -46,8 +46,13 @@
       </div>
       <div class="splash-scroll">
         <h2 id="splash-title">AI and Music: Beyond the Prompt</h2>
-        <p class="splash-sub">A statement from the EMAI team</p>
-        {% include statement-body.html %}
+        {%- comment -%}
+          Deliberately not the shared statement-body include any more: the
+          window carries this shorter invitation while /statement/ keeps the
+          full text. They are different content now, so they no longer share
+          a source.
+        {%- endcomment -%}
+        <p>The EMAI team approaches artificial intelligence specifically as something artists can build, train, situate, perform, listen to, and think with. We aren’t engaged with prompts or corporate datasets. As such, we want to invite you to join us as we deepen our exploration of small and situated datasets, ethical data practices, artist-developed systems, embodied interfaces, sensors and physical computing, experimental machine learning, and new relationships among bodies, instruments, environments, algorithms, and sound.</p>
         <div class="splash-actions">
           <a class="button button-dark" href="{{ '/call/' | relative_url }}">See the call <span class="mobile-arrow" aria-hidden="true">&#8599;</span></a>
         </div>
