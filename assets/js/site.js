@@ -242,3 +242,288 @@ if (worksGrid) {
     if (worksGrid.clientWidth !== lastWidth) arrangeWorks();
   }).observe(worksGrid);
 }
+
+// One load of the hydra library, shared by the statement window and every
+// surface on the page. Memoized so they cannot fetch it separately.
+let hydraLoad = null;
+const loadHydra = (src) => {
+  if (!hydraLoad) {
+    hydraLoad = new Promise((resolve, reject) => {
+      const tag = document.createElement('script');
+      tag.src = src;
+      tag.onload = resolve;
+      tag.onerror = () => reject(new Error('hydra did not load'));
+      document.head.appendChild(tag);
+    });
+  }
+  return hydraLoad;
+};
+
+// The statement window, after hydra.ojack.xyz's welcome panel: a black box
+// over a fullscreen sketch. It opens once per session on whichever page
+// someone lands on first. It stands in front of a funding deadline, so it
+// leaves at the first sign of intent — click, scroll, Esc, or the close box.
+const splash = document.getElementById('statement-splash');
+if (splash) {
+  // Private browsing throws on sessionStorage rather than returning null.
+  const readSeen = () => {
+    try { return sessionStorage.getItem('emai-splash') === 'seen'; } catch (e) { return false; }
+  };
+  const markSeen = () => {
+    try { sessionStorage.setItem('emai-splash', 'seen'); } catch (e) { /* nothing to do */ }
+  };
+
+  if (!readSeen()) {
+    const canvas = splash.querySelector('.statement-splash-canvas');
+    const closer = splash.querySelector('[data-splash-dismiss]');
+    const panel = splash.querySelector('.statement-splash-window');
+    const scroller = splash.querySelector('.splash-scroll');
+    const main = document.getElementById('main-content');
+    const behind = [document.querySelector('.site-header'), main,
+      document.querySelector('.institution-band'), document.querySelector('.site-footer')].filter(Boolean);
+    const motionOk = !window.matchMedia('(prefers-reduced-motion: reduce), (max-width: 700px)').matches;
+
+    let hydra = null;
+    let frameId = null;
+    let lastFrame = 0;
+    let closed = false;
+
+    const render = (now) => {
+      frameId = requestAnimationFrame(render);
+      hydra.tick(now - lastFrame);
+      lastFrame = now;
+    };
+
+    const onKey = (event) => {
+      if (event.key === 'Escape') close();
+    };
+
+    // The window now holds the whole statement, so it has to be readable:
+    // clicking or scrolling inside the panel must not throw it away. Only the
+    // backdrop dismisses, plus Esc and the close box.
+    const onClick = (event) => {
+      if (!panel.contains(event.target)) close();
+    };
+
+    const canScroll = () => scroller && scroller.scrollHeight > scroller.clientHeight + 1;
+
+    const onWheel = (event) => {
+      if (canScroll() && scroller.contains(event.target)) return;
+      close();
+    };
+
+    // Drop the bottom fade once there is nothing left below it, rather than
+    // permanently dimming the last line.
+    const onScroll = () => {
+      const atEnd = scroller.scrollTop + scroller.clientHeight >= scroller.scrollHeight - 4;
+      panel.classList.toggle('is-at-end', atEnd || !canScroll());
+    };
+
+    function close() {
+      if (closed) return;
+      closed = true;
+      splash.classList.add('is-closing');
+      document.body.classList.remove('splash-open');
+      behind.forEach((el) => { el.inert = false; });
+      splash.removeEventListener('click', onClick);
+      window.removeEventListener('wheel', onWheel);
+      document.removeEventListener('keydown', onKey);
+      if (scroller) scroller.removeEventListener('scroll', onScroll);
+      if (frameId) cancelAnimationFrame(frameId);
+      frameId = null;
+      hydra = null;
+      if (main) {
+        main.setAttribute('tabindex', '-1');
+        main.focus({ preventScroll: true });
+      }
+      setTimeout(() => { splash.hidden = true; }, 450);
+    }
+
+    splash.hidden = false;
+    document.body.classList.add('splash-open');
+    behind.forEach((el) => { el.inert = true; });
+    markSeen();
+    if (closer) closer.focus({ preventScroll: true });
+
+    splash.addEventListener('click', onClick);
+    if (closer) closer.addEventListener('click', close);
+    window.addEventListener('wheel', onWheel, { passive: true });
+    document.addEventListener('keydown', onKey);
+    if (scroller) {
+      scroller.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+
+    if (motionOk) {
+      loadHydra(splash.dataset.hydra).then(() => {
+        if (closed) return;
+        const dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.min(Math.round(canvas.clientWidth * dpr), 1600);
+        canvas.height = Math.min(Math.round(canvas.clientHeight * dpr), 1200);
+        hydra = new Hydra({ canvas, detectAudio: false, makeGlobal: false, autoLoop: false });
+        const h = hydra.synth;
+        h.fps = 30;
+        h.speed = 0.5;
+
+        // In the editor `pat()` is called once, so its `time` reads as a single
+        // seed rather than an animation — which is why re-running there gives a
+        // different pattern each time. There is no `time` global under
+        // makeGlobal:false, and it would be 0 at setup anyway, so a seed stands
+        // in. The range is one screenshots showed holds up.
+        const seed = 70 + Math.random() * 90;
+        const pat = () => h.solid()
+          .layer(h.solid().diff(
+            h.osc((seed / 26) * 1, (seed / 1000) * 0.2)
+              .mult(h.osc((seed / 8) * 1, (seed / 1006) * 0.2).rotate(1.57))
+              .modulate(h.shape(91, 1, 0.05))
+              .mult(h.shape(106, 1, 0.05))
+          ))
+          .modulateScale(h.osc(3, 0.125), 0.125);
+
+        // Erin's hand goes into o1 — the buffer the sketch already reads from
+        // and which was simply empty, so her artwork enters through the
+        // sketch's own structure rather than being pasted over the top.
+        h.s0.initImage(splash.dataset.hand);
+        h.src(h.s0).out(h.o1);
+
+        h.solid()
+          .layer(h.solid(1.01, 1.01, 1.01)
+            .mult(pat()
+              .diff(h.src(h.o1).scale(0.2).mult(h.solid(), [0.7, 0.6, 0.4, 0.6]).kaleid(1.01).saturate(0.5)))
+            .layer(h.solid(1.01, 1.01, 1.01)
+              .mask(h.noise(2, 0.05)
+                .invert().colorama(5).posterize(8, 4).luma(0.25).thresh(0.5)
+                .modulateRotate(h.osc(1, 0.5)))
+              .mult(h.gradient(0.5).kaleid(3).colorama(2).saturate(1.1).contrast(1.6).mult(h.solid(), 0.45))))
+          .out();
+
+        lastFrame = performance.now();
+        frameId = requestAnimationFrame(render);
+        splash.classList.add('is-live');
+      }).catch(() => { /* the window stands on black */ });
+    }
+  }
+}
+
+
+// Hydra surfaces: the pattern as texture inside chosen sections, and inside
+// Erin's hand in each page hero. Several small canvases rather than one big
+// one — the sections are only ~1180px wide, so a full-page canvas behind them
+// showed through every margin.
+//
+// All of them are ticked from a single rAF loop, render at low resolution
+// (this is texture, not detail), and only while actually on screen.
+const surfaceHost = document.querySelector('.page-hero, .signal-band, .labs-section, .requirements-band, .edi-band');
+if (surfaceHost) {
+  const still = window.matchMedia('(prefers-reduced-motion: reduce), (max-width: 700px)');
+  const hydraSrc = document.body;
+
+  if (!still.matches && hydraSrc.dataset.hydra) {
+    const targets = [];
+    // The hand: her silhouette, on every page hero and in the home hero's own
+    // slot, so About carries the same treatment as the rest.
+    document.querySelectorAll('main > section.page-hero, main > section.home-hero')
+      .forEach((el) => targets.push([el, 'hand-surface', 520]));
+    // Full-width bands, the head-investigators panel, and the coral cards
+    // (GAMMa workshop, and both "The archive will grow").
+    document.querySelectorAll([
+      'main > section.signal-band',
+      'main > section.labs-section',
+      'main > section.requirements-band',
+      'main > section.edi-band',
+      // On Home the coral is on the inner panel, not the section, so the
+      // surface belongs there — on the section it only showed in the margins.
+      '.leadership-band > .content-wide',
+      '.session-accent',
+    ].join(', ')).forEach((el) => targets.push([el, 'surface', 520]));
+
+    const surfaces = [];
+    let frameId = null;
+    let lastFrame = 0;
+    let running = false;
+
+    const tickAll = (now) => {
+      frameId = requestAnimationFrame(tickAll);
+      const dt = now - lastFrame;
+      lastFrame = now;
+      surfaces.forEach((s) => { if (s.visible && s.hydra) s.hydra.tick(dt); });
+    };
+
+    const setRunning = (on) => {
+      if (on === running) return;
+      if (on) {
+        lastFrame = performance.now();
+        frameId = requestAnimationFrame(tickAll);
+      } else {
+        cancelAnimationFrame(frameId);
+        frameId = null;
+      }
+      running = on;
+    };
+
+    const build = (section, className, cap) => {
+      const canvas = document.createElement('canvas');
+      canvas.className = className;
+      canvas.setAttribute('aria-hidden', 'true');
+      section.classList.add('has-surface');
+      section.prepend(canvas);
+
+      const box = canvas.getBoundingClientRect();
+      const width = Math.max(64, Math.min(Math.round(box.width || cap), cap));
+      const height = Math.max(64, Math.round(width * ((box.height || cap) / (box.width || cap))));
+      canvas.width = width;
+      canvas.height = height;
+
+      const hydra = new Hydra({ canvas, detectAudio: false, makeGlobal: false, autoLoop: false });
+      const h = hydra.synth;
+      h.fps = 16;
+      // Your sketch says speed = 0.0222. Measured, that renders 10/255 of
+      // change per 1.5s on its own — and these surfaces sit at 0.3 opacity, so
+      // roughly 3/255 actually reaches the eye: static, the same trap the hero
+      // fell into. 0.15 measures ~55 raw, so ~16 through the blend, which
+      // matches the hero you approved. Put 0.0222 back here to return to the
+      // original.
+      h.speed = 0.15;
+      // Array.prototype.fast arrives with the Hydra instance, so the bands are
+      // built here rather than above.
+      const band = (speed) => [0.3, 0.7].fast(speed);
+
+      h.osc(48, -0.1, 0).thresh(band(0.75), 0).color(2, 1, 1.5)
+        .add(
+          h.osc(28, 0.1, 0).thresh(band(0.75), 0).rotate(3.14 / 4)
+            .color(1, 0, 0.9)
+            .modulateScale(h.osc(64, -0.01, 0).thresh(band(0.75), 0))
+        )
+        .diff(
+          h.osc(28, 0.1, 0).thresh(band(0.5), 0).rotate(3.14 / 2)
+            .color(1, 0.5, 1)
+            .modulateScale(h.osc(64, -0.015, 0).thresh(band(0.5), 0))
+        )
+        .modulateRotate(h.osc(54, -0.005, 0).thresh(band(0.25), 0))
+        .modulateScale(h.osc(44, -0.02, 0).thresh(band(0.25), 0))
+        // Read every frame, unlike the seed in the statement window's sketch,
+        // so it takes time off the props object hydra passes in.
+        .colorama(({ time }) => Math.sin(time / 27) * 0.01222 + 9.89)
+        .scale(2.122)
+        .out();
+
+      const entry = { canvas, hydra, visible: false };
+      new IntersectionObserver((entries) => {
+        entry.visible = entries.some((e) => e.isIntersecting);
+        canvas.classList.toggle('is-live', entry.visible);
+        setRunning(surfaces.some((s) => s.visible) && !document.hidden);
+      }, { rootMargin: '120px' }).observe(section);
+      return entry;
+    };
+
+    loadHydra(hydraSrc.dataset.hydra).then(() => {
+      targets.forEach(([section, className, cap]) => {
+        try { surfaces.push(build(section, className, cap)); } catch (e) { /* skip this one */ }
+      });
+    }).catch(() => { /* sections keep their flat colour */ });
+
+    document.addEventListener('visibilitychange', () => {
+      setRunning(!document.hidden && surfaces.some((s) => s.visible));
+    });
+  }
+}

@@ -2185,3 +2185,474 @@ body[data-page="contact"] .page-hero h1 {
     transform: translateY(5%);
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Erin Gee's hand in the home hero.
+
+   The hero has been single-column since the atlas graphic came out, leaving
+   the right-hand slot empty. The hand goes there and is allowed to cross into
+   the text column — the grid being broken is the point — but it sits behind
+   the copy so nothing costs readability, and the overflow is clipped at the
+   hero so the page can never scroll sideways on a phone.
+   --------------------------------------------------------------------------- */
+body[data-page="home"] .hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: center;
+  gap: clamp(1rem, 3vw, 3rem);
+  overflow: clip;
+}
+
+body[data-page="home"] .hero-copy {
+  position: relative;
+  z-index: 1;
+}
+
+body[data-page="home"] .hero-hand {
+  position: relative;
+  margin: 0 0 0 clamp(-5rem, -3.5vw, -1.5rem);
+  justify-self: end;
+  width: min(100%, 520px);
+}
+
+.hero-hand-frame {
+  position: relative;
+  aspect-ratio: 982 / 1000;
+}
+
+.hero-hand picture,
+.hero-hand img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* The canvas lies over the still image and crossfades in once hydra has
+   painted, so a failed or slow load simply leaves the photograph showing. */
+.hero-hand-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.hero-hand.is-live .hero-hand-canvas { opacity: 1; }
+
+.hero-hand figcaption {
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #667577;
+  margin-top: 0.75rem;
+  text-align: right;
+}
+
+/* Phones stack, and keep the still hand — see the motion guards in site.js. */
+@media (max-width: 700px) {
+  body[data-page="home"] .hero {
+    display: block;
+  }
+
+  body[data-page="home"] .hero-hand {
+    width: min(100%, 340px);
+    margin: 2.5rem auto 0;
+  }
+
+  .hero-hand figcaption { text-align: center; }
+}
+
+/* Seven nav items now; buy back the room "Statement" costs before the bar
+   wraps on smaller laptops. */
+@media (max-width: 1250px) {
+  .site-nav { gap: 1.05rem; }
+}
+
+/* ---------------------------------------------------------------------------
+   Statement page: prose, not panels. Every other page is built from grids and
+   boxes, so setting this one as plain text at reading width is itself part of
+   the point.
+   --------------------------------------------------------------------------- */
+body[data-page="statement"] .statement-byline {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #667577;
+  margin: 0;
+}
+
+body[data-page="statement"] .statement-body {
+  padding-block: var(--section-space);
+}
+
+body[data-page="statement"] .statement-body p {
+  max-width: 44rem;
+  font-size: 1.12rem;
+  line-height: 1.62;
+  color: #3f4d50;
+  margin-bottom: 1.55rem;
+}
+
+body[data-page="statement"] .statement-close {
+  font-size: 1.3rem;
+  color: var(--ink);
+  margin-top: 2.5rem;
+}
+
+body[data-page="statement"] .statement-body .hero-actions {
+  margin-top: 1.5rem;
+}
+
+/* The byline belongs with the title, and the prose should follow it without a
+   page-height gap in between. */
+body[data-page="statement"] .page-hero {
+  /* Top padding too, or this hero sits 108px down against everyone else's 56. */
+  padding-block: var(--section-space);
+}
+
+body[data-page="statement"] .statement-byline {
+  margin-top: 1.5rem;
+}
+
+
+/* ---------------------------------------------------------------------------
+   Statement window — after the welcome panel on hydra.ojack.xyz: a black box
+   with a white border floating over a fullscreen sketch. Black and white on
+   purpose; the sketch behind it does all the colour.
+   --------------------------------------------------------------------------- */
+
+/* display:grid below would beat the hidden attribute, so say this first. */
+.statement-splash[hidden] { display: none; }
+
+.statement-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  background: #000;
+  opacity: 1;
+  transition: opacity 0.45s ease;
+}
+
+.statement-splash.is-closing {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.statement-splash-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+
+.statement-splash.is-live .statement-splash-canvas { opacity: 1; }
+
+.statement-splash-window {
+  position: relative;
+  z-index: 1;
+  width: min(880px, 88vw);
+  max-height: min(84vh, 760px);
+  display: flex;
+  flex-direction: column;
+  background: var(--acid);
+  border: 2px solid var(--ink);
+  color: var(--ink);
+}
+
+.splash-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0.5rem 0.6rem 0;
+  flex-shrink: 0;
+}
+
+.splash-close {
+  background: none;
+  border: 0;
+  color: var(--ink);
+  font-size: 1.35rem;
+  line-height: 1;
+  padding: 0.35rem 0.5rem;
+  cursor: pointer;
+}
+
+.splash-close:hover { color: var(--coral); }
+
+/* The reference scrolls its body inside the frame, scrollbar and all. The
+   statement runs past the fold now, so the scrollbar is left visible and
+   styled rather than hidden — with a fade at the bottom edge so it reads as
+   "there is more" instead of "that is the end". */
+.splash-scroll {
+  overflow-y: auto;
+  padding: 0.5rem clamp(1.5rem, 4vw, 3.25rem) clamp(2rem, 4vw, 3rem);
+  scrollbar-color: var(--ink) transparent;
+}
+
+/* The fade sits over the panel rather than masking the scroll box — a mask on
+   the scroller takes the scrollbar with it, and the scrollbar is half of what
+   says "there is more here". */
+.statement-splash-window::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3.5rem;
+  background: linear-gradient(to bottom, rgba(215, 243, 91, 0), var(--acid));
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.25s ease;
+}
+
+/* Nothing left below, so nothing left to hint at. */
+.statement-splash-window.is-at-end::after { opacity: 0; }
+
+.splash-scroll::-webkit-scrollbar { width: 10px; }
+.splash-scroll::-webkit-scrollbar-track { background: transparent; }
+.splash-scroll::-webkit-scrollbar-thumb { background: var(--ink); }
+
+/* Weight and tracking match the site's own headings (700 / -0.07em), not the
+   hydra reference this panel was modelled on. */
+.statement-splash h2 {
+  font-size: clamp(1.9rem, 4vw, 3.1rem);
+  line-height: 1.02;
+  letter-spacing: -0.07em;
+  margin: 0 0 0.75rem;
+  font-weight: 700;
+}
+
+/* And the small caps line is DM Mono, as every equivalent line on the site is. */
+.splash-sub {
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 0 0 1.8rem;
+}
+
+.statement-splash p {
+  font-size: clamp(0.95rem, 1.15vw, 1.08rem);
+  line-height: 1.5;
+  margin-bottom: 1.1rem;
+}
+
+.statement-splash .statement-close {
+  font-weight: 500;
+  margin-top: 1.6rem;
+}
+
+.splash-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 1.6rem;
+}
+
+/* The button is the site's own dark-on-acid, the same pairing the home page's
+   call banner already uses. */
+
+body.splash-open { overflow: hidden; }
+
+@media (max-width: 700px) {
+  .statement-splash-window {
+    width: 94vw;
+    max-height: 88vh;
+  }
+}
+
+/* Erin's hand reaches up behind the panel. It is also fed into the sketch
+   itself (buffer o1), but that reads as texture rather than as a hand — this
+   is the copy you can actually recognise. Screen blending lets the pattern
+   burn through her colours instead of sitting flatly on top. */
+.splash-hand {
+  position: absolute;
+  right: -4%;
+  bottom: -6%;
+  height: 104%;
+  width: auto;
+  opacity: 0;
+  mix-blend-mode: screen;
+  transition: opacity 1.2s ease 0.3s;
+  pointer-events: none;
+}
+
+.statement-splash.is-live .splash-hand { opacity: 0.92; }
+
+@media (max-width: 700px) {
+  .splash-hand { height: 55%; right: -14%; bottom: -2%; }
+}
+
+/* Sit the panel left of centre so the hand has room to stand on the right,
+   rather than being reduced to a sliver in the margin. */
+@media (min-width: 1000px) {
+  .statement-splash { place-items: center start; }
+
+  .statement-splash-window {
+    width: min(760px, 58vw);
+    margin-left: clamp(2rem, 6vw, 6rem);
+  }
+
+  .splash-hand {
+    right: 1%;
+    bottom: -8%;
+    height: 112%;
+  }
+}
+
+
+/* ---------------------------------------------------------------------------
+   Hydra surfaces.
+
+   A surface is a small canvas living inside a section, above that section's
+   own colour and below its content. The section keeps its colour and the
+   pattern becomes texture on top of it — which is what "tuned to EMAI" means
+   here: acid stays acid, ink stays ink.
+
+   This replaces a single fixed canvas behind the whole page. That could not
+   work: most sections are `.content-wide` and only ~1180px across, so paper
+   never covered the viewport margins and the pattern leaked out around every
+   one of them, including behind body copy.
+   --------------------------------------------------------------------------- */
+.has-surface {
+  position: relative;
+  isolation: isolate;
+  overflow: clip;
+}
+
+/* Content rides above the texture. */
+.has-surface > *:not(.surface):not(.hand-surface) {
+  position: relative;
+  z-index: 1;
+}
+
+.surface,
+.hand-surface {
+  position: absolute;
+  z-index: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 1.4s ease;
+}
+
+.surface {
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Dark bands lighten, pale bands darken, so the pattern reads on both. */
+.surface.is-live { opacity: 0.34; }
+
+.signal-band .surface,
+.labs-section .surface {
+  mix-blend-mode: screen;
+}
+
+/* Measured, not guessed: at 0.3 the screen blend on the ink bands pushed the
+   pattern all the way to paper white in places, and paper text on paper is
+   1.00:1. These are the values that keep every band above 4.5:1. */
+.signal-band .surface.is-live { opacity: 0.22; }
+.labs-section .surface.is-live { opacity: 0.22; }
+
+.requirements-band .surface,
+.edi-band .surface {
+  mix-blend-mode: multiply;
+}
+
+.requirements-band .surface.is-live { opacity: 0.22; }
+.edi-band .surface.is-live { opacity: 0.16; }
+
+/* Erin's hand: the pattern alive inside her silhouette. The mask does the
+   shape, so there is no tiling to fight and the edge stays crisp. */
+.hand-surface {
+  right: 3%;
+  bottom: -7%;
+  height: 116%;
+  aspect-ratio: 982 / 1000;
+  -webkit-mask-image: url('../img/hand-erin-gee.webp');
+  mask-image: url('../img/hand-erin-gee.webp');
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+}
+
+.hand-surface.is-live { opacity: 0.92; }
+
+@media (max-width: 900px) {
+  .hand-surface {
+    right: -14%;
+    bottom: -4%;
+    height: 72%;
+  }
+
+  .hand-surface.is-live { opacity: 0.5; }
+}
+
+/* --- More surfaces, and the hand on About -------------------------------- */
+
+.leadership-band .surface,
+.session-accent .surface { mix-blend-mode: multiply; }
+
+.leadership-band .surface.is-live { opacity: 0.12; }
+.session-accent .surface.is-live { opacity: 0.16; }
+
+/* Research hub: the pattern runs the full band. The lab cards were painting
+   solid ink on top of it, which is the black that had to go — they keep their
+   dividing lines but let the band through. */
+body[data-page="people"] .lab-list > div { background: transparent; }
+
+/* With the cards transparent, the grid's own pale fill showed through as a
+   washed strip behind the text and cost contrast. Drop it and draw the
+   dividers directly instead. */
+body[data-page="people"] .lab-list { background: transparent; }
+
+body[data-page="people"] .lab-list > div + div {
+  border-left: 1px solid rgba(244, 242, 236, 0.3);
+}
+
+/* The home hero matches every other page's hero: a single block column with
+   the hand in the corner, rather than a two-column grid with the hand in a
+   slot of its own. The heading was already the same size — it was the layout
+   that made it read as bigger. */
+body[data-page="home"] .hero {
+  display: block;
+  position: relative;
+  overflow: clip;
+}
+
+body[data-page="home"] .hero-copy {
+  max-width: 100%;
+}
+
+body[data-page="home"] .hero-intro {
+  max-width: 670px;
+}
+
+/* Every page hero on one scale. Five pages each set this individually, so the
+   statement page — added later — never got a rule and ran at 115.2px against
+   everything else's 100.8px. One rule covers them all from here. */
+.page-hero h1 { font-size: var(--display-1); }
+
+/* Now that the hero is one block, the headline runs the full width and
+   collides with the hand — grey italic over her colours reads badly. Hold the
+   copy to the left of it. The other pages don't need this: their headings are
+   short enough to clear the hand on their own. */
+@media (min-width: 901px) {
+  body[data-page="home"] .hero h1,
+  body[data-page="home"] .hero-intro {
+    max-width: 60%;
+  }
+}

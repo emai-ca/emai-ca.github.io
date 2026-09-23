@@ -6,8 +6,8 @@ description: "Contact EMAI — general project inquiries and the supervisors for
 ---
 
 <section class="page-hero content-wide reveal">
-  <p class="eyebrow"><span class="live-dot"></span> EMAI / Contact</p>
-  <h1>Get in<br><em>touch</em><span class="accent">.</span></h1>
+  <p class="eyebrow"><span class="live-dot"></span> Contact</p>
+  <h1>Get in<br><em>touch</em></h1>
   <p class="page-lede">Questions about the doctoral positions may be addressed to the EMAI project email or directly to the corresponding supervisor.</p>
 </section>
 

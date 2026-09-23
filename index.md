@@ -7,8 +7,8 @@ description: "A research-creation project investigating agency, embodiment, and 
 
 <section class="hero home-hero">
   <div class="hero-copy reveal">
-    <p class="eyebrow"><span class="live-dot"></span> EMAI / Four-year research-creation project / Montréal</p>
-    <h1><span class="hero-title-opening">Embodying AI:</span><br>Music Making<br><em>Beyond the Prompt</em><span class="accent">.</span></h1>
+    <p class="eyebrow"><span class="live-dot"></span> Four-year research-creation project / Montréal</p>
+    <h1><span class="hero-title-opening">Embodying AI:</span><br>Music Making<br><em>Beyond the Prompt</em></h1>
     <p class="hero-intro">EMAI brings researchers and musicians together to investigate the exercise of agency in music composition and performance with machine learning systems.</p>
     <div class="hero-actions">
       <a class="button button-dark" href="{{ '/call/' | relative_url }}">See the call <span class="mobile-arrow" aria-hidden="true">↗</span></a>
@@ -26,15 +26,17 @@ description: "A research-creation project investigating agency, embodiment, and 
 
 <section class="home-intro content-wide" id="project">
   <div class="intro-grid">
-    <h2>About<br><em>the project</em><span class="accent">.</span></h2>
+    <h2>About<br><em>the project</em></h2>
     <div>
-      <p>Large AI models trained on massive datasets can convincingly imitate familiar musical styles, but interaction through text prompts offers limited control for sustained creative practice and live performance. These models also struggle to support culturally diverse repertoires. EMAI aims to address these limitations by developing and sharing approaches centred on <strong>embodiment</strong>, <strong>small data</strong>, <strong>authorship</strong>, and <strong>literacy</strong>.</p>
+      <p>For the Embodying AI (EMAI) project, our team approaches artificial intelligence specifically as something artists can build, train, situate, perform, listen to, and think with. We aren’t particularly engaged with prompts or corporate datasets.</p>
+      <p>The project develops and shares approaches centred on <strong>embodiment</strong>, <strong>small data</strong>, <strong>authorship</strong>, and <strong>literacy</strong>.</p>
+      <p><a class="text-link" href="{{ '/statement/' | relative_url }}">Read the full statement <span aria-hidden="true">→</span></a></p>
     </div>
   </div>
 </section>
 
 <section class="content-wide split-section about-foot">
-  <h2>Host<br><em>labs</em><span class="accent">.</span></h2>
+  <h2>Host<br><em>labs</em></h2>
   <div class="rich-copy">
     <p>Doctoral researchers will join a team working across the Potential Lab for Art, Sound, and Music (PLASM) at Concordia, the Laboratoire formes·ondes (LFO) at UdeM, and the Metacreation Lab at SFU, with CIRMMT—Canada's largest interdisciplinary music research centre—serving as the project's shared research hub.</p>
   </div>

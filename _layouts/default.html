@@ -23,8 +23,38 @@
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
   <link rel="stylesheet" href="{{ '/assets/css/overrides.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 </head>
-<body data-page="{{ page.nav | default: 'home' }}">
+<body data-page="{{ page.nav | default: 'home' }}"
+      data-hydra="{{ '/assets/js/vendor/hydra-synth-1.4.0.js' | relative_url }}">
   <a class="skip-link" href="#main-content">Skip to content</a>
+
+  {%- comment -%}
+    The statement window, in the manner of hydra.ojack.xyz's welcome panel. It opens once
+    per session on whichever page someone lands on first, so it lives in the layout rather
+    than on any one page. Kept outside <main> so the page behind can be inerted while it is
+    open without disabling the window's own controls. Skipped on the statement page itself
+    and on 404.
+  {%- endcomment -%}
+  {%- unless page.nav == 'statement' or page.nav == 'none' -%}
+  <div class="statement-splash" id="statement-splash" hidden
+       data-hydra="{{ '/assets/js/vendor/hydra-synth-1.4.0.js' | relative_url }}"
+       data-hand="{{ '/assets/img/hand-erin-gee.webp' | relative_url }}">
+    <canvas class="statement-splash-canvas" aria-hidden="true"></canvas>
+    <img class="splash-hand" src="{{ '/assets/img/hand-erin-gee.webp' | relative_url }}" alt="" aria-hidden="true" loading="lazy">
+    <div class="statement-splash-window" role="dialog" aria-modal="true" aria-labelledby="splash-title">
+      <div class="splash-bar">
+        <button class="splash-close" type="button" data-splash-dismiss aria-label="Close">&#10005;</button>
+      </div>
+      <div class="splash-scroll">
+        <h2 id="splash-title">AI and Music: Beyond the Prompt</h2>
+        <p class="splash-sub">A statement from the EMAI team</p>
+        {% include statement-body.html %}
+        <div class="splash-actions">
+          <a class="button button-dark" href="{{ '/call/' | relative_url }}">See the call <span class="mobile-arrow" aria-hidden="true">&#8599;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {%- endunless -%}
   <header class="site-header">
     <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="EMAI — Embodying AI: Music Making Beyond the Prompt home">
       <span class="wordmark-mark" aria-hidden="true">◎</span>
@@ -34,6 +64,7 @@
     <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
     <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
       <a href="{{ '/' | relative_url }}" data-nav="home">About</a>
+      <a href="{{ '/statement/' | relative_url }}" data-nav="statement">Statement</a>
       <a href="{{ '/call/' | relative_url }}" data-nav="call">Call</a>
       <a href="{{ '/people/' | relative_url }}" data-nav="people">Team</a>
       <a href="{{ '/works/' | relative_url }}" data-nav="works">Creative Works</a>

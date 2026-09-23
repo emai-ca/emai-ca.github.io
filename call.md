@@ -6,8 +6,8 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
 ---
 
 <section class="page-hero content-wide reveal">
-  <p class="eyebrow"><span class="live-dot"></span> EMAI / Call for Applications 2026</p>
-  <h1>Three funded<br><em>PhD fellowships</em><span class="accent">.</span></h1>
+  <p class="eyebrow"><span class="live-dot"></span> Call for Applications 2026</p>
+  <h1>Three funded<br><em>PhD fellowships</em></h1>
   <p class="page-lede">A research-creation team developing embodied, small-data machine learning systems for music composition and performance, in Montréal, Canada.</p>
 </section>
 
