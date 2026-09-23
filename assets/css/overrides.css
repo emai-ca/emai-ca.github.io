@@ -2391,29 +2391,27 @@ body[data-page="statement"] .statement-byline {
    styled rather than hidden — with a fade at the bottom edge so it reads as
    "there is more" instead of "that is the end". */
 .splash-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   padding: 0.5rem clamp(1.5rem, 4vw, 3.25rem) clamp(2rem, 4vw, 3rem);
   scrollbar-color: var(--ink) transparent;
 }
 
-/* The fade sits over the panel rather than masking the scroll box — a mask on
-   the scroller takes the scrollbar with it, and the scrollbar is half of what
-   says "there is more here". */
-.statement-splash-window::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 3.5rem;
-  background: linear-gradient(to bottom, rgba(215, 243, 91, 0), var(--acid));
-  pointer-events: none;
-  opacity: 1;
-  transition: opacity 0.25s ease;
+/* The fade lives on the scroll region itself now, not the window. As a
+   window-level overlay it would have covered the pinned button; here it just
+   softens the last line so the text does not cut off mid-letter against the
+   button. It masks the scrollbar with it, which is a fair trade now that the
+   button no longer needs one to be found. Lifted at the end of the text. */
+.splash-scroll {
+  -webkit-mask-image: linear-gradient(to bottom, #000 calc(100% - 2.2rem), transparent);
+  mask-image: linear-gradient(to bottom, #000 calc(100% - 2.2rem), transparent);
 }
 
-/* Nothing left below, so nothing left to hint at. */
-.statement-splash-window.is-at-end::after { opacity: 0; }
+.statement-splash-window.is-at-end .splash-scroll {
+  -webkit-mask-image: none;
+  mask-image: none;
+}
 
 .splash-scroll::-webkit-scrollbar { width: 10px; }
 .splash-scroll::-webkit-scrollbar-track { background: transparent; }
@@ -2450,12 +2448,15 @@ body[data-page="statement"] .statement-byline {
   margin-top: 1.6rem;
 }
 
+/* Outside the scroll region now, so "See the call" is reachable without
+   scrolling however long the text gets. */
 .splash-actions {
   display: flex;
   align-items: center;
   gap: 1.5rem;
   flex-wrap: wrap;
-  margin-top: 1.6rem;
+  flex-shrink: 0;
+  padding: 0 clamp(1.5rem, 4vw, 3.25rem) clamp(1.5rem, 4vw, 2.25rem);
 }
 
 /* The button is the site's own dark-on-acid, the same pairing the home page's
@@ -2725,4 +2726,32 @@ body[data-page="home"] .hero-intro {
   }
 
   .hand-surface.is-live { opacity: 0.5; }
+}
+
+/* Phone splash: visual on top, panel at the foot.
+
+   Measured on a real viewport, the centred panel covered 58% of the screen
+   and the hand sat at y397..861 against a panel at y136..708 — so she was
+   almost entirely behind it. Dropping the panel to the bottom and lifting the
+   hand into the space above gives the sketch and the hand a clear third of
+   the screen. The panel scrolls internally at this height, which is fine:
+   wheel-to-dismiss is suppressed whenever there is something to scroll, and
+   touch scrolling was never bound to dismissal. */
+@media (max-width: 700px) {
+  .statement-splash {
+    place-items: end center;
+  }
+
+  .statement-splash-window {
+    width: 90vw;
+    max-height: 54vh;
+    margin-bottom: 16px;
+  }
+
+  .splash-hand {
+    top: 1%;
+    bottom: auto;
+    right: -10%;
+    height: 40vh;
+  }
 }
