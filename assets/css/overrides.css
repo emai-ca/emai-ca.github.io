@@ -550,8 +550,7 @@
   color: #b8c2bd;
 }
 
-.contact-card a,
-.contact-card .copy-address {
+.contact-card a {
   margin-top: auto;
   padding-top: 1rem;
   font-family: var(--mono);
@@ -560,8 +559,7 @@
   word-break: break-all;
 }
 
-.contact-card a:hover,
-.contact-card .copy-address:hover { color: var(--acid); }
+.contact-card a:hover { color: var(--acid); }
 
 @media (max-width: 800px) {
   .support-grid,
@@ -823,8 +821,7 @@ body[data-page="home"] .route-card p {
    it so the longest (gabriel.vigliensoni@concordia.ca, 32 characters) fits
    the column, and drop to two columns before four would squeeze it. With
    every address on one line they also bottom-align across the row. */
-.contact-card a,
-.contact-card .copy-address {
+.contact-card a {
   word-break: normal;
   overflow-wrap: normal;
   white-space: nowrap;
@@ -880,8 +877,7 @@ body[data-page="contact"] .contact-card h3 {
   margin: 0.9rem 0 0.3rem;
 }
 
-body[data-page="contact"] .contact-card a,
-body[data-page="contact"] .contact-card .copy-address {
+body[data-page="contact"] .contact-card a {
   padding-top: 0.9rem;
   font-size: 1rem;
   color: var(--acid);
@@ -2814,38 +2810,4 @@ body[data-page="home"] .hero-intro {
 #main-content:focus,
 #main-content:focus-visible {
   outline: none;
-}
-
-/* Addresses are buttons that copy, not links that open a mail composer — see
-   the note in site.js. They should still read as addresses, so they inherit
-   the type they replaced rather than looking like a control. */
-.copy-address {
-  font: inherit;
-  color: inherit;
-  background: none;
-  border: 0;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-  cursor: pointer;
-  border-bottom: 1px solid currentColor;
-  transition: color 0.15s ease;
-}
-
-.copy-address:hover { color: var(--coral); }
-
-.copy-address.is-copied {
-  color: var(--coral);
-  border-bottom-color: transparent;
-}
-
-/* Inline in a sentence, where an underline would fight the surrounding text. */
-.copy-inline {
-  border-bottom-style: dotted;
-}
-
-/* Inside the contact cards the addresses were plain coloured text, never
-   underlined — keep that now they are buttons. */
-.contact-card .copy-address {
-  border-bottom: 0;
 }
