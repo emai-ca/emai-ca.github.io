@@ -187,7 +187,7 @@ description: "Three funded PhD fellowships in embodied, small-data machine learn
   </ol>
 
   <div class="submit-panel">
-    <div class="submit-row"><span>Send to</span><strong><a href="mailto:info@emai.ca">info@emai.ca</a></strong></div>
+    <div class="submit-row"><span>Send to</span><strong>info@emai.ca</strong></div>
     <div class="submit-row"><span>Email subject</span><strong>PhD Application – EMAI – LAST NAME First Name</strong></div>
     <div class="submit-row"><span>PDF file name</span><strong>PhD_EMAI_LastName_FirstName.pdf</strong></div>
   </div>
