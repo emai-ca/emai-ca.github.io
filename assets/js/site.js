@@ -550,3 +550,40 @@ if (surfaceHost) {
     });
   }
 }
+
+// Addresses copy to the clipboard instead of opening a mail composer. Blank
+// emails were arriving at info@emai.ca and at the supervisors' own addresses:
+// a mailto opens the reader's mail app with an empty body, and it takes one
+// stray tap on Send. Copying keeps the address one tap away while making
+// sending a deliberate act in their own client.
+document.querySelectorAll('.copy-address').forEach((button) => {
+  const address = button.dataset.address;
+  const original = button.textContent;
+  let revert = null;
+
+  const say = (message) => {
+    clearTimeout(revert);
+    button.textContent = message;
+    button.classList.add('is-copied');
+    revert = setTimeout(() => {
+      button.textContent = original;
+      button.classList.remove('is-copied');
+    }, 2000);
+  };
+
+  button.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(address);
+      say('Copied');
+    } catch (error) {
+      // Clipboard access can be refused; select the address so it can still
+      // be copied by hand rather than leaving the reader with nothing.
+      const range = document.createRange();
+      range.selectNodeContents(button);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      say(address);
+    }
+  });
+});
