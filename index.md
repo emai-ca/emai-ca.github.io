@@ -11,16 +11,16 @@ description: "A research-creation project investigating agency, embodiment, and 
     <h1><span class="hero-title-opening">Embodying AI:</span><br>Music Making<br><em>Beyond the Prompt</em></h1>
     <p class="hero-intro">EMAI brings researchers and musicians together to investigate the exercise of agency in music composition and performance with machine learning systems.</p>
     <div class="hero-actions">
-      <a class="button button-dark" href="{{ '/call/' | relative_url }}">See the call <span class="mobile-arrow" aria-hidden="true">↗</span></a>
+      <a class="button button-dark" href="{{ '/gamma/' | relative_url }}">GAMMa 2026 workshop <span class="mobile-arrow" aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
 
 <section class="call-banner">
   <div class="content-wide call-banner-inner">
-    <div><span class="call-banner-kicker">Call for applications / 2026</span><strong>Three PhD Positions</strong><span>funded by the Social Sciences and Humanities Research Council (SSHRC)</span></div>
-    <div class="call-banner-detail"><span>Deadline</span><strong>October 23, 2026</strong></div>
-    <a class="button button-dark" href="{{ '/call/' | relative_url }}">See positions <span class="mobile-arrow" aria-hidden="true">↗</span></a>
+    <div><span class="call-banner-kicker">Call for participation / Workshop</span><strong>GAMMa 2026</strong><span>Generative Audio for Music-Making · December 4, 2026</span></div>
+    <div class="call-banner-detail"><span>Submission deadline</span><strong>November 19, 2026</strong></div>
+    <a class="button button-dark" href="{{ '/gamma/' | relative_url }}">See the workshop <span class="mobile-arrow" aria-hidden="true">↗</span></a>
   </div>
 </section>
 
