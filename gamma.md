@@ -14,13 +14,13 @@ description: "Call for participation — Generative Audio for Music-Making (GAMM
   <button class="gamma-sound" type="button" aria-pressed="false" hidden>Sound: off</button>
   <div class="gamma-hero-inner content-wide">
     <h1><span>GAMMa <em>2026</em></span></h1>
-    <p class="gamma-lede">Generative Audio for Music-Making (GAMMa): a workshop inviting the community to reflect critically and creatively on what we have learned from making music with generative audio systems.</p>
+    <p class="gamma-lede">The Generative Audio for Music-Making (GAMMa) workshop invites the community to reflect critically and creatively on what we have learned from making music with generative audio systems, and on the future we want for these technologies.</p>
   </div>
 </section>
 
 <section class="deadline-panel content-wide">
   <div><span>Workshop</span><strong>December 4, 2026</strong></div>
-  <div><span>Submission deadline</span><small>23:59 Eastern Time</small><strong>November 19, 2026</strong></div>
+  <div><span>Submission deadline<b> · </b><i>23:59 Eastern Time</i></span><strong>November 19, 2026</strong></div>
   <div><span>Research Axis 2 and Research Axis 4</span><strong>CIRMMT</strong></div>
   <a class="button button-dark" href="https://forms.cloud.microsoft/r/jaLCDdNtkh" target="_blank" rel="noopener noreferrer">Submit a presentation <span class="mobile-arrow" aria-hidden="true">↗</span></a>
 </section>

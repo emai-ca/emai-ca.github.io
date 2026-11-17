@@ -2954,16 +2954,26 @@ body[data-page="gamma"] .deadline-panel {
 body[data-page="gamma"] .deadline-panel .surface { mix-blend-mode: multiply; }
 body[data-page="gamma"] .deadline-panel .surface.is-live { opacity: 0.18; }
 
-/* The deadline box has a second small line (the time) above its date, so the
-   boxes align from the bottom: the three large values share one line. */
+/* Every box is one small label over one large value, so the three match. The
+   time rides on the deadline's label line rather than on a line of its own,
+   which made that box taller than its neighbours. */
 body[data-page="gamma"] .deadline-panel > div { align-self: end; }
-body[data-page="gamma"] .deadline-panel small { margin-top: 0.15rem; }
+body[data-page="gamma"] .deadline-panel span b { font-weight: inherit; white-space: pre; }
+body[data-page="gamma"] .deadline-panel span i { font-style: normal; white-space: nowrap; }
 
 /* Tablet: four columns squeeze the dates onto two lines. Three columns for the
    facts, and the button on a row of its own. */
 @media (min-width: 801px) and (max-width: 1100px) {
   body[data-page="gamma"] .deadline-panel { grid-template-columns: repeat(3, 1fr); }
   body[data-page="gamma"] .deadline-panel .button { grid-column: 1 / -1; justify-self: start; }
+}
+
+/* Narrow tablets: the longer labels need two lines. Every label gets the same
+   two-line slot, so the large values still share a line. */
+@media (min-width: 801px) and (max-width: 1000px) {
+  body[data-page="gamma"] .deadline-panel > div > span { min-height: 3em; }
+  body[data-page="gamma"] .deadline-panel span b { display: none; }
+  body[data-page="gamma"] .deadline-panel span i { display: block; }
 }
 
 /* The sound switch: off until someone asks for it. */
