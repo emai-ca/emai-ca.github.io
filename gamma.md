@@ -25,10 +25,6 @@ description: "Call for participation — Generative Audio for Music-Making (GAMM
   <a class="button button-dark" href="https://forms.cloud.microsoft/r/jaLCDdNtkh" target="_blank" rel="noopener noreferrer">Submit a presentation <span class="mobile-arrow" aria-hidden="true">↗</span></a>
 </section>
 
-<div class="gamma-ticker" aria-hidden="true">
-  <div class="gamma-ticker-track"><span>GAMMa 2026 <i>/</i> Generative Audio for Music-Making <i>/</i> Workshop December 4, 2026 <i>/</i> Submission deadline November 19 <i>/</i> </span><span>GAMMa 2026 <i>/</i> Generative Audio for Music-Making <i>/</i> Workshop December 4, 2026 <i>/</i> Submission deadline November 19 <i>/</i> </span></div>
-</div>
-
 <section class="content-wide split-section">
   <div class="section-label section-label-large">Call for participation</div>
   <div class="rich-copy">

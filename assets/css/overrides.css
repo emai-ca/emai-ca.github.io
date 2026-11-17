@@ -2984,43 +2984,6 @@ body[data-page="gamma"] .deadline-panel > div { align-self: start; }
   .gamma-sound { right: auto; left: 0.6rem; top: 2.5rem; }
 }
 
-/* Ticker: the facts once more, running, as a rule between poster and text. */
-.gamma-ticker {
-  overflow: hidden;
-  margin-top: var(--section-space);
-  border-block: 1px solid var(--ink);
-  padding: 0.9rem 0;
-}
-
-.gamma-ticker-track {
-  display: flex;
-  width: max-content;
-  animation: gamma-ticker 46s linear infinite;
-}
-
-.gamma-ticker-track span {
-  flex-shrink: 0;
-  font-size: clamp(1.4rem, 3.2vw, 2.6rem);
-  font-weight: 700;
-  letter-spacing: -0.05em;
-  white-space: pre;
-  color: var(--ink);
-}
-
-.gamma-ticker-track i {
-  font-style: normal;
-  color: var(--coral);
-  padding: 0 0.5em;
-}
-
-@keyframes gamma-ticker {
-  to { transform: translateX(-50%); }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .gamma-ticker-track { animation: none; }
-}
-
 /* Closing band: the pattern at full strength, and a placeholder for the
    program until there is one. On a solid block, since the ground moves. */
 main > section.gamma-outro {
