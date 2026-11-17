@@ -2885,7 +2885,6 @@ body[data-page="gamma"] .gamma-poster-frame .surface.is-live { opacity: 1; }
   pointer-events: none;
 }
 
-.gamma-kicker,
 .gamma-credit {
   font-family: var(--mono);
   font-size: 0.62rem;
@@ -2893,12 +2892,6 @@ body[data-page="gamma"] .gamma-poster-frame .surface.is-live { opacity: 1; }
   letter-spacing: 0.06em;
   background: var(--paper);
   color: var(--ink);
-}
-
-.gamma-kicker {
-  display: inline-block;
-  padding: 0.35rem 0.6rem;
-  margin: 0 0 0.9rem;
 }
 
 .gamma-credit {
@@ -3028,55 +3021,13 @@ body[data-page="gamma"] .deadline-panel > div { align-self: start; }
   .gamma-ticker-track { animation: none; }
 }
 
-/* Closing band: the pattern at full strength, and the one action the page is
-   for. Words on solid blocks again, since the ground under them moves. */
+/* Closing band: the pattern at full strength, with nothing on it. */
 main > section.gamma-outro {
   position: relative;
   margin-top: var(--section-space);
-  padding: clamp(3.5rem, 9vw, 7rem) 0;
+  height: clamp(11rem, 26vw, 22rem);
   background: var(--paper);
 }
 
 body[data-page="gamma"] .gamma-outro .surface { mix-blend-mode: normal; }
 body[data-page="gamma"] .gamma-outro .surface.is-live { opacity: 0.8; }
-
-.gamma-outro-inner {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 1.25rem;
-}
-
-.gamma-outro-date {
-  margin: 0;
-  padding: 0.7rem 0.95rem;
-  background: var(--ink);
-  color: var(--paper);
-  font-size: clamp(1.1rem, 2.4vw, 1.8rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-}
-
-.gamma-outro-date span {
-  display: block;
-  font-family: var(--mono);
-  font-size: 0.62rem;
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--acid);
-  margin-bottom: 0.35rem;
-}
-
-.gamma-cta {
-  background: var(--acid);
-  border-color: var(--ink);
-  color: var(--ink);
-  font-size: 0.85rem;
-  padding: 1.15rem 1.4rem;
-}
-
-.gamma-cta:hover {
-  background: var(--paper);
-  border-color: var(--ink);
-}

@@ -13,7 +13,6 @@ description: "Call for participation — Generative Audio for Music-Making (GAMM
   <p class="gamma-credit">This image was generated with AI… obviously.</p>
   <button class="gamma-sound" type="button" aria-pressed="false" hidden>Sound: off</button>
   <div class="gamma-hero-inner content-wide">
-    <p class="gamma-kicker"><span class="live-dot"></span> Call for participation / Workshop</p>
     <h1><span>GAMMa <em>2026</em></span></h1>
     <p class="gamma-lede">Generative Audio for Music-Making (GAMMa): a workshop inviting the community to reflect critically and creatively on what we have learned from making music with generative audio systems.</p>
   </div>
@@ -44,9 +43,4 @@ description: "Call for participation — Generative Audio for Music-Making (GAMM
   </div>
 </section>
 
-<section class="gamma-outro">
-  <div class="content-wide gamma-outro-inner">
-    <p class="gamma-outro-date"><span>Submission deadline</span> November 19, 2026 · 23:59 Eastern Time</p>
-    <a class="button gamma-cta" href="https://forms.cloud.microsoft/r/jaLCDdNtkh" target="_blank" rel="noopener noreferrer">Submit a presentation <span class="mobile-arrow" aria-hidden="true">↗</span></a>
-  </div>
-</section>
+<section class="gamma-outro" aria-hidden="true"></section>
