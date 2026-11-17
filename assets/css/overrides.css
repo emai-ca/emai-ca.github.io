@@ -2965,40 +2965,6 @@ body[data-page="gamma"] .deadline-panel .surface.is-live { opacity: 0.18; }
    than the bottom, or its date would sit lower than the other two. */
 body[data-page="gamma"] .deadline-panel > div { align-self: start; }
 
-/* ---------------------------------------------------------------------------
-   GAMMa goes dark. It is an event with its own page, so it does not have to
-   wear the site's paper: ink ground, light text, and the acid panel as the one
-   bright thing on it. The logo band and footer stay light — the institutional
-   marks are drawn for a pale ground.
-   --------------------------------------------------------------------------- */
-body[data-page="gamma"] {
-  background: var(--ink);
-  color: var(--paper);
-}
-
-body[data-page="gamma"] .site-header {
-  background: var(--ink);
-  color: var(--paper);
-  border-bottom-color: rgba(244, 242, 236, 0.18);
-}
-
-/* The phone menu drops down on its own paper panel; on this page that would
-   leave light links on a light ground. */
-@media (max-width: 800px) {
-  body[data-page="gamma"] .site-nav {
-    background: var(--ink);
-    border-bottom-color: rgba(244, 242, 236, 0.18);
-  }
-}
-
-body[data-page="gamma"] .section-label { color: #aab6b1; }
-body[data-page="gamma"] .rich-copy p { color: #d3dbd6; }
-
-/* Acid surfaces keep dark text; they would otherwise inherit the page's. */
-body[data-page="gamma"] .deadline-panel,
-body[data-page="gamma"] .notice,
-body[data-page="gamma"] .notice p { color: var(--ink); }
-
 /* The sound switch: off until someone asks for it. */
 .gamma-sound {
   position: absolute;
@@ -3020,11 +2986,16 @@ body[data-page="gamma"] .notice p { color: var(--ink); }
   background: var(--acid);
 }
 
+/* On a phone the credit runs the full width; the switch goes under it. */
+@media (max-width: 640px) {
+  .gamma-sound { right: auto; left: 0.6rem; top: 2.5rem; }
+}
+
 /* Ticker: the facts once more, running, as a rule between poster and text. */
 .gamma-ticker {
   overflow: hidden;
   margin-top: var(--section-space);
-  border-block: 1px solid rgba(244, 242, 236, 0.18);
+  border-block: 1px solid var(--ink);
   padding: 0.9rem 0;
 }
 
@@ -3040,7 +3011,7 @@ body[data-page="gamma"] .notice p { color: var(--ink); }
   font-weight: 700;
   letter-spacing: -0.05em;
   white-space: pre;
-  color: var(--acid);
+  color: var(--ink);
 }
 
 .gamma-ticker-track i {
@@ -3063,7 +3034,7 @@ main > section.gamma-outro {
   position: relative;
   margin-top: var(--section-space);
   padding: clamp(3.5rem, 9vw, 7rem) 0;
-  background: #0d1416;
+  background: var(--paper);
 }
 
 body[data-page="gamma"] .gamma-outro .surface { mix-blend-mode: normal; }
@@ -3099,7 +3070,7 @@ body[data-page="gamma"] .gamma-outro .surface.is-live { opacity: 0.8; }
 
 .gamma-cta {
   background: var(--acid);
-  border-color: var(--acid);
+  border-color: var(--ink);
   color: var(--ink);
   font-size: 0.85rem;
   padding: 1.15rem 1.4rem;
@@ -3107,5 +3078,5 @@ body[data-page="gamma"] .gamma-outro .surface.is-live { opacity: 0.8; }
 
 .gamma-cta:hover {
   background: var(--paper);
-  border-color: var(--paper);
+  border-color: var(--ink);
 }
