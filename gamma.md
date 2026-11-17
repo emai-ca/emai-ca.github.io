@@ -19,7 +19,7 @@ description: "Call for participation — Generative Audio for Music-Making (GAMM
 </section>
 
 <section class="deadline-panel content-wide">
-  <div><span>Workshop</span><strong>December 4, 2026</strong></div>
+  <div><span>Workshop<b> · </b><i>Montréal</i></span><strong>December 4, 2026</strong></div>
   <div><span>Submission deadline<b> · </b><i>23:59 Eastern Time</i></span><strong>November 19, 2026</strong></div>
   <div><span>Research Axis 2 and Research Axis 4</span><strong>CIRMMT</strong></div>
   <a class="button button-dark" href="https://forms.cloud.microsoft/r/jaLCDdNtkh" target="_blank" rel="noopener noreferrer">Submit a presentation <span class="mobile-arrow" aria-hidden="true">↗</span></a>
