@@ -11,7 +11,7 @@ description: "A research-creation project investigating agency, embodiment, and 
     <h1><span class="hero-title-opening">Embodying AI:</span><br>Music Making<br><em>Beyond the Prompt</em></h1>
     <p class="hero-intro">EMAI brings researchers and musicians together to investigate the exercise of agency in music composition and performance with machine learning systems.</p>
     <div class="hero-actions">
-      <a class="button button-dark" href="{{ '/gamma/' | relative_url }}">GAMMa 2026 workshop <span class="mobile-arrow" aria-hidden="true">↗</span></a>
+      <a class="button button-dark" href="{{ '/gamma/' | relative_url }}">GAMMa 2026 call for participation <span class="mobile-arrow" aria-hidden="true">↗</span></a>
     </div>
   </div>
 </section>
