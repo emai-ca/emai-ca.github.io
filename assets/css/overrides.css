@@ -2954,9 +2954,17 @@ body[data-page="gamma"] .deadline-panel {
 body[data-page="gamma"] .deadline-panel .surface { mix-blend-mode: multiply; }
 body[data-page="gamma"] .deadline-panel .surface.is-live { opacity: 0.18; }
 
-/* The workshop box has no third line, so the boxes align from the top rather
-   than the bottom, or its date would sit lower than the other two. */
-body[data-page="gamma"] .deadline-panel > div { align-self: start; }
+/* The deadline box has a second small line (the time) above its date, so the
+   boxes align from the bottom: the three large values share one line. */
+body[data-page="gamma"] .deadline-panel > div { align-self: end; }
+body[data-page="gamma"] .deadline-panel small { margin-top: 0.15rem; }
+
+/* Tablet: four columns squeeze the dates onto two lines. Three columns for the
+   facts, and the button on a row of its own. */
+@media (min-width: 801px) and (max-width: 1100px) {
+  body[data-page="gamma"] .deadline-panel { grid-template-columns: repeat(3, 1fr); }
+  body[data-page="gamma"] .deadline-panel .button { grid-column: 1 / -1; justify-self: start; }
+}
 
 /* The sound switch: off until someone asks for it. */
 .gamma-sound {
