@@ -430,7 +430,7 @@ if (splash) {
 //
 // All of them are ticked from a single rAF loop, render at low resolution
 // (this is texture, not detail), and only while actually on screen.
-const surfaceHost = document.querySelector('.page-hero, .signal-band, .labs-section, .requirements-band, .edi-band');
+const surfaceHost = document.querySelector('.page-hero, .signal-band, .labs-section, .requirements-band, .edi-band, .gamma-poster-frame');
 if (surfaceHost) {
   // Phones run this too. Only a stated preference for less motion turns it
   // off now — the width cut-off that used to be here meant phones got none of
@@ -458,7 +458,14 @@ if (surfaceHost) {
       // surface belongs there — on the section it only showed in the margins.
       '.leadership-band > .content-wide',
       '.session-accent',
+      // GAMMa page: the acid facts panel and the closing band carry it too.
+      'body[data-page="gamma"] .deadline-panel',
+      'main > section.gamma-outro',
     ].join(', ')).forEach((el) => targets.push([el, 'surface', 520]));
+    // The GAMMa poster is the one surface with a picture in it: the workshop
+    // image goes through hydra instead of the pattern being drawn on its own.
+    document.querySelectorAll('.gamma-poster-frame')
+      .forEach((el) => targets.push([el, 'surface poster-surface', small ? 480 : 1100, 'poster']));
 
     const surfaces = [];
     let frameId = null;
@@ -484,7 +491,7 @@ if (surfaceHost) {
       running = on;
     };
 
-    const build = (section, className, cap) => {
+    const build = (section, className, cap, kind) => {
       const canvas = document.createElement('canvas');
       canvas.className = className;
       canvas.setAttribute('aria-hidden', 'true');
@@ -511,24 +518,175 @@ if (surfaceHost) {
       // built here rather than above.
       const band = (speed) => [0.3, 0.7].fast(speed);
 
-      h.osc(48, -0.1, 0).thresh(band(0.75), 0).color(2, 1, 1.5)
-        .add(
-          h.osc(28, 0.1, 0).thresh(band(0.75), 0).rotate(3.14 / 4)
-            .color(1, 0, 0.9)
-            .modulateScale(h.osc(64, -0.01, 0).thresh(band(0.75), 0))
-        )
-        .diff(
-          h.osc(28, 0.1, 0).thresh(band(0.5), 0).rotate(3.14 / 2)
-            .color(1, 0.5, 1)
-            .modulateScale(h.osc(64, -0.015, 0).thresh(band(0.5), 0))
-        )
-        .modulateRotate(h.osc(54, -0.005, 0).thresh(band(0.25), 0))
-        .modulateScale(h.osc(44, -0.02, 0).thresh(band(0.25), 0))
-        // Read every frame, unlike the seed in the statement window's sketch,
-        // so it takes time off the props object hydra passes in.
-        .colorama(({ time }) => Math.sin(time / 27) * 0.01222 + 9.89)
-        .scale(2.122)
-        .out();
+      // The pattern, with its colour left to the caller: the same hard-edged
+      // block field either gets coloured and drawn (every surface but one) or
+      // is used as a map to push a picture around (the GAMMa poster).
+      const blocks = (tint) => {
+        const c = tint ? (chain, r, g, b) => chain.color(r, g, b) : (chain) => chain;
+        return c(h.osc(48, -0.1, 0).thresh(band(0.75), 0), 2, 1, 1.5)
+          .add(
+            c(h.osc(28, 0.1, 0).thresh(band(0.75), 0).rotate(3.14 / 4), 1, 0, 0.9)
+              .modulateScale(h.osc(64, -0.01, 0).thresh(band(0.75), 0))
+          )
+          .diff(
+            c(h.osc(28, 0.1, 0).thresh(band(0.5), 0).rotate(3.14 / 2), 1, 0.5, 1)
+              .modulateScale(h.osc(64, -0.015, 0).thresh(band(0.5), 0))
+          )
+          .modulateRotate(h.osc(54, -0.005, 0).thresh(band(0.25), 0))
+          .modulateScale(h.osc(44, -0.02, 0).thresh(band(0.25), 0));
+      };
+
+      if (kind === 'poster') {
+        // The GAMMa opening. The workshop image is cut into slabs by the site's
+        // own block pattern, folded, recoloured and fed back into itself — and
+        // it answers the mouse or a finger: movement over the picture adds
+        // energy, and energy pushes every part of the sketch harder before it
+        // dies away again.
+        h.fps = small ? 24 : 30;
+        h.speed = 0.05;
+        h.s0.initImage(section.dataset.image);
+
+        // Hydra stretches a source to its canvas, so "cover" is done by hand:
+        // zoom whichever axis is too long. Matters most on a phone, where the
+        // canvas is tall and the picture is wide.
+        const imageAspect = Number(section.dataset.aspect) || 4 / 3;
+        const cover = { x: 1, y: 1 };
+        const fit = () => {
+          const box = section.getBoundingClientRect();
+          if (!box.width || !box.height) return;
+          const aspect = box.width / box.height;
+          cover.x = Math.max(1, imageAspect / aspect);
+          cover.y = Math.max(1, aspect / imageAspect);
+        };
+        fit();
+        new ResizeObserver(() => {
+          fit();
+          const box = section.getBoundingClientRect();
+          if (!box.width || !box.height) return;
+          const w = Math.max(64, Math.min(Math.round(box.width), cap));
+          const hgt = Math.max(64, Math.round(w * (box.height / box.width)));
+          if (w !== canvas.width || hgt !== canvas.height) hydra.setResolution(w, hgt);
+        }).observe(section);
+
+        // Energy decays on the clock rather than per frame, so it does not
+        // matter how many parameters read it or how fast the loop is running.
+        const zone = section.closest('.gamma-hero') || section;
+        const pointer = { x: 0.5, y: 0.5, energy: 0, at: performance.now() };
+        const energy = () => pointer.energy * Math.exp(-(performance.now() - pointer.at) / 900);
+        const kick = (clientX, clientY) => {
+          const box = zone.getBoundingClientRect();
+          const x = (clientX - box.left) / box.width;
+          const y = (clientY - box.top) / box.height;
+          const moved = Math.hypot(x - pointer.x, y - pointer.y);
+          pointer.energy = Math.min(1, energy() + moved * 2.2);
+          pointer.at = performance.now();
+          pointer.x = x;
+          pointer.y = y;
+        };
+        zone.addEventListener('pointermove', (event) => kick(event.clientX, event.clientY), { passive: true });
+        // A finger scrolling the page stops sending pointer events, but keeps
+        // sending these — so the picture still answers a swipe past it.
+        zone.addEventListener('touchmove', (event) => {
+          const touch = event.touches[0];
+          if (touch) kick(touch.clientX, touch.clientY);
+        }, { passive: true });
+
+        // Sound, strictly on request. It is a workshop about making music with
+        // these systems, so the picture can be played: where the pointer is
+        // sets the note and the brightness, and how much it moves sets how
+        // loud. Still means silent. Nothing is created until the switch is
+        // pressed, which is also what browsers require.
+        const soundButton = zone.querySelector('.gamma-sound');
+        const AudioCtor = window.AudioContext || window.webkitAudioContext;
+        if (soundButton && AudioCtor) {
+          soundButton.hidden = false;
+          const scale = [110, 130.81, 146.83, 164.81, 196, 220, 261.63, 293.66, 329.63, 392, 440];
+          const clamp01 = (v) => Math.max(0, Math.min(1, v));
+          let audio = null;
+          let timer = null;
+          let sleep = null;
+
+          const makeAudio = () => {
+            const ctx = new AudioCtor();
+            const master = ctx.createGain();
+            master.gain.value = 0;
+            const filter = ctx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.Q.value = 7;
+            filter.frequency.value = 500;
+            const voices = [['sawtooth', 0, 1], ['sawtooth', 9, 1], ['sine', 0, 0.5]].map(([type, detune, ratio]) => {
+              const osc = ctx.createOscillator();
+              osc.type = type;
+              osc.detune.value = detune;
+              osc.frequency.value = 110 * ratio;
+              osc.connect(filter);
+              osc.start();
+              return [osc, ratio];
+            });
+            const delay = ctx.createDelay(1);
+            delay.delayTime.value = 0.27;
+            const feedback = ctx.createGain();
+            feedback.gain.value = 0.35;
+            filter.connect(master);
+            master.connect(ctx.destination);
+            master.connect(delay);
+            delay.connect(feedback);
+            feedback.connect(delay);
+            delay.connect(ctx.destination);
+            return { ctx, master, filter, voices };
+          };
+
+          const update = () => {
+            const level = energy();
+            const now = audio.ctx.currentTime;
+            const note = scale[Math.min(scale.length - 1, Math.floor(clamp01(pointer.x) * scale.length))];
+            audio.voices.forEach(([osc, ratio]) => osc.frequency.setTargetAtTime(note * ratio, now, 0.04));
+            audio.filter.frequency.setTargetAtTime(250 + (1 - clamp01(pointer.y)) * 3000 * (0.25 + level), now, 0.06);
+            audio.master.gain.setTargetAtTime(level * 0.09, now, 0.08);
+          };
+
+          const setSound = (on) => {
+            clearTimeout(sleep);
+            clearInterval(timer);
+            if (on) {
+              if (!audio) audio = makeAudio();
+              audio.ctx.resume();
+              timer = setInterval(update, 50);
+            } else if (audio) {
+              audio.master.gain.setTargetAtTime(0, audio.ctx.currentTime, 0.05);
+              sleep = setTimeout(() => audio.ctx.suspend(), 400);
+            }
+            soundButton.setAttribute('aria-pressed', String(on));
+            soundButton.textContent = on ? 'Sound: on' : 'Sound: off';
+          };
+
+          soundButton.addEventListener('click', () => setSound(soundButton.getAttribute('aria-pressed') !== 'true'));
+          document.addEventListener('visibilitychange', () => {
+            if (document.hidden && soundButton.getAttribute('aria-pressed') === 'true') setSound(false);
+          });
+        }
+
+        const map = () => blocks(false).scale(2.122);
+        const lit = () => map().mult(h.osc(5, 0.03, 0).rotate(0.6).thresh(0.55, 0));
+        const grain = () => 1400 - energy() * 1340;
+        const picture = () => h.src(h.s0)
+          .scale(1.04, () => cover.x, () => cover.y, 0.42, 0.5)
+          .pixelate(grain, grain)
+          .modulate(map(), () => 0.022 + energy() * 0.16);
+        picture()
+          .layer(picture().hue(() => 0.42 + (pointer.x - 0.5) * 0.6).saturate(1.3).mask(lit()))
+          .modulateScale(h.osc(2.5, 0.04, 0).rotate(1.57), () => 0.03 + energy() * 0.22)
+          .hue(({ time }) => Math.sin(time * 0.6) * 0.04)
+          .blend(h.src(h.o0).scale(() => 1.006 + energy() * 0.02), () => 0.3 + energy() * 0.45)
+          .out();
+      } else {
+        blocks(true)
+          // Read every frame, unlike the seed in the statement window's sketch,
+          // so it takes time off the props object hydra passes in.
+          .colorama(({ time }) => Math.sin(time / 27) * 0.01222 + 9.89)
+          .scale(2.122)
+          .out();
+      }
 
       const entry = { canvas, hydra, visible: false };
       new IntersectionObserver((entries) => {
@@ -540,8 +698,8 @@ if (surfaceHost) {
     };
 
     loadHydra(hydraSrc.dataset.hydra).then(() => {
-      targets.forEach(([section, className, cap]) => {
-        try { surfaces.push(build(section, className, cap)); } catch (e) { /* skip this one */ }
+      targets.forEach(([section, className, cap, kind]) => {
+        try { surfaces.push(build(section, className, cap, kind)); } catch (e) { /* skip this one */ }
       });
     }).catch(() => { /* sections keep their flat colour */ });
 
