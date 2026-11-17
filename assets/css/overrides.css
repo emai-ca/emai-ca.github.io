@@ -3021,12 +3021,37 @@ body[data-page="gamma"] .deadline-panel > div { align-self: start; }
   .gamma-ticker-track { animation: none; }
 }
 
-/* Closing band: the pattern at full strength, with nothing on it. */
+/* Closing band: the pattern at full strength, and a placeholder for the
+   program until there is one. On a solid block, since the ground moves. */
 main > section.gamma-outro {
   position: relative;
   margin-top: var(--section-space);
-  height: clamp(11rem, 26vw, 22rem);
+  padding: clamp(3.5rem, 9vw, 7rem) 0;
   background: var(--paper);
+}
+
+.gamma-program {
+  display: inline-block;
+  margin: 0;
+  padding: 0.8rem 1.1rem 0.9rem;
+  background: var(--acid);
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-size: clamp(1.6rem, 4.2vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 1.05;
+}
+
+.gamma-program span {
+  display: block;
+  font-family: var(--mono);
+  font-size: 0.62rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  line-height: 1.4;
+  margin-bottom: 0.4rem;
 }
 
 body[data-page="gamma"] .gamma-outro .surface { mix-blend-mode: normal; }

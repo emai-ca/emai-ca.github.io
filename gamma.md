@@ -43,4 +43,8 @@ description: "Call for participation — Generative Audio for Music-Making (GAMM
   </div>
 </section>
 
-<section class="gamma-outro" aria-hidden="true"></section>
+<section class="gamma-outro">
+  <div class="content-wide">
+    <p class="gamma-program"><span>Program</span> Coming soon</p>
+  </div>
+</section>
